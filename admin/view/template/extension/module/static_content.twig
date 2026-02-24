@@ -9,29 +9,19 @@
       </div>
       <h1><i class="fa fa-edit"></i> {{ heading_title }}</h1>
       <ul class="breadcrumb">
-        {% for breadcrumb in breadcrumbs %}
-        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-        {% endfor %}
+        {% for breadcrumb in breadcrumbs %}<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>{% endfor %}
       </ul>
     </div>
   </div>
 
   <div class="container-fluid">
-    {% if error_warning %}
-    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    {% endif %}
-    {% if success %}
-    <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    {% endif %}
+    {% if error_warning %}<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}<button type="button" class="close" data-dismiss="alert">&times;</button></div>{% endif %}
+    {% if success %}<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}<button type="button" class="close" data-dismiss="alert">&times;</button></div>{% endif %}
 
     <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-static-content">
       <div class="row">
 
-        {# ===== LEFT SIDEBAR ===== #}
+        {# ===== SIDEBAR ===== #}
         <div class="col-sm-3 col-md-2">
           <div class="ce-sidebar">
             <div class="ce-sidebar-label">Сторінки</div>
@@ -39,15 +29,10 @@
               {% for pageKey, sections in registry %}
               <li{% if pageKey == active_tab %} class="active"{% endif %}>
                 <a href="#page-{{ pageKey }}" data-toggle="pill">
-                  {% if pageKey == 'header' %}
-                    <i class="fa fa-arrow-up"></i> <span>{{ tab_header }}</span>
-                  {% elseif pageKey == 'home' %}
-                    <i class="fa fa-home"></i> <span>{{ tab_home }}</span>
-                  {% elseif pageKey == 'footer' %}
-                    <i class="fa fa-arrow-down"></i> <span>{{ tab_footer }}</span>
-                  {% else %}
-                    <i class="fa fa-file-o"></i> <span>{{ pageKey|capitalize }}</span>
-                  {% endif %}
+                  {% if pageKey == 'header' %}<i class="fa fa-arrow-up"></i> <span>{{ tab_header }}</span>
+                  {% elseif pageKey == 'home' %}<i class="fa fa-home"></i> <span>{{ tab_home }}</span>
+                  {% elseif pageKey == 'footer' %}<i class="fa fa-arrow-down"></i> <span>{{ tab_footer }}</span>
+                  {% else %}<i class="fa fa-file-o"></i> <span>{{ pageKey|capitalize }}</span>{% endif %}
                   <span class="badge pull-right">{{ sections|length }}</span>
                 </a>
               </li>
@@ -62,9 +47,12 @@
           </div>
         </div>
 
-        {# ===== MAIN CONTENT ===== #}
+        {# ===== MAIN ===== #}
         <div class="col-sm-9 col-md-10">
           <div class="tab-content" id="page-content">
+
+            {# Counter for unique IDs #}
+            {% set uid = [0] %}
 
             {% for pageKey, sections in registry %}
             <div class="tab-pane{% if pageKey == active_tab %} active{% endif %}" id="page-{{ pageKey }}">
@@ -76,95 +64,93 @@
                   <span class="ce-block-meta">{{ pageKey }}.{{ sectionKey }}</span>
                 </div>
                 <div class="ce-block-body">
-
                   {% for fieldKey, fieldDef in sectionDef.fields %}
-                    {% set fieldTranslatable = fieldDef.translatable is defined ? fieldDef.translatable : true %}
+                    {% set ft = fieldDef.translatable is defined ? fieldDef.translatable : true %}
 
                     <div class="ce-field">
-                      <div class="ce-field-label">
-                        {{ fieldKey }}
-                        {% if not fieldTranslatable %}<span class="label label-default" style="font-size:10px;">global</span>{% endif %}
-                      </div>
+                      <div class="ce-field-label">{{ fieldKey }}{% if not ft %} <span class="label label-default" style="font-size:10px;">global</span>{% endif %}</div>
 
-                      {% if fieldTranslatable %}
+                      {% if ft %}
                         <div class="ce-lang-grid">
                           {% for language in languages %}
                           <div class="ce-lang-col">
-                            <div class="ce-lang-flag">
-                              <img src="language/{{ language.code }}/{{ language.code }}.png" /> {{ language.name }}
-                            </div>
+                            <div class="ce-lang-flag"><img src="language/{{ language.code }}/{{ language.code }}.png" /> {{ language.name }}</div>
 
-                            {% set currentValue = '' %}
+                            {% set cv = '' %}
                             {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey][language.language_id] is defined %}
-                              {% set currentValue = content[pageKey][sectionKey][fieldKey][language.language_id].value %}
+                              {% set cv = content[pageKey][sectionKey][fieldKey][language.language_id].value %}
                             {% endif %}
 
                             {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                              {% set repId = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
-                              <div class="repeater-container" id="{{ repId }}"
+                              {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
+                              <div class="repeater-container" id="{{ rid }}"
                                    data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                    data-lang="{{ language.language_id }}" data-translatable="1"
                                    data-columns='{{ fieldDef.columns|json_encode }}'
-                                   data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'>
-                              </div>
-                              <script type="application/json" data-for="{{ repId }}">{{ currentValue ? currentValue|raw : '[]' }}</script>
+                                   data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                   data-placeholder="{{ placeholder }}"></div>
+                              <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
 
                             {% elseif fieldDef.type == 'text' %}
-                              <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" />
+                              <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ cv|e('html_attr') }}" class="form-control" />
 
                             {% elseif fieldDef.type == 'textarea' %}
-                              <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="3" class="form-control">{{ currentValue|e }}</textarea>
+                              <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="3" class="form-control">{{ cv|e }}</textarea>
 
                             {% elseif fieldDef.type == 'wysiwyg' %}
-                              <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="6" class="form-control wysiwyg-editor" id="wysiwyg-{{ pageKey }}-{{ sectionKey }}-{{ fieldKey }}-{{ language.language_id }}">{{ currentValue|e }}</textarea>
+                              <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="6" class="form-control wysiwyg-editor">{{ cv|e }}</textarea>
 
+                            {% elseif fieldDef.type == 'image' %}
+                              {% set iid = 'img-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
+                              {% set thumb = thumbs[cv] is defined ? thumbs[cv] : placeholder %}
+                              <div class="ce-img-widget">
+                                <a href="" id="thumb-{{ iid }}" data-toggle="image" class="img-thumbnail">
+                                  <img src="{{ thumb }}" alt="" data-placeholder="{{ placeholder }}" />
+                                </a>
+                                <input type="hidden" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ cv }}" id="input-{{ iid }}" />
+                              </div>
                             {% endif %}
                           </div>
                           {% endfor %}
                         </div>
 
                       {% else %}
-                        {% set currentValue = '' %}
+                        {% set cv = '' %}
                         {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey]['0'] is defined %}
-                          {% set currentValue = content[pageKey][sectionKey][fieldKey]['0'].value %}
+                          {% set cv = content[pageKey][sectionKey][fieldKey]['0'].value %}
                         {% endif %}
 
                         {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                          {% set repId = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
-                          <div class="repeater-container" id="{{ repId }}"
+                          {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
+                          <div class="repeater-container" id="{{ rid }}"
                                data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                data-lang="0" data-translatable="0"
                                data-columns='{{ fieldDef.columns|json_encode }}'
-                               data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'>
-                          </div>
-                          <script type="application/json" data-for="{{ repId }}">{{ currentValue ? currentValue|raw : '[]' }}</script>
+                               data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                               data-placeholder="{{ placeholder }}"></div>
+                          <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
 
                         {% elseif fieldDef.type == 'text' %}
-                          <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" style="max-width:600px;" />
+                          <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ cv|e('html_attr') }}" class="form-control" style="max-width:600px;" />
+
                         {% elseif fieldDef.type == 'image' %}
-                          <div class="ce-image-field">
-                            <div class="ce-image-preview">
-                              {% if currentValue %}<img src="/image/{{ currentValue }}" onerror="this.style.display='none'" />{% endif %}
-                            </div>
-                            <div class="input-group" style="max-width:600px;">
-                              <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control ce-image-input" placeholder="catalog/..." />
-                              <span class="input-group-btn">
-                                <button type="button" class="btn btn-default ce-image-browse" data-target="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]"><i class="fa fa-folder-open"></i></button>
-                                <button type="button" class="btn btn-danger ce-image-clear"><i class="fa fa-times"></i></button>
-                              </span>
-                            </div>
+                          {% set iid = 'img-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
+                          {% set thumb = thumbs[cv] is defined ? thumbs[cv] : placeholder %}
+                          <div class="ce-img-widget">
+                            <a href="" id="thumb-{{ iid }}" data-toggle="image" class="img-thumbnail">
+                              <img src="{{ thumb }}" alt="" data-placeholder="{{ placeholder }}" />
+                            </a>
+                            <input type="hidden" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ cv }}" id="input-{{ iid }}" />
                           </div>
                         {% endif %}
                       {% endif %}
 
-                    </div>{# /ce-field #}
+                    </div>
                   {% endfor %}
-
                 </div>
-              </div>{# /ce-block #}
+              </div>
               {% endfor %}
-
-            </div>{# /page pane #}
+            </div>
             {% endfor %}
 
             {# ===== DOCS ===== #}
@@ -172,7 +158,7 @@
               <div class="ce-block">
                 <div class="ce-block-header"><h3>Про модуль</h3></div>
                 <div class="ce-block-body">
-                  <p>Модуль <strong>«Редактор контенту»</strong> керує статичним контентом сайту з адмінки без правок коду.</p>
+                  <p>Модуль <strong>«Редактор контенту»</strong> керує статичним контентом сайту без правок коду.</p>
                   <div class="row" style="margin-top:15px;">
                     <div class="col-md-3"><div class="ce-stat-card"><div class="ce-stat-num">{{ registry|length }}</div><div class="ce-stat-label">Сторінок</div></div></div>
                     <div class="col-md-3"><div class="ce-stat-card"><div class="ce-stat-num">{% set total = 0 %}{% for p,s in registry %}{% set total = total + s|length %}{% endfor %}{{ total }}</div><div class="ce-stat-label">Секцій</div></div></div>
@@ -181,64 +167,23 @@
                   </div>
                 </div>
               </div>
-
               <div class="ce-block">
                 <div class="ce-block-header"><h3><i class="fa fa-code"></i> Інтеграція</h3></div>
                 <div class="ce-block-body">
-                  <h5>Контролер</h5>
                   <pre class="ce-code"><code>$this->load->model('extension/module/static_content');
 $data['static_home'] = $this->model_extension_module_static_content->getPageData('home');</code></pre>
-                  <h5>Twig</h5>
                   <pre class="ce-code"><code>{% verbatim %}{% set faq = static_home.faq %}
 &lt;h2&gt;{{ faq.title }}&lt;/h2&gt;
 {% for item in faq.items %}
-  &lt;div&gt;{{ item.question }} — {{ item.answer }}&lt;/div&gt;
+  &lt;div&gt;{{ item.question }}&lt;/div&gt;
 {% endfor %}{% endverbatim %}</code></pre>
                 </div>
               </div>
+            </div>
 
-              <div class="ce-block">
-                <div class="ce-block-header"><h3><i class="fa fa-plus-circle"></i> Розширення</h3></div>
-                <div class="ce-block-body">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="ce-hint-card"><h5><i class="fa fa-plus"></i> Поле</h5><pre><code>'cta' => ['type' => 'text']</code></pre></div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="ce-hint-card"><h5><i class="fa fa-th-large"></i> Секція</h5><pre><code>'reviews' => [
-  'label' => 'Відгуки',
-  'fields' => [...]
-]</code></pre></div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="ce-hint-card"><h5><i class="fa fa-file-o"></i> Сторінка</h5><pre><code>'about' => [
-  'hero' => [...]
-]</code></pre><p class="text-muted">Автоматично в меню</p></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="ce-block">
-                <div class="ce-block-header"><h3><i class="fa fa-cog"></i> Типи полів</h3></div>
-                <div class="ce-block-body">
-                  <table class="table table-bordered" style="max-width:700px;">
-                    <thead><tr><th>Тип</th><th>UI</th><th>Опис</th></tr></thead>
-                    <tbody>
-                      <tr><td><code>text</code></td><td>input</td><td>Один рядок</td></tr>
-                      <tr><td><code>textarea</code></td><td>textarea</td><td>Багаторядковий</td></tr>
-                      <tr><td><code>wysiwyg</code></td><td>Summernote</td><td>HTML-редактор</td></tr>
-                      <tr><td><code>image</code></td><td>input</td><td>Шлях до файлу</td></tr>
-                      <tr><td><code>json+repeater</code></td><td>Таблиця ±</td><td>Масив об'єктів</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>{# /docs #}
-
-          </div>{# /page-content #}
-        </div>{# /col-10 #}
-      </div>{# /row #}
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>
@@ -247,14 +192,14 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
   .ce-sidebar { background:#fff; border:1px solid #e3e3e3; border-radius:6px; padding:12px 0; position:sticky; top:10px; }
   .ce-sidebar-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#999; padding:6px 18px 4px; }
   .ce-sidebar .nav>li>a { padding:9px 18px; color:#444; border-left:3px solid transparent; transition:all .15s; font-size:13px; }
-  .ce-sidebar .nav>li>a:hover { background:#f7f8fa; border-left-color:#ccc; color:#222; text-decoration:none; }
-  .ce-sidebar .nav>li.active>a { background:linear-gradient(90deg,#e8f0fe 0%,#fff 100%); border-left-color:#337ab7; color:#1a73e8; font-weight:600; }
+  .ce-sidebar .nav>li>a:hover { background:#f7f8fa; border-left-color:#ccc; text-decoration:none; }
+  .ce-sidebar .nav>li.active>a { background:linear-gradient(90deg,#e8f0fe,#fff); border-left-color:#337ab7; color:#1a73e8; font-weight:600; }
   .ce-sidebar .nav>li>a .fa { width:18px; text-align:center; margin-right:6px; }
-  .ce-sidebar .nav>li>a .badge { background:#e0e0e0; color:#666; font-size:10px; font-weight:600; }
+  .ce-sidebar .nav>li>a .badge { background:#e0e0e0; color:#666; font-size:10px; }
   .ce-sidebar .nav>li.active>a .badge { background:#c2dbff; color:#1a73e8; }
 
   .ce-block { background:#fff; border:1px solid #e3e3e3; border-radius:6px; margin-bottom:16px; overflow:hidden; }
-  .ce-block-header { background:linear-gradient(180deg,#fafbfc 0%,#f0f1f3 100%); padding:12px 20px; border-bottom:1px solid #e3e3e3; display:flex; align-items:center; justify-content:space-between; }
+  .ce-block-header { background:linear-gradient(180deg,#fafbfc,#f0f1f3); padding:12px 20px; border-bottom:1px solid #e3e3e3; display:flex; align-items:center; justify-content:space-between; }
   .ce-block-header h3 { margin:0; font-size:15px; font-weight:600; color:#333; }
   .ce-block-meta { font-size:11px; color:#aaa; font-family:monospace; }
   .ce-block-body { padding:16px 20px; }
@@ -271,6 +216,12 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
   .ce-lang-col .form-control { font-size:13px; }
   .ce-lang-col textarea.form-control { resize:vertical; min-height:60px; }
 
+  /* OC3 Image widget */
+  .ce-img-widget { display:inline-block; }
+  .ce-img-widget .img-thumbnail { display:inline-block; max-width:120px; max-height:120px; cursor:pointer; }
+  .ce-img-widget .img-thumbnail img { max-width:100px; max-height:100px; }
+
+  /* Repeater */
   .repeater-table { width:100%; margin-bottom:8px; font-size:12px; }
   .repeater-table th { background:#f5f6f8; padding:5px 8px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#888; }
   .repeater-table td { padding:3px 5px; vertical-align:top; }
@@ -278,18 +229,13 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
   .repeater-table textarea { min-height:40px; resize:vertical; }
   .repeater-table .btn-sm { padding:2px 7px; font-size:11px; }
   .repeater-add-btn { margin-top:4px; font-size:11px; }
+  .repeater-table .img-thumbnail { display:inline-block; padding:2px; max-width:60px; cursor:pointer; }
+  .repeater-table .img-thumbnail img { max-width:56px; max-height:40px; }
 
   .ce-code { background:#2d2d2d; color:#f8f8f2; padding:14px 16px; border-radius:5px; font-size:12px; line-height:1.5; overflow-x:auto; border:none; }
   .ce-stat-card { background:#f7f8fa; border:1px solid #e8e8e8; border-radius:8px; padding:18px; text-align:center; margin-bottom:12px; }
   .ce-stat-num { font-size:28px; font-weight:700; color:#337ab7; }
-  .ce-stat-label { font-size:12px; color:#888; text-transform:uppercase; letter-spacing:.5px; }
-  .ce-hint-card { background:#f7f8fa; border:1px solid #e8e8e8; border-radius:6px; padding:14px; margin-bottom:12px; }
-  .ce-hint-card h5 { margin:0 0 8px; font-size:13px; font-weight:600; }
-  .ce-hint-card pre { font-size:11px; margin:8px 0 0; }
-  .ce-image-field { }
-  .ce-image-preview { margin-bottom:6px; }
-  .ce-image-preview img { max-height:60px; max-width:200px; border:1px solid #ddd; border-radius:4px; padding:2px; background:#f9f9f9; }
-
+  .ce-stat-label { font-size:12px; color:#888; text-transform:uppercase; }
   .page-header { border-bottom:2px solid #e8e8e8; }
   .page-header h1 { font-size:22px; font-weight:600; }
   .page-header h1 .fa { color:#337ab7; }
@@ -298,6 +244,8 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
+  var placeholder = '{{ placeholder }}';
+
   // ===== Repeater =====
   document.querySelectorAll('.repeater-container').forEach(function(container) {
     var page    = container.dataset.page;
@@ -305,6 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var field   = container.dataset.field;
     var langId  = container.dataset.lang;
     var columns, colTypes, rows;
+    var ph = container.dataset.placeholder || placeholder;
 
     try { columns = JSON.parse(container.dataset.columns || '[]'); } catch(e) { columns = []; }
     try { colTypes = JSON.parse(container.dataset.colTypes || '{}'); } catch(e) { colTypes = {}; }
@@ -312,7 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var translatable = container.dataset.translatable === '1';
 
-    // Rows data from <script type="application/json"> sibling
     rows = [];
     var jsonScript = document.querySelector('script[data-for="' + container.id + '"]');
     if (jsonScript) {
@@ -339,11 +287,17 @@ document.addEventListener('DOMContentLoaded', function() {
         columns.forEach(function(col) {
           var val = row[col] || '';
           var cType = colTypes[col] || 'text';
+
           if (cType === 'textarea') {
             html += '<td><textarea name="repeater_temp">' + escapeHtml(val) + '</textarea></td>';
           } else if (cType === 'image') {
-            var preview = val ? '<img src="/image/' + escapeHtml(val) + '" style="max-height:32px;max-width:80px;display:block;margin-bottom:3px;" onerror="this.style.display=\'none\'" />' : '';
-            html += '<td>' + preview + '<input type="text" name="repeater_temp" value="' + escapeHtml(val) + '" class="form-control input-sm" /></td>';
+            // Image with OC3 file manager
+            var iid = 'rep-img-' + container.id + '-' + idx + '-' + col;
+            var imgSrc = val ? '/image/' + val : ph;
+            html += '<td>';
+            html += '<a href="" id="thumb-' + iid + '" data-toggle="image" class="img-thumbnail"><img src="' + imgSrc + '" data-placeholder="' + ph + '" /></a>';
+            html += '<input type="hidden" name="repeater_temp_img" value="' + escapeHtml(val) + '" id="input-' + iid + '" data-col="' + col + '" />';
+            html += '</td>';
           } else {
             html += '<td><input type="text" name="repeater_temp" value="' + escapeHtml(val) + '" /></td>';
           }
@@ -369,10 +323,27 @@ document.addEventListener('DOMContentLoaded', function() {
       var newRows = [];
       container.querySelectorAll('tbody tr').forEach(function(tr) {
         var obj = {};
-        var inputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]');
-        if (inputs.length === 0) return; // skip "No items" row
-        inputs.forEach(function(inp, i) { obj[columns[i]] = inp.value; });
-        newRows.push(obj);
+        var textInputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]');
+        var imgInputs = tr.querySelectorAll('input[name="repeater_temp_img"]');
+        var colIdx = 0;
+
+        columns.forEach(function(col) {
+          var cType = colTypes[col] || 'text';
+          if (cType === 'image') {
+            // Find img input for this column
+            var imgInput = tr.querySelector('input[data-col="' + col + '"]');
+            obj[col] = imgInput ? imgInput.value : '';
+          } else {
+            if (textInputs[colIdx]) {
+              obj[col] = textInputs[colIdx].value;
+              colIdx++;
+            } else {
+              obj[col] = '';
+            }
+          }
+        });
+
+        if (Object.keys(obj).length > 0) newRows.push(obj);
       });
       rows = newRows;
       syncHidden();
@@ -391,12 +362,50 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
+    // Listen for OC image manager changes on hidden inputs inside repeater
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(m) {
+        if (m.type === 'attributes' && m.attributeName === 'value') {
+          collectFromDom();
+        }
+      });
+    });
+    // Observe will be set after render
+    function observeImageInputs() {
+      container.querySelectorAll('input[name="repeater_temp_img"]').forEach(function(inp) {
+        observer.observe(inp, { attributes: true });
+      });
+    }
+
     container.addEventListener('input', function(e) {
       if (e.target.name === 'repeater_temp') collectFromDom();
     });
 
+    var origRender = render;
+    render = function() { origRender(); observeImageInputs(); };
+
     render();
   });
+
+  // Watch all OC image hidden inputs for changes (file manager sets value)
+  setInterval(function() {
+    document.querySelectorAll('.repeater-container input[name="repeater_temp_img"]').forEach(function(inp) {
+      var oldVal = inp.getAttribute('data-old') || '';
+      if (inp.value !== oldVal) {
+        inp.setAttribute('data-old', inp.value);
+        // Update thumb
+        var iid = inp.id.replace('input-', 'thumb-');
+        var thumb = document.getElementById(iid);
+        if (thumb) {
+          var img = thumb.querySelector('img');
+          if (img) img.src = inp.value ? '/image/' + inp.value : placeholder;
+        }
+        // Trigger collect
+        var cont = inp.closest('.repeater-container');
+        if (cont) cont.dispatchEvent(new Event('input', {bubbles: true}));
+      }
+    });
+  }, 300);
 
   function escapeHtml(t) {
     var d = document.createElement('div');
@@ -404,54 +413,11 @@ document.addEventListener('DOMContentLoaded', function() {
     return d.innerHTML;
   }
 
-  // ===== File Manager (OC default) =====
-  $(document).on('click', '.ce-image-browse', function() {
-    var $btn = $(this);
-    var fieldName = $btn.data('target');
-    var $input = $btn.closest('.input-group').find('.ce-image-input');
-    var $preview = $btn.closest('.ce-image-field').find('.ce-image-preview');
-
-    // OC3 file manager popup
-    $('#modal-image').remove();
-    $.ajax({
-      url: 'index.php?route=common/filemanager&user_token=' + getURLVar('user_token'),
-      dataType: 'html',
-      success: function(html) {
-        $('body').append('<div id="modal-image" class="modal">' + html + '</div>');
-        $('#modal-image').modal('show');
-
-        // OC file manager triggers this on select
-        $(document).off('click', '#modal-image a[data-dismiss]');
-        $('#modal-image').on('click', '.btn-primary, a.thumbnail', function(e) {
-          // noop — OC filemanager has its own callback mechanism
-        });
-      }
-    });
-
-    // Global callback OC uses
-    window.filemanager_callback = function(path) {
-      $input.val(path);
-      $preview.html('<img src="/image/' + path + '" onerror="this.style.display=\'none\'" />');
-      $('#modal-image').modal('hide');
-    };
-  });
-
-  $(document).on('click', '.ce-image-clear', function() {
-    var $field = $(this).closest('.ce-image-field');
-    $field.find('.ce-image-input').val('');
-    $field.find('.ce-image-preview').html('');
-  });
-
   // ===== WYSIWYG =====
   if (typeof $.fn.summernote !== 'undefined') {
     $('.wysiwyg-editor').summernote({
       height: 150,
-      toolbar: [
-        ['style', ['bold', 'italic', 'underline']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['insert', ['link', 'picture']],
-        ['view', ['codeview']],
-      ]
+      toolbar: [['style',['bold','italic','underline']],['para',['ul','ol','paragraph']],['insert',['link','picture']],['view',['codeview']]]
     });
   }
 });

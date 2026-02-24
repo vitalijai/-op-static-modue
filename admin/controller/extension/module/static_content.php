@@ -75,6 +75,28 @@ class ControllerExtensionModuleStaticContent extends Controller {
 
         $data['user_token'] = $this->session->data['user_token'];
 
+        // Placeholder image for OC file manager
+        $this->load->model('tool/image');
+        if (is_file(DIR_IMAGE . 'no_image.png')) {
+            $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        } else {
+            $data['placeholder'] = '';
+        }
+
+        // Pre-generate thumbs for existing image values
+        $data['thumbs'] = [];
+        foreach ($data['content'] as $page => $sections) {
+            foreach ($sections as $section => $fields) {
+                foreach ($fields as $key => $langs) {
+                    foreach ($langs as $langId => $row) {
+                        if ($row['type'] === 'image' && !empty($row['value']) && is_file(DIR_IMAGE . $row['value'])) {
+                            $data['thumbs'][$row['value']] = $this->model_tool_image->resize($row['value'], 100, 100);
+                        }
+                    }
+                }
+            }
+        }
+
         $data['header']      = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer']      = $this->load->controller('common/footer');
