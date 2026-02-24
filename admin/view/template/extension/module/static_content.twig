@@ -481,6 +481,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ===== Persist open sections across language tab switches =====
+  // Track which sections are open per page
+  var openSections = {};
+
+  // When an accordion section opens — remember it
+  $(document).on('show.bs.collapse', '.panel-collapse', function() {
+    // id format: collapse-{page}-{section}-{langId}
+    var parts = this.id.replace('collapse-', '').split('-');
+    if (parts.length >= 3) {
+      var langId = parts.pop();
+      var sectionKey = parts.pop();
+      var pageKey = parts.join('-');
+      var key = pageKey + '|' + sectionKey;
+      openSections[key] = true;
+    }
+  });
+
+  // When closed — forget it
+  $(document).on('hide.bs.collapse', '.panel-collapse', function() {
+    var parts = this.id.replace('collapse-', '').split('-');
+    if (parts.length >= 3) {
+      var langId = parts.pop();
+      var sectionKey = parts.pop();
+      var pageKey = parts.join('-');
+      var key = pageKey + '|' + sectionKey;
+      delete openSections[key];
+    }
+  });
+
+  // When language tab switches — restore open sections
+  $(document).on('shown.bs.tab', '.nav-tabs-lang a', function(e) {
+    var targetPane = $($(e.target).attr('href'));
+    // Find accordion in the new pane
+    targetPane.find('.panel-collapse').each(function() {
+      var parts = this.id.replace('collapse-', '').split('-');
+      if (parts.length >= 3) {
+        var langId = parts.pop();
+        var sectionKey = parts.pop();
+        var pageKey = parts.join('-');
+        var key = pageKey + '|' + sectionKey;
+        if (openSections[key]) {
+          $(this).collapse('show');
+        }
+      }
+    });
+  });
+
   function escapeHtml(text) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(text || ''));
