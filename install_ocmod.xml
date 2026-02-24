@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Content Editor — Admin Menu (First Position)</name>
+    <code>content_editor_menu</code>
+    <version>1.0.0</version>
+    <author>Dev</author>
+    <link></link>
+
+    <!--
+        Добавляет «Редактор контенту / Content Editor» первым пунктом
+        в левое меню админки OpenCart 3.x
+    -->
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+            <search><![CDATA[// Menu
+		$this->load->language('common/column_left');]]></search>
+            <add position="after"><![CDATA[
+		// --- Content Editor (insert as first menu item) ---
+		$__ce_children = array();
+		if ($this->user->hasPermission('access', 'extension/module/static_content')) {
+			$__ce_children[] = array(
+				'name'     => '',
+				'href'     => $this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true),
+				'children' => array()
+			);
+		}
+		// --- /Content Editor ---
+            ]]></add>
+        </operation>
+
+        <!-- Вставить пункт меню первым в массив $data['menus'] -->
+        <operation>
+            <search><![CDATA[$data['menus'] = array();]]></search>
+            <add position="after"><![CDATA[
+		// --- Content Editor Menu Item (first position) ---
+		if (!empty($__ce_children)) {
+			$__ce_lang = $this->config->get('config_admin_language');
+			if (strpos($__ce_lang, 'uk') !== false || strpos($__ce_lang, 'ua') !== false) {
+				$__ce_title = 'Редактор контенту';
+			} elseif (strpos($__ce_lang, 'ru') !== false) {
+				$__ce_title = 'Редактор контента';
+			} elseif (strpos($__ce_lang, 'de') !== false) {
+				$__ce_title = 'Inhaltseditor';
+			} else {
+				$__ce_title = 'Content Editor';
+			}
+			$data['menus'][] = array(
+				'id'       => 'menu-content-editor',
+				'icon'     => 'fa-edit',
+				'name'     => $__ce_title,
+				'href'     => $this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true),
+				'children' => $__ce_children
+			);
+		}
+		// --- /Content Editor Menu Item ---
+            ]]></add>
+        </operation>
+    </file>
+</modification>

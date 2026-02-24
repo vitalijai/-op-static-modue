@@ -1,0 +1,402 @@
+<?php
+/**
+ * Контроллер модуля статического контента.
+ * Админка: страница с табами (header / home / footer), аккордеон секций, формы полей.
+ */
+class ControllerExtensionModuleStaticContent extends Controller {
+    private $error = [];
+
+    /**
+     * Главная страница модуля.
+     */
+    public function index() {
+        $this->load->language('extension/module/static_content');
+        $this->document->setTitle($this->language->get('heading_title'));
+
+        $this->load->model('extension/module/static_content');
+        $this->load->model('localisation/language');
+
+        // Сохранение
+        if ($this->request->server['REQUEST_METHOD'] == 'POST' && $this->validate()) {
+            $this->saveAll();
+            $this->session->data['success'] = $this->language->get('text_success');
+            $this->response->redirect($this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true));
+        }
+
+        // Данные для шаблона
+        $data['heading_title']  = $this->language->get('heading_title');
+        $data['text_success']   = $this->language->get('text_success');
+        $data['button_save']    = $this->language->get('button_save');
+        $data['button_cancel']  = $this->language->get('button_cancel');
+
+        $data['breadcrumbs'] = [];
+        $data['breadcrumbs'][] = [
+            'text' => $this->language->get('text_home'),
+            'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true),
+        ];
+        $data['breadcrumbs'][] = [
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true),
+        ];
+
+        $data['action']   = $this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true);
+        $data['cancel']   = $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true);
+        $data['seed_url'] = $this->url->link('extension/module/static_content_seeder', 'user_token=' . $this->session->data['user_token'], true);
+
+        // Ошибки / успех
+        $data['error_warning'] = isset($this->error['warning']) ? $this->error['warning'] : '';
+        $data['success'] = isset($this->session->data['success']) ? $this->session->data['success'] : '';
+        unset($this->session->data['success']);
+
+        // Языки
+        $data['languages'] = $this->model_localisation_language->getLanguages();
+
+        // Реестр секций
+        $registry = $this->getSectionRegistry();
+        $data['registry'] = $registry;
+
+        // Текущие данные из БД
+        $data['content'] = [];
+        foreach (array_keys($registry) as $page) {
+            $data['content'][$page] = $this->model_extension_module_static_content->getPageData($page);
+        }
+
+        // Активный таб
+        $data['active_tab'] = isset($this->request->get['tab']) ? $this->request->get['tab'] : 'home';
+
+        $data['user_token'] = $this->session->data['user_token'];
+
+        $data['header']      = $this->load->controller('common/header');
+        $data['column_left'] = $this->load->controller('common/column_left');
+        $data['footer']      = $this->load->controller('common/footer');
+
+        $this->response->setOutput($this->load->view('extension/module/static_content', $data));
+    }
+
+    /**
+     * Установка модуля.
+     */
+    public function install() {
+        $this->load->model('extension/module/static_content');
+        $this->model_extension_module_static_content->install();
+
+        // Добавить пункт в меню
+        $this->load->model('setting/setting');
+        $this->model_setting_setting->editSetting('module_static_content', ['module_static_content_status' => 1]);
+    }
+
+    /**
+     * Удаление модуля.
+     */
+    public function uninstall() {
+        $this->load->model('extension/module/static_content');
+        $this->model_extension_module_static_content->uninstall();
+    }
+
+    /**
+     * Сохранение всех данных из POST.
+     */
+    private function saveAll() {
+        $registry  = $this->getSectionRegistry();
+        $languages = $this->model_localisation_language->getLanguages();
+
+        foreach ($registry as $page => $sections) {
+            foreach ($sections as $sectionKey => $sectionDef) {
+                if (!isset($this->request->post[$page][$sectionKey])) {
+                    continue;
+                }
+                $postData = $this->request->post[$page][$sectionKey];
+                $this->model_extension_module_static_content->saveSection(
+                    $page,
+                    $sectionKey,
+                    $sectionDef['fields'],
+                    $postData,
+                    $languages
+                );
+            }
+        }
+    }
+
+    /**
+     * Валидация прав.
+     */
+    private function validate() {
+        if (!$this->user->hasPermission('modify', 'extension/module/static_content')) {
+            $this->error['warning'] = $this->language->get('error_permission');
+        }
+        return !$this->error;
+    }
+
+    /**
+     * Реестр секций: определяет структуру формы.
+     * Чтобы добавить новую секцию — просто добавить элемент в массив.
+     *
+     * type: text | textarea | wysiwyg | json | image
+     * schema (для json): repeater
+     * columns (для repeater): массив имён полей
+     * translatable: true (по умолчанию) | false
+     * col_types: типы полей в repeater (text по умолчанию, textarea, wysiwyg)
+     */
+    private function getSectionRegistry() {
+        return [
+            // ===================== HEADER =====================
+            'header' => [
+                'nav' => [
+                    'label'      => 'Main Navigation',
+                    'sort_order' => 1,
+                    'fields'     => [
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+                'menu_real_estate' => [
+                    'label'      => 'Mobile Menu: Real Estate',
+                    'sort_order' => 2,
+                    'fields'     => [
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+                'menu_about' => [
+                    'label'      => 'Mobile Menu: About Us',
+                    'sort_order' => 3,
+                    'fields'     => [
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+                'menu_services' => [
+                    'label'      => 'Mobile Menu: Our Services',
+                    'sort_order' => 4,
+                    'fields'     => [
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+                'menu_information' => [
+                    'label'      => 'Mobile Menu: Information',
+                    'sort_order' => 5,
+                    'fields'     => [
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+            ],
+
+            // ===================== HOME =====================
+            'home' => [
+                'key_features' => [
+                    'label'      => 'Key Features',
+                    'sort_order' => 1,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['icon', 'description'],
+                            'col_types' => ['icon' => 'textarea', 'description' => 'text'],
+                        ],
+                    ],
+                ],
+                'ads' => [
+                    'label'      => 'Ad Banner',
+                    'sort_order' => 2,
+                    'fields'     => [
+                        'title'      => ['type' => 'text'],
+                        'button_text' => ['type' => 'text'],
+                        'button_url' => ['type' => 'text', 'translatable' => false],
+                    ],
+                ],
+                'choose_us' => [
+                    'label'      => 'Why Choose Us',
+                    'sort_order' => 3,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['icon', 'title', 'description'],
+                            'col_types' => ['icon' => 'textarea', 'title' => 'text', 'description' => 'textarea'],
+                        ],
+                    ],
+                ],
+                'achievements' => [
+                    'label'      => 'Company Achievements',
+                    'sort_order' => 4,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'desc'  => ['type' => 'textarea'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['value', 'suffix', 'label', 'description'],
+                        ],
+                    ],
+                ],
+                'agency' => [
+                    'label'      => 'Agency Info',
+                    'sort_order' => 5,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'text'  => ['type' => 'wysiwyg'],
+                    ],
+                ],
+                'partners' => [
+                    'label'      => 'Partners',
+                    'sort_order' => 6,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['image', 'name', 'href'],
+                            'col_types' => ['image' => 'image'],
+                        ],
+                    ],
+                ],
+                'customers' => [
+                    'label'      => 'Valued Customers',
+                    'sort_order' => 7,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'desc'  => ['type' => 'textarea'],
+                        'items' => [
+                            'type'         => 'json',
+                            'schema'       => 'repeater',
+                            'columns'      => ['image', 'name', 'href'],
+                            'col_types'    => ['image' => 'image'],
+                            'translatable' => false,
+                        ],
+                    ],
+                ],
+                'faq' => [
+                    'label'      => 'FAQ / Questions',
+                    'sort_order' => 8,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'desc'  => ['type' => 'textarea'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['question', 'answer'],
+                            'col_types' => ['question' => 'text', 'answer' => 'textarea'],
+                        ],
+                    ],
+                ],
+            ],
+
+            // ===================== FOOTER =====================
+            'footer' => [
+                'contacts' => [
+                    'label'      => 'Contacts',
+                    'sort_order' => 1,
+                    'fields'     => [
+                        'address_street' => ['type' => 'text'],
+                        'address_city'   => ['type' => 'text'],
+                        'phone_office'   => ['type' => 'text', 'translatable' => false],
+                        'phone_mobile'   => ['type' => 'text', 'translatable' => false],
+                    ],
+                ],
+                'about_links' => [
+                    'label'      => 'About Links',
+                    'sort_order' => 2,
+                    'fields'     => [
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+                'social' => [
+                    'label'      => 'Social Links',
+                    'sort_order' => 3,
+                    'fields'     => [
+                        'items' => [
+                            'type'         => 'json',
+                            'schema'       => 'repeater',
+                            'columns'      => ['platform', 'url'],
+                            'translatable' => false,
+                        ],
+                    ],
+                ],
+                'nav' => [
+                    'label'      => 'Footer Navigation',
+                    'sort_order' => 4,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href', 'column'],
+                        ],
+                    ],
+                ],
+                'listing_left' => [
+                    'label'      => 'Listing Form (Left)',
+                    'sort_order' => 5,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href', 'column'],
+                        ],
+                    ],
+                ],
+                'listing_right' => [
+                    'label'      => 'Listing Form (Right)',
+                    'sort_order' => 6,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href', 'column'],
+                        ],
+                    ],
+                ],
+                'partners' => [
+                    'label'      => 'Footer Partners (Logos)',
+                    'sort_order' => 7,
+                    'fields'     => [
+                        'items' => [
+                            'type'         => 'json',
+                            'schema'       => 'repeater',
+                            'columns'      => ['image', 'alt', 'href'],
+                            'col_types'    => ['image' => 'image'],
+                            'translatable' => false,
+                        ],
+                    ],
+                ],
+                'bottom' => [
+                    'label'      => 'Bottom Bar',
+                    'sort_order' => 8,
+                    'fields'     => [
+                        'links' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                        'copyright' => ['type' => 'text'],
+                    ],
+                ],
+            ],
+        ];
+    }
+}

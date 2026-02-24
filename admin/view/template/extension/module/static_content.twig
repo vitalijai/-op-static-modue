@@ -1,0 +1,506 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-static-content" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ seed_url }}" data-toggle="tooltip" title="Seed default content (4 languages)" class="btn btn-warning" onclick="return confirm('This will REPLACE all content with defaults. Continue?')"><i class="fa fa-database"></i> Seed</a>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ heading_title }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-static-content" class="form-horizontal">
+
+          {# ===== PAGE TABS ===== #}
+          <ul class="nav nav-tabs" id="page-tabs">
+            {% for pageKey, sections in registry %}
+            <li{% if pageKey == active_tab %} class="active"{% endif %}>
+              <a href="#tab-{{ pageKey }}" data-toggle="tab">
+                {% if pageKey == 'header' %}
+                  <i class="fa fa-arrow-up"></i> Header
+                {% elseif pageKey == 'home' %}
+                  <i class="fa fa-home"></i> Home
+                {% elseif pageKey == 'footer' %}
+                  <i class="fa fa-arrow-down"></i> Footer
+                {% else %}
+                  {{ pageKey }}
+                {% endif %}
+              </a>
+            </li>
+            {% endfor %}
+            <li{% if active_tab == 'docs' %} class="active"{% endif %}>
+              <a href="#tab-docs" data-toggle="tab"><i class="fa fa-book"></i> Docs</a>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="page-tab-content">
+            {% for pageKey, sections in registry %}
+            <div class="tab-pane{% if pageKey == active_tab %} active{% endif %}" id="tab-{{ pageKey }}">
+
+              {# ===== LANGUAGE TABS ===== #}
+              <ul class="nav nav-tabs nav-tabs-lang" style="margin-top:15px; margin-bottom:10px;">
+                {% for language in languages %}
+                <li{% if loop.first %} class="active"{% endif %}>
+                  <a href="#tab-{{ pageKey }}-lang-{{ language.language_id }}" data-toggle="tab">
+                    <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+
+              <div class="tab-content">
+                {% for language in languages %}
+                <div class="tab-pane{% if loop.first %} active{% endif %}" id="tab-{{ pageKey }}-lang-{{ language.language_id }}">
+
+                  {# ===== SECTIONS ACCORDION ===== #}
+                  <div class="panel-group" id="accordion-{{ pageKey }}-{{ language.language_id }}">
+                    {% for sectionKey, sectionDef in sections %}
+                    <div class="panel panel-default">
+                      <div class="panel-heading" style="cursor:pointer" data-toggle="collapse" data-parent="#accordion-{{ pageKey }}-{{ language.language_id }}" href="#collapse-{{ pageKey }}-{{ sectionKey }}-{{ language.language_id }}">
+                        <h4 class="panel-title">
+                          <i class="fa fa-caret-right"></i> {{ sectionDef.label }}
+                        </h4>
+                      </div>
+                      <div id="collapse-{{ pageKey }}-{{ sectionKey }}-{{ language.language_id }}" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                          {% for fieldKey, fieldDef in sectionDef.fields %}
+                            {% set fieldTranslatable = fieldDef.translatable is defined ? fieldDef.translatable : true %}
+                            {% set currentLangId = fieldTranslatable ? language.language_id : 0 %}
+
+                            {# Получаем текущее значение из content #}
+                            {% set currentValue = '' %}
+                            {% if content[pageKey][sectionKey][fieldKey][currentLangId] is defined %}
+                              {% set currentValue = content[pageKey][sectionKey][fieldKey][currentLangId].value %}
+                            {% endif %}
+
+                            {# ---- REPEATER ---- #}
+                            {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
+                              <div class="form-group">
+                                <label class="col-sm-2 control-label">{{ fieldKey }}</label>
+                                <div class="col-sm-10">
+                                  {% set rows = currentValue ? currentValue : '[]' %}
+                                  <div class="repeater-container"
+                                       data-page="{{ pageKey }}"
+                                       data-section="{{ sectionKey }}"
+                                       data-field="{{ fieldKey }}"
+                                       data-lang="{{ currentLangId }}"
+                                       data-columns="{{ sectionDef.fields[fieldKey].columns|json_encode }}"
+                                       data-col-types="{{ sectionDef.fields[fieldKey].col_types is defined ? sectionDef.fields[fieldKey].col_types|json_encode : '{}' }}"
+                                       data-translatable="{{ fieldTranslatable ? '1' : '0' }}"
+                                       data-rows="{{ rows|e('html_attr') }}">
+                                    {# JS рендерит таблицу #}
+                                  </div>
+                                </div>
+                              </div>
+
+                            {# ---- TEXT ---- #}
+                            {% elseif fieldDef.type == 'text' %}
+                              {% if fieldTranslatable %}
+                              <div class="form-group">
+                                <label class="col-sm-2 control-label">{{ fieldKey }}</label>
+                                <div class="col-sm-10">
+                                  <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" />
+                                </div>
+                              </div>
+                              {% else %}
+                                {# Показываем только в первом языке #}
+                                {% if loop.parent.loop.first %}
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">{{ fieldKey }} <small class="text-muted">(all langs)</small></label>
+                                  <div class="col-sm-10">
+                                    <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" />
+                                  </div>
+                                </div>
+                                {% endif %}
+                              {% endif %}
+
+                            {# ---- TEXTAREA ---- #}
+                            {% elseif fieldDef.type == 'textarea' %}
+                              <div class="form-group">
+                                <label class="col-sm-2 control-label">{{ fieldKey }}</label>
+                                <div class="col-sm-10">
+                                  <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="4" class="form-control">{{ currentValue|e }}</textarea>
+                                </div>
+                              </div>
+
+                            {# ---- WYSIWYG ---- #}
+                            {% elseif fieldDef.type == 'wysiwyg' %}
+                              <div class="form-group">
+                                <label class="col-sm-2 control-label">{{ fieldKey }}</label>
+                                <div class="col-sm-10">
+                                  <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="8" class="form-control wysiwyg-editor" id="wysiwyg-{{ pageKey }}-{{ sectionKey }}-{{ fieldKey }}-{{ language.language_id }}">{{ currentValue|e }}</textarea>
+                                </div>
+                              </div>
+
+                            {# ---- IMAGE ---- #}
+                            {% elseif fieldDef.type == 'image' %}
+                              <div class="form-group">
+                                <label class="col-sm-2 control-label">{{ fieldKey }}</label>
+                                <div class="col-sm-10">
+                                  <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" placeholder="catalog/..." />
+                                </div>
+                              </div>
+                            {% endif %}
+
+                          {% endfor %}
+
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>{# /accordion #}
+
+                </div>{# /lang tab-pane #}
+                {% endfor %}
+              </div>{# /lang tab-content #}
+
+            </div>{# /page tab-pane #}
+            {% endfor %}
+            {# ===== DOCS TAB ===== #}
+            <div class="tab-pane{% if active_tab == 'docs' %} active{% endif %}" id="tab-docs">
+              <div style="padding:20px 0;">
+
+                <h3><i class="fa fa-info-circle"></i> Про модуль</h3>
+                <p>Модуль <strong>«Редактор контенту»</strong> дозволяє керувати статичним контентом сайту з адмінки без редагування коду.</p>
+
+                <div class="well">
+                  <h4>Структура</h4>
+                  <ul>
+                    <li><strong>Page</strong> — вкладка верхнього рівня (Header, Home, Footer)</li>
+                    <li><strong>Section</strong> — секція сторінки (FAQ, Key Features, Contacts тощо)</li>
+                    <li><strong>Field</strong> — поле секції (title, desc, items)</li>
+                    <li><strong>Language</strong> — окремий переклад на кожну мову магазину</li>
+                  </ul>
+                </div>
+
+                <h4><i class="fa fa-code"></i> Використання в шаблонах (каталог)</h4>
+
+                <h5>1. Підключення в контролері</h5>
+                <pre style="background:#f5f5f5;padding:12px;border-radius:4px;"><code>// Завантажуємо модель
+$this->load->model('extension/module/static_content');
+$model = $this->model_extension_module_static_content;
+
+// Всі дані сторінки (один SQL-запит, кешується)
+$data['static_home']   = $model->getPageData('home');
+$data['static_header'] = $model->getPageData('header');
+$data['static_footer'] = $model->getPageData('footer');
+
+// Або окрема секція
+$data['faq'] = $model->getSection('home', 'faq');
+
+// Або одне значення
+$copyright = $model->getValue('footer', 'bottom', 'copyright');</code></pre>
+
+                <h5>2. Приклад: FAQ</h5>
+                <pre style="background:#f5f5f5;padding:12px;border-radius:4px;"><code>{% verbatim %}{% set faq = static_home.faq %}
+&lt;section class="questions"&gt;
+  &lt;h2&gt;{{ faq.title }}&lt;/h2&gt;
+  &lt;p&gt;{{ faq.desc }}&lt;/p&gt;
+  {% for item in faq.items %}
+  &lt;div class="faq-item"&gt;
+    &lt;span&gt;{{ item.question }}&lt;/span&gt;
+    &lt;p&gt;{{ item.answer }}&lt;/p&gt;
+  &lt;/div&gt;
+  {% endfor %}
+&lt;/section&gt;{% endverbatim %}</code></pre>
+
+                <h5>3. Приклад: Контакти</h5>
+                <pre style="background:#f5f5f5;padding:12px;border-radius:4px;"><code>{% verbatim %}{% set c = static_footer.contacts %}
+&lt;span&gt;{{ c.address_street }}&lt;/span&gt;
+&lt;span&gt;{{ c.address_city }}&lt;/span&gt;
+&lt;a href="tel:{{ c.phone_office }}"&gt;{{ c.phone_office }}&lt;/a&gt;{% endverbatim %}</code></pre>
+
+                <h5>4. Приклад: Key Features з SVG-іконками</h5>
+                <pre style="background:#f5f5f5;padding:12px;border-radius:4px;"><code>{% verbatim %}{% set f = static_home.key_features %}
+{% for item in f.items %}
+  &lt;div class="key-features-block"&gt;
+    {{ item.icon|raw }}
+    &lt;p&gt;{{ item.description }}&lt;/p&gt;
+  &lt;/div&gt;
+{% endfor %}{% endverbatim %}</code></pre>
+
+                <h5>5. Приклад: Навігація</h5>
+                <pre style="background:#f5f5f5;padding:12px;border-radius:4px;"><code>{% verbatim %}{% set nav = static_header.nav %}
+{% for item in nav.items %}
+  &lt;a href="{{ item.href }}"&gt;{{ item.text }}&lt;/a&gt;
+{% endfor %}{% endverbatim %}</code></pre>
+
+                <hr/>
+
+                <h4><i class="fa fa-plus-circle"></i> Як додати новий контент</h4>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="panel panel-info">
+                      <div class="panel-heading">Нове поле в секцію</div>
+                      <div class="panel-body">
+                        <p>В файлі контролера → <code>getSectionRegistry()</code> знайти потрібну секцію та додати поле у масив <code>fields</code>:</p>
+                        <pre><code>'faq' => [
+  'fields' => [
+    'title' => [...],
+    // НОВЕ:
+    'cta_text' => [
+      'type' => 'text'
+    ],
+  ],
+],</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="panel panel-info">
+                      <div class="panel-heading">Нова секція на сторінку</div>
+                      <div class="panel-body">
+                        <p>Додати новий ключ в масив сторінки:</p>
+                        <pre><code>'home' => [
+  // ...існуючі...
+  'testimonials' => [
+    'label' => 'Testimonials',
+    'sort_order' => 9,
+    'fields' => [
+      'title' => ['type'=>'text'],
+      'items' => [
+        'type' => 'json',
+        'schema' => 'repeater',
+        'columns' => ['name','text'],
+      ],
+    ],
+  ],
+],</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="panel panel-info">
+                      <div class="panel-heading">Нова сторінка (таб)</div>
+                      <div class="panel-body">
+                        <p>Додати новий масив верхнього рівня в реєстр:</p>
+                        <pre><code>'about' => [
+  'hero' => [
+    'label' => 'Hero',
+    'fields' => [
+      'title' => ['type'=>'text'],
+      'text' => ['type'=>'wysiwyg'],
+    ],
+  ],
+],</code></pre>
+                        <p>Нова вкладка з'явиться автоматично.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr/>
+
+                <h4><i class="fa fa-cog"></i> Типи полів</h4>
+                <table class="table table-bordered table-striped">
+                  <thead><tr><th>Тип</th><th>UI</th><th>Опис</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>text</code></td><td>input</td><td>Один рядок тексту</td></tr>
+                    <tr><td><code>textarea</code></td><td>textarea</td><td>Багаторядковий текст</td></tr>
+                    <tr><td><code>wysiwyg</code></td><td>Summernote</td><td>HTML-редактор</td></tr>
+                    <tr><td><code>image</code></td><td>input (path)</td><td>Шлях до зображення</td></tr>
+                    <tr><td><code>json</code> + <code>repeater</code></td><td>Таблиця з + / −</td><td>Масив об'єктів (FAQ, навігація тощо)</td></tr>
+                  </tbody>
+                </table>
+
+                <h4><i class="fa fa-globe"></i> Мультимовність</h4>
+                <ul>
+                  <li>За замовчуванням кожне поле — перекладне (окреме значення для кожної мови)</li>
+                  <li><code>'translatable' => false</code> — поле спільне для всіх мов (телефони, URL, зображення)</li>
+                  <li>В БД: <code>language_id = 0</code> — мовонезалежне значення</li>
+                </ul>
+
+                <h4><i class="fa fa-bolt"></i> Кешування</h4>
+                <ul>
+                  <li>Один SQL-запит на всю сторінку (<code>getPageData</code>)</li>
+                  <li>Кеш-ключ: <code>static_content.{page}.{language_id}</code></li>
+                  <li>Автоматична інвалідація при збереженні в адмінці</li>
+                </ul>
+
+              </div>
+            </div>{# /docs tab #}
+
+          </div>{# /page tab-content #}
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .repeater-table { width:100%; margin-bottom:10px; }
+  .repeater-table th { background:#f5f5f5; padding:6px 8px; font-size:12px; text-transform:uppercase; }
+  .repeater-table td { padding:4px 6px; vertical-align:top; }
+  .repeater-table input[type=text],
+  .repeater-table textarea { width:100%; padding:4px 6px; border:1px solid #ddd; border-radius:3px; }
+  .repeater-table textarea { min-height:50px; resize:vertical; }
+  .repeater-table .btn-sm { padding:2px 8px; }
+  .repeater-add-btn { margin-top:5px; }
+  .nav-tabs-lang { border-bottom: 2px solid #ddd; }
+  .nav-tabs-lang > li > a { padding: 6px 12px; }
+  .nav-tabs-lang > li > a img { height:16px; margin-right:4px; }
+  .panel-heading h4 .fa { margin-right:6px; transition: transform 0.2s; }
+  .panel-heading[aria-expanded="true"] h4 .fa,
+  .panel-heading.active h4 .fa { transform: rotate(90deg); }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ===== Repeater JS =====
+  document.querySelectorAll('.repeater-container').forEach(function(container) {
+    var page    = container.dataset.page;
+    var section = container.dataset.section;
+    var field   = container.dataset.field;
+    var langId  = container.dataset.lang;
+    var columns = JSON.parse(container.dataset.columns);
+    var colTypes = JSON.parse(container.dataset.colTypes || '{}');
+    var translatable = container.dataset.translatable === '1';
+    var rows;
+
+    try {
+      rows = JSON.parse(container.dataset.rows);
+    } catch(e) {
+      rows = [];
+    }
+    if (!Array.isArray(rows)) rows = [];
+
+    function render() {
+      var namePrefix = translatable
+        ? page + '[' + section + '][' + field + '][' + langId + ']'
+        : page + '[' + section + '][' + field + ']';
+
+      var html = '<table class="repeater-table table table-bordered table-condensed">';
+      html += '<thead><tr>';
+      columns.forEach(function(col) {
+        html += '<th>' + col + '</th>';
+      });
+      html += '<th style="width:40px"></th></tr></thead><tbody>';
+
+      rows.forEach(function(row, idx) {
+        html += '<tr>';
+        columns.forEach(function(col) {
+          var val = row[col] || '';
+          var cType = colTypes[col] || 'text';
+          if (cType === 'textarea') {
+            html += '<td><textarea name="repeater_temp">' + escapeHtml(val) + '</textarea></td>';
+          } else {
+            html += '<td><input type="text" name="repeater_temp" value="' + escapeHtml(val) + '" /></td>';
+          }
+        });
+        html += '<td><button type="button" class="btn btn-danger btn-sm repeater-remove" data-idx="' + idx + '"><i class="fa fa-minus-circle"></i></button></td>';
+        html += '</tr>';
+      });
+
+      html += '</tbody></table>';
+      html += '<button type="button" class="btn btn-success btn-sm repeater-add-btn"><i class="fa fa-plus"></i> Add Row</button>';
+      html += '<input type="hidden" name="' + namePrefix + '" class="repeater-json-value" value="" />';
+
+      container.innerHTML = html;
+      syncHidden();
+    }
+
+    function syncHidden() {
+      var hidden = container.querySelector('.repeater-json-value');
+      if (hidden) {
+        hidden.value = JSON.stringify(rows);
+      }
+    }
+
+    function collectFromDom() {
+      var trs = container.querySelectorAll('tbody tr');
+      var newRows = [];
+      trs.forEach(function(tr) {
+        var obj = {};
+        var inputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]');
+        inputs.forEach(function(inp, i) {
+          obj[columns[i]] = inp.value;
+        });
+        newRows.push(obj);
+      });
+      rows = newRows;
+      syncHidden();
+    }
+
+    container.addEventListener('click', function(e) {
+      if (e.target.closest('.repeater-add-btn')) {
+        collectFromDom();
+        var newRow = {};
+        columns.forEach(function(c) { newRow[c] = ''; });
+        rows.push(newRow);
+        render();
+      }
+      if (e.target.closest('.repeater-remove')) {
+        collectFromDom();
+        var idx = parseInt(e.target.closest('.repeater-remove').dataset.idx);
+        rows.splice(idx, 1);
+        render();
+      }
+    });
+
+    container.addEventListener('input', function(e) {
+      if (e.target.name === 'repeater_temp') {
+        collectFromDom();
+      }
+    });
+
+    render();
+  });
+
+  // ===== Accordion icon toggle =====
+  document.querySelectorAll('.panel-collapse').forEach(function(el) {
+    el.addEventListener('show.bs.collapse', function() {
+      this.previousElementSibling.classList.add('active');
+    });
+    el.addEventListener('hide.bs.collapse', function() {
+      this.previousElementSibling.classList.remove('active');
+    });
+  });
+
+  function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(text || ''));
+    return div.innerHTML;
+  }
+
+  // ===== WYSIWYG init (Summernote if loaded, otherwise skip) =====
+  if (typeof $.fn.summernote !== 'undefined') {
+    $('.wysiwyg-editor').summernote({
+      height: 200,
+      toolbar: [
+        ['style', ['bold', 'italic', 'underline']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['insert', ['link', 'picture']],
+        ['view', ['codeview']],
+      ]
+    });
+  }
+});
+</script>
+
+{{ footer }}
