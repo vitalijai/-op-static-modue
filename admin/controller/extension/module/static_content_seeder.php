@@ -134,6 +134,22 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['text' => 'Бронирование отелей', 'href' => '#'],
         ]);
 
+        // --- menu_socials (mobile menu social links) ---
+        $this->setJson($m, $p, 'menu_socials', 'items', 0, [
+            ['platform' => 'youtube', 'icon' => 'catalog/svg/social/youtube.svg', 'url' => '#'],
+            ['platform' => 'facebook', 'icon' => 'catalog/svg/social/facebook.svg', 'url' => '#'],
+            ['platform' => 'instagram', 'icon' => 'catalog/svg/social/instagram.svg', 'url' => '#'],
+            ['platform' => 'twitter', 'icon' => 'catalog/svg/social/twitter.svg', 'url' => '#'],
+            ['platform' => 'tiktok', 'icon' => 'catalog/svg/social/tiktok.svg', 'url' => '#'],
+        ]);
+
+        // --- logo ---
+        $m->setValue($p, 'logo', 'image', 'image', 'catalog/svg/logo.svg', 0);
+
+        // --- phone ---
+        $m->setValue($p, 'phone', 'office', 'text', '+38 (0342) 501-303', 0);
+        $m->setValue($p, 'phone', 'mobile', 'text', '+38 (067) 343-80-74', 0);
+
         // --- menu_information ---
         $this->setJson($m, $p, 'menu_information', 'items', 1, [
             ['text' => 'Довідник', 'href' => '#'], ['text' => 'Погода', 'href' => '#'],
@@ -330,6 +346,44 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['image' => 'catalog/svg/customers/customer-4.svg', 'name' => 'Customer 4', 'href' => '#'],
         ]);
 
+        // --- reviews (header only, cards are dynamic) ---
+        $this->setT($m, $p, 'reviews', 'title', [
+            1 => 'Відгуки наших клієнтів', 2 => 'Feedback from Our Clients',
+            3 => 'Feedback unserer Kunden', 4 => 'Отзывы наших клиентов',
+        ]);
+        $this->setT($m, $p, 'reviews', 'desc', [
+            1 => 'Ми дуже вдячні нашим клієнтам за співпрацю і будемо раді зустрітися знову. Ви також можете залишити свої враження після роботи з нами!',
+            2 => 'We are very grateful to our customers for their cooperation and will be glad to meet again. You can also leave your impressions after working with us!',
+            3 => 'Wir sind unseren Kunden sehr dankbar für die Zusammenarbeit und freuen uns auf ein Wiedersehen. Sie können auch Ihre Eindrücke nach der Arbeit mit uns hinterlassen!',
+            4 => 'Мы очень благодарны нашим клиентам за сотрудничество и будем рады встретиться снова. Вы также можете оставить свои впечатления после работы с нами!',
+        ]);
+        $this->setT($m, $p, 'reviews', 'button_text', [
+            1 => '+ Написати відгук', 2 => '+ Write Review',
+            3 => '+ Bewertung schreiben', 4 => '+ Написать отзыв',
+        ]);
+
+        // --- contact_fab (floating contact button) ---
+        $this->setT($m, $p, 'contact_fab', 'callback_title', [
+            1 => 'Замовити зворотній дзвінок', 2 => 'Request a Callback',
+            3 => 'Rückruf anfordern', 4 => 'Заказать обратный звонок',
+        ]);
+        $this->setT($m, $p, 'contact_fab', 'callback_desc', [
+            1 => 'Залиште нам свій номер телефону і ми зв\'яжемося з вами',
+            2 => 'Leave us your phone number and we will contact you',
+            3 => 'Hinterlassen Sie uns Ihre Telefonnummer und wir melden uns bei Ihnen',
+            4 => 'Оставьте нам свой номер телефона и мы свяжемся с вами',
+        ]);
+        $this->setT($m, $p, 'contact_fab', 'write_title', [
+            1 => 'Написати нам', 2 => 'Write to Us',
+            3 => 'Schreiben Sie uns', 4 => 'Написать нам',
+        ]);
+        $this->setT($m, $p, 'contact_fab', 'write_desc', [
+            1 => 'Залиште нам свій e-mail і ми зв\'яжемося з вами',
+            2 => 'Leave us your e-mail and we will contact you',
+            3 => 'Hinterlassen Sie uns Ihre E-Mail und wir melden uns',
+            4 => 'Оставьте нам свой e-mail и мы свяжемся с вами',
+        ]);
+
         // --- faq ---
         $this->setT($m, $p, 'faq', 'title', [
             1 => 'Загальні питання', 2 => 'General Questions',
@@ -376,6 +430,9 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
     // ============================================================
     private function seedFooter($m) {
         $p = 'footer';
+
+        // --- logo ---
+        $m->setValue($p, 'logo', 'image', 'image', 'catalog/svg/logo-footer.svg', 0);
 
         // --- contacts ---
         $this->setT($m, $p, 'contacts', 'address_street', [

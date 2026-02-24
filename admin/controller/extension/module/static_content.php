@@ -150,6 +150,21 @@ class ControllerExtensionModuleStaticContent extends Controller {
         return [
             // ===================== HEADER =====================
             'header' => [
+                'logo' => [
+                    'label'      => 'Logo',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'image' => ['type' => 'image', 'translatable' => false],
+                    ],
+                ],
+                'phone' => [
+                    'label'      => 'Phone Numbers',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'office' => ['type' => 'text', 'translatable' => false],
+                        'mobile' => ['type' => 'text', 'translatable' => false],
+                    ],
+                ],
                 'nav' => [
                     'label'      => 'Main Navigation',
                     'sort_order' => 1,
@@ -202,6 +217,19 @@ class ControllerExtensionModuleStaticContent extends Controller {
                             'type'    => 'json',
                             'schema'  => 'repeater',
                             'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+                'menu_socials' => [
+                    'label'      => 'Mobile Menu: Social Links',
+                    'sort_order' => 6,
+                    'fields'     => [
+                        'items' => [
+                            'type'         => 'json',
+                            'schema'       => 'repeater',
+                            'columns'      => ['platform', 'icon', 'url'],
+                            'col_types'    => ['icon' => 'image'],
+                            'translatable' => false,
                         ],
                     ],
                 ],
@@ -300,9 +328,28 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         ],
                     ],
                 ],
+                'reviews' => [
+                    'label'      => 'Reviews (header only)',
+                    'sort_order' => 8,
+                    'fields'     => [
+                        'title'       => ['type' => 'text'],
+                        'desc'        => ['type' => 'textarea'],
+                        'button_text' => ['type' => 'text'],
+                    ],
+                ],
+                'contact_fab' => [
+                    'label'      => 'Contact FAB (floating button)',
+                    'sort_order' => 9,
+                    'fields'     => [
+                        'callback_title' => ['type' => 'text'],
+                        'callback_desc'  => ['type' => 'text'],
+                        'write_title'    => ['type' => 'text'],
+                        'write_desc'     => ['type' => 'text'],
+                    ],
+                ],
                 'faq' => [
                     'label'      => 'FAQ / Questions',
-                    'sort_order' => 8,
+                    'sort_order' => 10,
                     'fields'     => [
                         'title' => ['type' => 'text'],
                         'desc'  => ['type' => 'textarea'],
@@ -318,6 +365,13 @@ class ControllerExtensionModuleStaticContent extends Controller {
 
             // ===================== FOOTER =====================
             'footer' => [
+                'logo' => [
+                    'label'      => 'Footer Logo',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'image' => ['type' => 'image', 'translatable' => false],
+                    ],
+                ],
                 'contacts' => [
                     'label'      => 'Contacts',
                     'sort_order' => 1,
