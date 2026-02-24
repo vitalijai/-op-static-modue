@@ -4,8 +4,8 @@
     <div class="container-fluid">
       <div class="pull-right">
         <button type="submit" form="form-static-content" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary btn-lg"><i class="fa fa-save"></i> {{ button_save }}</button>
-        <a href="{{ seed_url }}" data-toggle="tooltip" title="Seed default content" class="btn btn-warning" onclick="return confirm('REPLACE all content with defaults?')"><i class="fa fa-database"></i></a>
-        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+        <a href="{{ seed_url }}" class="btn btn-warning" onclick="return confirm('REPLACE all content with defaults?')"><i class="fa fa-database"></i></a>
+        <a href="{{ cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
       </div>
       <h1><i class="fa fa-edit"></i> {{ heading_title }}</h1>
       <ul class="breadcrumb">
@@ -41,17 +41,14 @@
                 <a href="#page-{{ pageKey }}" data-toggle="pill">
                   {% if pageKey == 'header' %}
                     <i class="fa fa-arrow-up"></i> <span>{{ tab_header }}</span>
-                    <span class="badge pull-right">{{ sections|length }}</span>
                   {% elseif pageKey == 'home' %}
                     <i class="fa fa-home"></i> <span>{{ tab_home }}</span>
-                    <span class="badge pull-right">{{ sections|length }}</span>
                   {% elseif pageKey == 'footer' %}
                     <i class="fa fa-arrow-down"></i> <span>{{ tab_footer }}</span>
-                    <span class="badge pull-right">{{ sections|length }}</span>
                   {% else %}
                     <i class="fa fa-file-o"></i> <span>{{ pageKey|capitalize }}</span>
-                    <span class="badge pull-right">{{ sections|length }}</span>
                   {% endif %}
+                  <span class="badge pull-right">{{ sections|length }}</span>
                 </a>
               </li>
               {% endfor %}
@@ -68,6 +65,8 @@
         {# ===== MAIN CONTENT ===== #}
         <div class="col-sm-9 col-md-10">
           <div class="tab-content" id="page-content">
+
+            {% set repIdx = 0 %}
 
             {% for pageKey, sections in registry %}
             <div class="tab-pane{% if pageKey == active_tab %} active{% endif %}" id="page-{{ pageKey }}">
@@ -86,13 +85,10 @@
                     <div class="ce-field">
                       <div class="ce-field-label">
                         {{ fieldKey }}
-                        {% if not fieldTranslatable %}
-                          <span class="label label-default" style="font-size:10px;">global</span>
-                        {% endif %}
+                        {% if not fieldTranslatable %}<span class="label label-default" style="font-size:10px;">global</span>{% endif %}
                       </div>
 
                       {% if fieldTranslatable %}
-                        {# === All languages in a row === #}
                         <div class="ce-lang-grid ce-lang-cols-{{ languages|length }}">
                           {% for language in languages %}
                           <div class="ce-lang-col">
@@ -101,31 +97,27 @@
                             </div>
 
                             {% set currentValue = '' %}
-                            {% if content[pageKey][sectionKey][fieldKey][language.language_id] is defined %}
+                            {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey][language.language_id] is defined %}
                               {% set currentValue = content[pageKey][sectionKey][fieldKey][language.language_id].value %}
                             {% endif %}
 
-                            {# REPEATER #}
                             {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                              {% set rows = currentValue ? currentValue : '[]' %}
-                              <div class="repeater-container"
+                              {% set repId = 'rep-' ~ repIdx %}
+                              {% set repIdx = repIdx + 1 %}
+                              <div class="repeater-container" id="{{ repId }}"
                                    data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
-                                   data-lang="{{ language.language_id }}"
-                                   data-columns="{{ sectionDef.fields[fieldKey].columns|json_encode }}"
-                                   data-col-types="{{ sectionDef.fields[fieldKey].col_types is defined ? sectionDef.fields[fieldKey].col_types|json_encode : '{}' }}"
-                                   data-translatable="1"
-                                   data-rows="{{ rows|e('html_attr') }}">
+                                   data-lang="{{ language.language_id }}" data-translatable="1"
+                                   data-columns='{{ fieldDef.columns|json_encode }}'
+                                   data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'>
                               </div>
+                              <script type="application/json" data-for="{{ repId }}">{{ currentValue ? currentValue|raw : '[]' }}</script>
 
-                            {# TEXT #}
                             {% elseif fieldDef.type == 'text' %}
                               <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" />
 
-                            {# TEXTAREA #}
                             {% elseif fieldDef.type == 'textarea' %}
                               <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="3" class="form-control">{{ currentValue|e }}</textarea>
 
-                            {# WYSIWYG #}
                             {% elseif fieldDef.type == 'wysiwyg' %}
                               <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="6" class="form-control wysiwyg-editor" id="wysiwyg-{{ pageKey }}-{{ sectionKey }}-{{ fieldKey }}-{{ language.language_id }}">{{ currentValue|e }}</textarea>
 
@@ -135,22 +127,22 @@
                         </div>
 
                       {% else %}
-                        {# === Non-translatable: single field === #}
                         {% set currentValue = '' %}
-                        {% if content[pageKey][sectionKey][fieldKey]['0'] is defined %}
+                        {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey]['0'] is defined %}
                           {% set currentValue = content[pageKey][sectionKey][fieldKey]['0'].value %}
                         {% endif %}
 
                         {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                          {% set rows = currentValue ? currentValue : '[]' %}
-                          <div class="repeater-container"
+                          {% set repId = 'rep-' ~ repIdx %}
+                          {% set repIdx = repIdx + 1 %}
+                          <div class="repeater-container" id="{{ repId }}"
                                data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
-                               data-lang="0"
-                               data-columns="{{ sectionDef.fields[fieldKey].columns|json_encode }}"
-                               data-col-types="{{ sectionDef.fields[fieldKey].col_types is defined ? sectionDef.fields[fieldKey].col_types|json_encode : '{}' }}"
-                               data-translatable="0"
-                               data-rows="{{ rows|e('html_attr') }}">
+                               data-lang="0" data-translatable="0"
+                               data-columns='{{ fieldDef.columns|json_encode }}'
+                               data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'>
                           </div>
+                          <script type="application/json" data-for="{{ repId }}">{{ currentValue ? currentValue|raw : '[]' }}</script>
+
                         {% elseif fieldDef.type == 'text' %}
                           <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" style="max-width:600px;" />
                         {% elseif fieldDef.type == 'image' %}
@@ -173,7 +165,7 @@
               <div class="ce-block">
                 <div class="ce-block-header"><h3>Про модуль</h3></div>
                 <div class="ce-block-body">
-                  <p>Модуль <strong>«Редактор контенту»</strong> дозволяє керувати статичним контентом сайту з адмінки без редагування коду шаблонів.</p>
+                  <p>Модуль <strong>«Редактор контенту»</strong> керує статичним контентом сайту з адмінки без правок коду.</p>
                   <div class="row" style="margin-top:15px;">
                     <div class="col-md-3"><div class="ce-stat-card"><div class="ce-stat-num">{{ registry|length }}</div><div class="ce-stat-label">Сторінок</div></div></div>
                     <div class="col-md-3"><div class="ce-stat-card"><div class="ce-stat-num">{% set total = 0 %}{% for p,s in registry %}{% set total = total + s|length %}{% endfor %}{{ total }}</div><div class="ce-stat-label">Секцій</div></div></div>
@@ -184,25 +176,17 @@
               </div>
 
               <div class="ce-block">
-                <div class="ce-block-header"><h3><i class="fa fa-code"></i> Інтеграція в шаблони</h3></div>
+                <div class="ce-block-header"><h3><i class="fa fa-code"></i> Інтеграція</h3></div>
                 <div class="ce-block-body">
                   <h5>Контролер</h5>
                   <pre class="ce-code"><code>$this->load->model('extension/module/static_content');
-$data['static_home']   = $this->model_extension_module_static_content->getPageData('home');
-$data['static_header'] = $this->model_extension_module_static_content->getPageData('header');
-$data['static_footer'] = $this->model_extension_module_static_content->getPageData('footer');</code></pre>
-
-                  <h5>Twig — FAQ</h5>
+$data['static_home'] = $this->model_extension_module_static_content->getPageData('home');</code></pre>
+                  <h5>Twig</h5>
                   <pre class="ce-code"><code>{% verbatim %}{% set faq = static_home.faq %}
 &lt;h2&gt;{{ faq.title }}&lt;/h2&gt;
 {% for item in faq.items %}
   &lt;div&gt;{{ item.question }} — {{ item.answer }}&lt;/div&gt;
 {% endfor %}{% endverbatim %}</code></pre>
-
-                  <h5>Twig — Контакти</h5>
-                  <pre class="ce-code"><code>{% verbatim %}{% set c = static_footer.contacts %}
-&lt;a href="tel:{{ c.phone_office }}"&gt;{{ c.phone_office }}&lt;/a&gt;
-{{ c.address_street }}, {{ c.address_city }}{% endverbatim %}</code></pre>
                 </div>
               </div>
 
@@ -211,29 +195,18 @@ $data['static_footer'] = $this->model_extension_module_static_content->getPageDa
                 <div class="ce-block-body">
                   <div class="row">
                     <div class="col-md-4">
-                      <div class="ce-hint-card">
-                        <h5><i class="fa fa-plus"></i> Нове поле</h5>
-                        <p>В <code>getSectionRegistry()</code>:</p>
-                        <pre><code>'cta' => ['type' => 'text']</code></pre>
-                      </div>
+                      <div class="ce-hint-card"><h5><i class="fa fa-plus"></i> Поле</h5><pre><code>'cta' => ['type' => 'text']</code></pre></div>
                     </div>
                     <div class="col-md-4">
-                      <div class="ce-hint-card">
-                        <h5><i class="fa fa-th-large"></i> Нова секція</h5>
-                        <pre><code>'testimonials' => [
+                      <div class="ce-hint-card"><h5><i class="fa fa-th-large"></i> Секція</h5><pre><code>'reviews' => [
   'label' => 'Відгуки',
   'fields' => [...]
-]</code></pre>
-                      </div>
+]</code></pre></div>
                     </div>
                     <div class="col-md-4">
-                      <div class="ce-hint-card">
-                        <h5><i class="fa fa-file-o"></i> Нова сторінка</h5>
-                        <pre><code>'about' => [
+                      <div class="ce-hint-card"><h5><i class="fa fa-file-o"></i> Сторінка</h5><pre><code>'about' => [
   'hero' => [...]
-]</code></pre>
-                        <p class="text-muted">З'явиться в меню автоматично</p>
-                      </div>
+]</code></pre><p class="text-muted">Автоматично в меню</p></div>
                     </div>
                   </div>
                 </div>
@@ -246,10 +219,10 @@ $data['static_footer'] = $this->model_extension_module_static_content->getPageDa
                     <thead><tr><th>Тип</th><th>UI</th><th>Опис</th></tr></thead>
                     <tbody>
                       <tr><td><code>text</code></td><td>input</td><td>Один рядок</td></tr>
-                      <tr><td><code>textarea</code></td><td>textarea</td><td>Багаторядковий текст</td></tr>
+                      <tr><td><code>textarea</code></td><td>textarea</td><td>Багаторядковий</td></tr>
                       <tr><td><code>wysiwyg</code></td><td>Summernote</td><td>HTML-редактор</td></tr>
-                      <tr><td><code>image</code></td><td>input</td><td>Шлях до зображення</td></tr>
-                      <tr><td><code>json + repeater</code></td><td>Таблиця ±</td><td>Масив об'єктів</td></tr>
+                      <tr><td><code>image</code></td><td>input</td><td>Шлях до файлу</td></tr>
+                      <tr><td><code>json+repeater</code></td><td>Таблиця ±</td><td>Масив об'єктів</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -258,80 +231,68 @@ $data['static_footer'] = $this->model_extension_module_static_content->getPageDa
 
           </div>{# /page-content #}
         </div>{# /col-10 #}
-
       </div>{# /row #}
     </form>
   </div>
 </div>
 
 <style>
-  /* ===== Sidebar ===== */
-  .ce-sidebar { background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; padding: 12px 0; position: sticky; top: 10px; }
-  .ce-sidebar-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; padding: 6px 18px 4px; }
-  .ce-sidebar .nav > li > a { padding: 9px 18px; color: #444; border-left: 3px solid transparent; transition: all .15s; font-size: 13px; }
-  .ce-sidebar .nav > li > a:hover { background: #f7f8fa; border-left-color: #ccc; color: #222; text-decoration: none; }
-  .ce-sidebar .nav > li.active > a { background: linear-gradient(90deg, #e8f0fe 0%, #fff 100%); border-left-color: #337ab7; color: #1a73e8; font-weight: 600; }
-  .ce-sidebar .nav > li > a .fa { width: 18px; text-align: center; margin-right: 6px; }
-  .ce-sidebar .nav > li > a .badge { background: #e0e0e0; color: #666; font-size: 10px; font-weight: 600; }
-  .ce-sidebar .nav > li.active > a .badge { background: #c2dbff; color: #1a73e8; }
+  .ce-sidebar { background:#fff; border:1px solid #e3e3e3; border-radius:6px; padding:12px 0; position:sticky; top:10px; }
+  .ce-sidebar-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#999; padding:6px 18px 4px; }
+  .ce-sidebar .nav>li>a { padding:9px 18px; color:#444; border-left:3px solid transparent; transition:all .15s; font-size:13px; }
+  .ce-sidebar .nav>li>a:hover { background:#f7f8fa; border-left-color:#ccc; color:#222; text-decoration:none; }
+  .ce-sidebar .nav>li.active>a { background:linear-gradient(90deg,#e8f0fe 0%,#fff 100%); border-left-color:#337ab7; color:#1a73e8; font-weight:600; }
+  .ce-sidebar .nav>li>a .fa { width:18px; text-align:center; margin-right:6px; }
+  .ce-sidebar .nav>li>a .badge { background:#e0e0e0; color:#666; font-size:10px; font-weight:600; }
+  .ce-sidebar .nav>li.active>a .badge { background:#c2dbff; color:#1a73e8; }
 
-  /* ===== Content blocks ===== */
-  .ce-block { background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; margin-bottom: 16px; overflow: hidden; }
-  .ce-block-header { background: linear-gradient(180deg, #fafbfc 0%, #f0f1f3 100%); padding: 12px 20px; border-bottom: 1px solid #e3e3e3; }
-  .ce-block-header h3 { margin: 0; font-size: 15px; font-weight: 600; color: #333; }
-  .ce-block-meta { float: right; font-size: 11px; color: #aaa; font-family: monospace; margin-top: 2px; }
-  .ce-block-body { padding: 16px 20px; }
+  .ce-block { background:#fff; border:1px solid #e3e3e3; border-radius:6px; margin-bottom:16px; overflow:hidden; }
+  .ce-block-header { background:linear-gradient(180deg,#fafbfc 0%,#f0f1f3 100%); padding:12px 20px; border-bottom:1px solid #e3e3e3; display:flex; align-items:center; justify-content:space-between; }
+  .ce-block-header h3 { margin:0; font-size:15px; font-weight:600; color:#333; }
+  .ce-block-meta { font-size:11px; color:#aaa; font-family:monospace; }
+  .ce-block-body { padding:16px 20px; }
 
-  /* ===== Fields ===== */
-  .ce-field { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f0f0; }
-  .ce-field:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-  .ce-field-label { font-size: 12px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+  .ce-field { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid #f0f0f0; }
+  .ce-field:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+  .ce-field-label { font-size:12px; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
 
-  /* ===== Language grid ===== */
-  .ce-lang-grid { display: grid; gap: 12px; }
-  .ce-lang-cols-1 { grid-template-columns: 1fr; }
-  .ce-lang-cols-2 { grid-template-columns: 1fr 1fr; }
-  .ce-lang-cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-  .ce-lang-cols-4 { grid-template-columns: 1fr 1fr; }
-  @media (min-width: 1400px) { .ce-lang-cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; } }
-  @media (min-width: 1200px) and (max-width: 1399px) { .ce-lang-cols-3 { grid-template-columns: 1fr 1fr 1fr; } .ce-lang-cols-4 { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 991px) { .ce-lang-grid { grid-template-columns: 1fr !important; } }
+  .ce-lang-grid { display:grid; gap:12px; }
+  .ce-lang-cols-1 { grid-template-columns:1fr; }
+  .ce-lang-cols-2 { grid-template-columns:1fr 1fr; }
+  .ce-lang-cols-3 { grid-template-columns:1fr 1fr 1fr; }
+  .ce-lang-cols-4 { grid-template-columns:1fr 1fr; }
+  @media(min-width:1400px) { .ce-lang-cols-4 { grid-template-columns:1fr 1fr 1fr 1fr; } }
+  @media(max-width:991px) { .ce-lang-grid { grid-template-columns:1fr !important; } }
+  .ce-lang-col { min-width:0; }
+  .ce-lang-flag { font-size:11px; font-weight:600; color:#777; margin-bottom:5px; display:flex; align-items:center; gap:4px; }
+  .ce-lang-flag img { height:14px; border-radius:2px; }
+  .ce-lang-col .form-control { font-size:13px; }
+  .ce-lang-col textarea.form-control { resize:vertical; min-height:60px; }
 
-  .ce-lang-col { min-width: 0; }
-  .ce-lang-flag { font-size: 11px; font-weight: 600; color: #777; margin-bottom: 5px; display: flex; align-items: center; gap: 4px; }
-  .ce-lang-flag img { height: 14px; border-radius: 2px; }
-  .ce-lang-col .form-control { font-size: 13px; }
-  .ce-lang-col textarea.form-control { resize: vertical; min-height: 60px; }
+  .repeater-table { width:100%; margin-bottom:8px; font-size:12px; }
+  .repeater-table th { background:#f5f6f8; padding:5px 8px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#888; }
+  .repeater-table td { padding:3px 5px; vertical-align:top; }
+  .repeater-table input[type=text], .repeater-table textarea { width:100%; padding:4px 6px; border:1px solid #ddd; border-radius:3px; font-size:12px; }
+  .repeater-table textarea { min-height:40px; resize:vertical; }
+  .repeater-table .btn-sm { padding:2px 7px; font-size:11px; }
+  .repeater-add-btn { margin-top:4px; font-size:11px; }
 
-  /* ===== Repeater ===== */
-  .repeater-table { width: 100%; margin-bottom: 8px; font-size: 12px; }
-  .repeater-table th { background: #f5f6f8; padding: 5px 8px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: #888; }
-  .repeater-table td { padding: 3px 5px; vertical-align: top; }
-  .repeater-table input[type=text],
-  .repeater-table textarea { width: 100%; padding: 4px 6px; border: 1px solid #ddd; border-radius: 3px; font-size: 12px; }
-  .repeater-table textarea { min-height: 40px; resize: vertical; }
-  .repeater-table .btn-sm { padding: 2px 7px; font-size: 11px; }
-  .repeater-add-btn { margin-top: 4px; font-size: 11px; }
-
-  /* ===== Docs ===== */
-  .ce-code { background: #2d2d2d; color: #f8f8f2; padding: 14px 16px; border-radius: 5px; font-size: 12px; line-height: 1.5; overflow-x: auto; border: none; }
-  .ce-stat-card { background: #f7f8fa; border: 1px solid #e8e8e8; border-radius: 8px; padding: 18px; text-align: center; margin-bottom: 12px; }
-  .ce-stat-num { font-size: 28px; font-weight: 700; color: #337ab7; }
-  .ce-stat-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: .5px; }
-  .ce-hint-card { background: #f7f8fa; border: 1px solid #e8e8e8; border-radius: 6px; padding: 14px; margin-bottom: 12px; }
-  .ce-hint-card h5 { margin: 0 0 8px; font-size: 13px; font-weight: 600; }
-  .ce-hint-card pre { font-size: 11px; margin: 8px 0 0; }
-
-  /* ===== Misc ===== */
-  .page-header { border-bottom: 2px solid #e8e8e8; }
-  .page-header h1 { font-size: 22px; font-weight: 600; }
-  .page-header h1 .fa { color: #337ab7; }
+  .ce-code { background:#2d2d2d; color:#f8f8f2; padding:14px 16px; border-radius:5px; font-size:12px; line-height:1.5; overflow-x:auto; border:none; }
+  .ce-stat-card { background:#f7f8fa; border:1px solid #e8e8e8; border-radius:8px; padding:18px; text-align:center; margin-bottom:12px; }
+  .ce-stat-num { font-size:28px; font-weight:700; color:#337ab7; }
+  .ce-stat-label { font-size:12px; color:#888; text-transform:uppercase; letter-spacing:.5px; }
+  .ce-hint-card { background:#f7f8fa; border:1px solid #e8e8e8; border-radius:6px; padding:14px; margin-bottom:12px; }
+  .ce-hint-card h5 { margin:0 0 8px; font-size:13px; font-weight:600; }
+  .ce-hint-card pre { font-size:11px; margin:8px 0 0; }
+  .page-header { border-bottom:2px solid #e8e8e8; }
+  .page-header h1 { font-size:22px; font-weight:600; }
+  .page-header h1 .fa { color:#337ab7; }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  // ===== Repeater JS =====
+  // ===== Repeater =====
   document.querySelectorAll('.repeater-container').forEach(function(container) {
     var page    = container.dataset.page;
     var section = container.dataset.section;
@@ -345,7 +306,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var translatable = container.dataset.translatable === '1';
 
-    try { rows = JSON.parse(container.dataset.rows || '[]'); } catch(e) { rows = []; }
+    // Rows data from <script type="application/json"> sibling
+    rows = [];
+    var jsonScript = document.querySelector('script[data-for="' + container.id + '"]');
+    if (jsonScript) {
+      try { rows = JSON.parse(jsonScript.textContent || '[]'); } catch(e) { rows = []; }
+    }
     if (!Array.isArray(rows)) rows = [];
 
     function render() {
@@ -357,6 +323,10 @@ document.addEventListener('DOMContentLoaded', function() {
       html += '<thead><tr>';
       columns.forEach(function(col) { html += '<th>' + col + '</th>'; });
       html += '<th style="width:36px"></th></tr></thead><tbody>';
+
+      if (rows.length === 0) {
+        html += '<tr><td colspan="' + (columns.length + 1) + '" style="text-align:center;color:#999;padding:12px;">No items</td></tr>';
+      }
 
       rows.forEach(function(row, idx) {
         html += '<tr>';
@@ -387,13 +357,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function collectFromDom() {
-      var trs = container.querySelectorAll('tbody tr');
       var newRows = [];
-      trs.forEach(function(tr) {
+      container.querySelectorAll('tbody tr').forEach(function(tr) {
         var obj = {};
-        tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]').forEach(function(inp, i) {
-          obj[columns[i]] = inp.value;
-        });
+        var inputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]');
+        if (inputs.length === 0) return; // skip "No items" row
+        inputs.forEach(function(inp, i) { obj[columns[i]] = inp.value; });
         newRows.push(obj);
       });
       rows = newRows;
