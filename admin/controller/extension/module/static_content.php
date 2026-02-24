@@ -270,6 +270,13 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'sort_order' => 6,
                     'fields'     => [
                         'title' => ['type' => 'text'],
+                        'logos' => [
+                            'type'         => 'json',
+                            'schema'       => 'repeater',
+                            'columns'      => ['image', 'name'],
+                            'col_types'    => ['image' => 'image'],
+                            'translatable' => false,
+                        ],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
