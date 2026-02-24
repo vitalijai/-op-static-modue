@@ -66,8 +66,6 @@
         <div class="col-sm-9 col-md-10">
           <div class="tab-content" id="page-content">
 
-            {% set repIdx = 0 %}
-
             {% for pageKey, sections in registry %}
             <div class="tab-pane{% if pageKey == active_tab %} active{% endif %}" id="page-{{ pageKey }}">
 
@@ -102,8 +100,7 @@
                             {% endif %}
 
                             {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                              {% set repId = 'rep-' ~ repIdx %}
-                              {% set repIdx = repIdx + 1 %}
+                              {% set repId = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
                               <div class="repeater-container" id="{{ repId }}"
                                    data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                    data-lang="{{ language.language_id }}" data-translatable="1"
@@ -133,8 +130,7 @@
                         {% endif %}
 
                         {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                          {% set repId = 'rep-' ~ repIdx %}
-                          {% set repIdx = repIdx + 1 %}
+                          {% set repId = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
                           <div class="repeater-container" id="{{ repId }}"
                                data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                data-lang="0" data-translatable="0"
