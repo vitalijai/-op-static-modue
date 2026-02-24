@@ -137,8 +137,8 @@
                       {% else %}
                         {# === Non-translatable: single field === #}
                         {% set currentValue = '' %}
-                        {% if content[pageKey][sectionKey][fieldKey][0] is defined %}
-                          {% set currentValue = content[pageKey][sectionKey][fieldKey][0].value %}
+                        {% if content[pageKey][sectionKey][fieldKey]['0'] is defined %}
+                          {% set currentValue = content[pageKey][sectionKey][fieldKey]['0'].value %}
                         {% endif %}
 
                         {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}

@@ -28,6 +28,10 @@ class ControllerExtensionModuleStaticContent extends Controller {
         $data['text_success']   = $this->language->get('text_success');
         $data['button_save']    = $this->language->get('button_save');
         $data['button_cancel']  = $this->language->get('button_cancel');
+        $data['tab_header']     = $this->language->get('tab_header');
+        $data['tab_home']       = $this->language->get('tab_home');
+        $data['tab_footer']     = $this->language->get('tab_footer');
+        $data['tab_docs']       = $this->language->get('tab_docs');
 
         $data['breadcrumbs'] = [];
         $data['breadcrumbs'][] = [
@@ -48,8 +52,13 @@ class ControllerExtensionModuleStaticContent extends Controller {
         $data['success'] = isset($this->session->data['success']) ? $this->session->data['success'] : '';
         unset($this->session->data['success']);
 
-        // Языки
-        $data['languages'] = $this->model_localisation_language->getLanguages();
+        // Языки — приводим language_id к string для совпадения ключей в twig
+        $rawLangs = $this->model_localisation_language->getLanguages();
+        $data['languages'] = [];
+        foreach ($rawLangs as $lang) {
+            $lang['language_id'] = (string)$lang['language_id'];
+            $data['languages'][] = $lang;
+        }
 
         // Реестр секций
         $registry = $this->getSectionRegistry();

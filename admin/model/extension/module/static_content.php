@@ -48,7 +48,8 @@ class ModelExtensionModuleStaticContent extends Model {
 
         $result = [];
         foreach ($query->rows as $row) {
-            $result[$row['section']][$row['key']][$row['language_id']] = $row;
+            $langKey = (string)$row['language_id'];
+            $result[$row['section']][$row['key']][$langKey] = $row;
         }
         return $result;
     }
