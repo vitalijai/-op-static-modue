@@ -378,16 +378,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var section = container.dataset.section;
     var field   = container.dataset.field;
     var langId  = container.dataset.lang;
-    var columns = JSON.parse(container.dataset.columns);
-    var colTypes = JSON.parse(container.dataset.colTypes || '{}');
-    var translatable = container.dataset.translatable === '1';
-    var rows;
+    var columns, colTypes, rows;
 
-    try {
-      rows = JSON.parse(container.dataset.rows);
-    } catch(e) {
-      rows = [];
-    }
+    try { columns = JSON.parse(container.dataset.columns || '[]'); } catch(e) { columns = []; }
+    try { colTypes = JSON.parse(container.dataset.colTypes || '{}'); } catch(e) { colTypes = {}; }
+    if (!Array.isArray(columns) || columns.length === 0) return;
+
+    var translatable = container.dataset.translatable === '1';
+
+    try { rows = JSON.parse(container.dataset.rows || '[]'); } catch(e) { rows = []; }
     if (!Array.isArray(rows)) rows = [];
 
     function render() {
