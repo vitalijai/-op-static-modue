@@ -87,7 +87,7 @@
                       </div>
 
                       {% if fieldTranslatable %}
-                        <div class="ce-lang-grid ce-lang-cols-{{ languages|length }}">
+                        <div class="ce-lang-grid">
                           {% for language in languages %}
                           <div class="ce-lang-col">
                             <div class="ce-lang-flag">
@@ -142,7 +142,18 @@
                         {% elseif fieldDef.type == 'text' %}
                           <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" style="max-width:600px;" />
                         {% elseif fieldDef.type == 'image' %}
-                          <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control" placeholder="catalog/..." style="max-width:600px;" />
+                          <div class="ce-image-field">
+                            <div class="ce-image-preview">
+                              {% if currentValue %}<img src="/image/{{ currentValue }}" onerror="this.style.display='none'" />{% endif %}
+                            </div>
+                            <div class="input-group" style="max-width:600px;">
+                              <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ currentValue|e('html_attr') }}" class="form-control ce-image-input" placeholder="catalog/..." />
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default ce-image-browse" data-target="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]"><i class="fa fa-folder-open"></i></button>
+                                <button type="button" class="btn btn-danger ce-image-clear"><i class="fa fa-times"></i></button>
+                              </span>
+                            </div>
+                          </div>
                         {% endif %}
                       {% endif %}
 
@@ -252,12 +263,7 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
   .ce-field:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
   .ce-field-label { font-size:12px; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
 
-  .ce-lang-grid { display:grid; gap:12px; }
-  .ce-lang-cols-1 { grid-template-columns:1fr; }
-  .ce-lang-cols-2 { grid-template-columns:1fr 1fr; }
-  .ce-lang-cols-3 { grid-template-columns:1fr 1fr 1fr; }
-  .ce-lang-cols-4 { grid-template-columns:1fr 1fr; }
-  @media(min-width:1400px) { .ce-lang-cols-4 { grid-template-columns:1fr 1fr 1fr 1fr; } }
+  .ce-lang-grid { display:grid; gap:12px; grid-template-columns:1fr 1fr; }
   @media(max-width:991px) { .ce-lang-grid { grid-template-columns:1fr !important; } }
   .ce-lang-col { min-width:0; }
   .ce-lang-flag { font-size:11px; font-weight:600; color:#777; margin-bottom:5px; display:flex; align-items:center; gap:4px; }
@@ -280,6 +286,10 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
   .ce-hint-card { background:#f7f8fa; border:1px solid #e8e8e8; border-radius:6px; padding:14px; margin-bottom:12px; }
   .ce-hint-card h5 { margin:0 0 8px; font-size:13px; font-weight:600; }
   .ce-hint-card pre { font-size:11px; margin:8px 0 0; }
+  .ce-image-field { }
+  .ce-image-preview { margin-bottom:6px; }
+  .ce-image-preview img { max-height:60px; max-width:200px; border:1px solid #ddd; border-radius:4px; padding:2px; background:#f9f9f9; }
+
   .page-header { border-bottom:2px solid #e8e8e8; }
   .page-header h1 { font-size:22px; font-weight:600; }
   .page-header h1 .fa { color:#337ab7; }
@@ -331,6 +341,9 @@ document.addEventListener('DOMContentLoaded', function() {
           var cType = colTypes[col] || 'text';
           if (cType === 'textarea') {
             html += '<td><textarea name="repeater_temp">' + escapeHtml(val) + '</textarea></td>';
+          } else if (cType === 'image') {
+            var preview = val ? '<img src="/image/' + escapeHtml(val) + '" style="max-height:32px;max-width:80px;display:block;margin-bottom:3px;" onerror="this.style.display=\'none\'" />' : '';
+            html += '<td>' + preview + '<input type="text" name="repeater_temp" value="' + escapeHtml(val) + '" class="form-control input-sm" /></td>';
           } else {
             html += '<td><input type="text" name="repeater_temp" value="' + escapeHtml(val) + '" /></td>';
           }
@@ -390,6 +403,44 @@ document.addEventListener('DOMContentLoaded', function() {
     d.appendChild(document.createTextNode(t || ''));
     return d.innerHTML;
   }
+
+  // ===== File Manager (OC default) =====
+  $(document).on('click', '.ce-image-browse', function() {
+    var $btn = $(this);
+    var fieldName = $btn.data('target');
+    var $input = $btn.closest('.input-group').find('.ce-image-input');
+    var $preview = $btn.closest('.ce-image-field').find('.ce-image-preview');
+
+    // OC3 file manager popup
+    $('#modal-image').remove();
+    $.ajax({
+      url: 'index.php?route=common/filemanager&user_token=' + getURLVar('user_token'),
+      dataType: 'html',
+      success: function(html) {
+        $('body').append('<div id="modal-image" class="modal">' + html + '</div>');
+        $('#modal-image').modal('show');
+
+        // OC file manager triggers this on select
+        $(document).off('click', '#modal-image a[data-dismiss]');
+        $('#modal-image').on('click', '.btn-primary, a.thumbnail', function(e) {
+          // noop — OC filemanager has its own callback mechanism
+        });
+      }
+    });
+
+    // Global callback OC uses
+    window.filemanager_callback = function(path) {
+      $input.val(path);
+      $preview.html('<img src="/image/' + path + '" onerror="this.style.display=\'none\'" />');
+      $('#modal-image').modal('hide');
+    };
+  });
+
+  $(document).on('click', '.ce-image-clear', function() {
+    var $field = $(this).closest('.ce-image-field');
+    $field.find('.ce-image-input').val('');
+    $field.find('.ce-image-preview').html('');
+  });
 
   // ===== WYSIWYG =====
   if (typeof $.fn.summernote !== 'undefined') {
