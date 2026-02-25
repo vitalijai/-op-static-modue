@@ -413,6 +413,42 @@ document.addEventListener('DOMContentLoaded', function() {
     return d.innerHTML;
   }
 
+  // ===== Collect ALL repeaters before submit =====
+  document.getElementById('form-static-content').addEventListener('submit', function() {
+    document.querySelectorAll('.repeater-container').forEach(function(container) {
+      // Re-collect from DOM to hidden input
+      var columns, colTypes;
+      try { columns = JSON.parse(container.dataset.columns || '[]'); } catch(e) { columns = []; }
+      try { colTypes = JSON.parse(container.dataset.colTypes || '{}'); } catch(e) { colTypes = {}; }
+      if (!columns.length) return;
+
+      var newRows = [];
+      container.querySelectorAll('tbody tr').forEach(function(tr) {
+        var obj = {};
+        var textInputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]');
+        var colIdx = 0;
+        columns.forEach(function(col) {
+          var cType = colTypes[col] || 'text';
+          if (cType === 'image') {
+            var imgInput = tr.querySelector('input[data-col="' + col + '"]');
+            obj[col] = imgInput ? imgInput.value : '';
+          } else {
+            if (textInputs[colIdx]) {
+              obj[col] = textInputs[colIdx].value;
+              colIdx++;
+            } else {
+              obj[col] = '';
+            }
+          }
+        });
+        if (Object.keys(obj).length > 0) newRows.push(obj);
+      });
+
+      var h = container.querySelector('.repeater-json-value');
+      if (h) h.value = JSON.stringify(newRows);
+    });
+  });
+
   // ===== WYSIWYG =====
   if (typeof $.fn.summernote !== 'undefined') {
     $('.wysiwyg-editor').summernote({

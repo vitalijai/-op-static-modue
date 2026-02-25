@@ -124,7 +124,7 @@ class ModelExtensionModuleStaticContent extends Model {
             $type = $field['type'];
             $translatable = isset($field['translatable']) ? $field['translatable'] : true;
 
-            if (!$translatable || $type === 'image') {
+            if (!$translatable) {
                 // Не зависит от языка
                 $value = isset($post[$key]) ? $post[$key] : '';
                 if ($type === 'json' && is_array($value)) {
