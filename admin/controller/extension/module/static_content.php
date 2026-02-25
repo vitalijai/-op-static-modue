@@ -111,9 +111,18 @@ class ControllerExtensionModuleStaticContent extends Controller {
         $this->load->model('extension/module/static_content');
         $this->model_extension_module_static_content->install();
 
-        // Добавить пункт в меню
         $this->load->model('setting/setting');
         $this->model_setting_setting->editSetting('module_static_content', ['module_static_content_status' => 1]);
+
+        // Права доступа
+        $this->load->model('user/user_group');
+        $this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', 'extension/module/static_content');
+        $this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', 'extension/module/static_content');
+        $this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', 'extension/module/static_content_seeder');
+        $this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', 'extension/module/static_content_seeder');
+
+        // OCMOD — добавить пункт меню в column_left
+        $this->installOcmod();
     }
 
     /**
@@ -122,6 +131,64 @@ class ControllerExtensionModuleStaticContent extends Controller {
     public function uninstall() {
         $this->load->model('extension/module/static_content');
         $this->model_extension_module_static_content->uninstall();
+
+        // Удалить OCMOD
+        $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `code` = 'content_editor_menu'");
+
+        // Перегенерировать кеш модификаций
+        $this->clearModificationCache();
+    }
+
+    /**
+     * Регистрация OCMOD в базе данных.
+     */
+    private function installOcmod() {
+        // Проверяем, не установлен ли уже
+        $query = $this->db->query("SELECT modification_id FROM `" . DB_PREFIX . "modification` WHERE `code` = 'content_editor_menu'");
+        if ($query->num_rows) {
+            return;
+        }
+
+        $xml = file_get_contents(DIR_SYSTEM . 'install_ocmod.xml');
+        if (!$xml) {
+            // Fallback — читаем из модуля (может быть другой путь)
+            return;
+        }
+
+        $dom = new \DOMDocument('1.0', 'UTF-8');
+        $dom->loadXML($xml);
+
+        $name    = $dom->getElementsByTagName('name')->item(0)->textContent;
+        $code    = $dom->getElementsByTagName('code')->item(0)->textContent;
+        $author  = $dom->getElementsByTagName('author')->item(0)->textContent;
+        $version = $dom->getElementsByTagName('version')->item(0)->textContent;
+
+        $this->db->query("INSERT INTO `" . DB_PREFIX . "modification` SET
+            `name`        = '" . $this->db->escape($name) . "',
+            `code`        = '" . $this->db->escape($code) . "',
+            `author`      = '" . $this->db->escape($author) . "',
+            `version`     = '" . $this->db->escape($version) . "',
+            `link`        = '',
+            `xml`         = '" . $this->db->escape($xml) . "',
+            `status`      = '1',
+            `date_added`  = NOW()
+        ");
+
+        $this->clearModificationCache();
+    }
+
+    /**
+     * Перегенерация кеша модификаций (аналог admin Modifications → Refresh).
+     */
+    private function clearModificationCache() {
+        $files = glob(DIR_MODIFICATION . '*');
+        if ($files) {
+            foreach ($files as $file) {
+                if (is_file($file) && basename($file) !== 'index.html') {
+                    unlink($file);
+                }
+            }
+        }
     }
 
     /**
