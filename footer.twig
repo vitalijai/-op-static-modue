@@ -80,7 +80,7 @@
             {% for s in sf.social.items %}
               <a href="{{ s.url }}" class="logo-social-{{ s.platform }}" target="_blank" rel="noopener">
                 {% if s.icon %}
-                  {{ load_svg('image/' ~ s.icon) }}
+                  <img src="image/{{ s.icon }}" alt="{{ s.platform }}" width="32" height="32" />
                 {% else %}
                   {{ s.platform }}
                 {% endif %}
@@ -187,7 +187,7 @@
             {% for s in sf.social.items %}
               <a href="{{ s.url }}" class="logo-social-{{ s.platform }}" target="_blank" rel="noopener">
                 {% if s.icon %}
-                  {{ load_svg('image/' ~ s.icon) }}
+                  <img src="image/{{ s.icon }}" alt="{{ s.platform }}" width="32" height="32" />
                 {% else %}
                   {{ s.platform }}
                 {% endif %}
