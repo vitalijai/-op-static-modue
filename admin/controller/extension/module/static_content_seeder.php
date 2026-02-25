@@ -386,14 +386,27 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
 
         // --- faq ---
         $this->setT($m, $p, 'faq', 'title', [
-            1 => 'Загальні питання', 2 => 'General Questions',
-            3 => 'Allgemeine Fragen', 4 => 'Общие вопросы',
+            1 => 'Загальні', 2 => 'General',
+            3 => 'Allgemeine', 4 => 'Общие',
         ]);
+        $this->setT($m, $p, 'faq', 'title_highlight', [
+            1 => 'Питання', 2 => 'Questions',
+            3 => 'Fragen', 4 => 'Вопросы',
+        ]);
+        $this->setT($m, $p, 'faq', 'view_all_text', [
+            1 => 'Переглянути все', 2 => 'View All',
+            3 => 'Alle ansehen', 4 => 'Смотреть все',
+        ]);
+        $m->setValue($p, 'faq', 'view_all_href', 'text', '#', 0);
         $this->setT($m, $p, 'faq', 'desc', [
-            1 => 'Тут ви знайдете найпоширеніші запитання про нашу агенцію.',
-            2 => 'Here you will find the most frequently asked questions about our agency.',
-            3 => 'Hier finden Sie die häufigsten Fragen zu unserer Agentur.',
-            4 => 'Здесь вы найдёте самые частые вопросы о нашем агентстве.',
+            1 => 'Тут ви знайдете найпоширеніші запитання про нашу агенцію. Якщо не знайшли відповіді — перегляньте сторінку <a href="#">FAQ</a> або задайте своє питання там.',
+            2 => 'Here you will find the most frequently asked questions about our agency. If you did not find what you were looking for, perhaps your question will be found on the <a href="#">FAQ</a> page or you can ask your question there.',
+            3 => 'Hier finden Sie die häufigsten Fragen zu unserer Agentur. Falls Sie nichts gefunden haben, besuchen Sie die <a href="#">FAQ</a>-Seite.',
+            4 => 'Здесь вы найдёте самые частые вопросы о нашем агентстве. Если не нашли — загляните на страницу <a href="#">FAQ</a>.',
+        ]);
+        $this->setT($m, $p, 'faq', 'btn_text', [
+            1 => 'Переглянути все', 2 => 'View All',
+            3 => 'Alle ansehen', 4 => 'Смотреть все',
         ]);
         $this->setJson($m, $p, 'faq', 'items', 1, [
             ['question' => 'Як зв\'язатися з ріелтором?', 'answer' => 'Зателефонуйте, напишіть на email або заповніть форму на сайті. Відповідь протягом 30 хвилин.'],
