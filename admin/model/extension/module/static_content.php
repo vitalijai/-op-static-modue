@@ -127,6 +127,8 @@ class ModelExtensionModuleStaticContent extends Model {
             if (!$translatable) {
                 // Не зависит от языка
                 $value = isset($post[$key]) ? $post[$key] : '';
+                // OC3 Request::clean() применяет htmlspecialchars ко всем POST-данным — откатываем
+                $value = html_entity_decode($value, ENT_QUOTES, 'UTF-8');
                 if ($type === 'json' && is_array($value)) {
                     $value = json_encode($value, JSON_UNESCAPED_UNICODE);
                 }
@@ -136,6 +138,8 @@ class ModelExtensionModuleStaticContent extends Model {
                 foreach ($languages as $language) {
                     $lang_id = $language['language_id'];
                     $value = isset($post[$key][$lang_id]) ? $post[$key][$lang_id] : '';
+                    // OC3 Request::clean() применяет htmlspecialchars ко всем POST-данным — откатываем
+                    $value = html_entity_decode($value, ENT_QUOTES, 'UTF-8');
                     if ($type === 'json' && is_array($value)) {
                         $value = json_encode($value, JSON_UNESCAPED_UNICODE);
                     }
