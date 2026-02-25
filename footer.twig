@@ -80,7 +80,7 @@
             {% for s in sf.social.items %}
               <a href="{{ s.url }}" class="logo-social-{{ s.platform }}" target="_blank" rel="noopener">
                 {% if s.icon %}
-                  <img src="image/{{ s.icon }}" alt="{{ s.platform }}" width="32" height="32" />
+                  {{ load_svg('image/' ~ s.icon) }}
                 {% else %}
                   {{ s.platform }}
                 {% endif %}
@@ -89,7 +89,7 @@
           {% endif %}
         </div>
 
-        <!-- Навигация -->
+        <!-- Навигація -->
         <div class="footer__navigation-container footer__row-container">
           <h3>{{ sf.nav.title }} <svg xmlns="http://www.w3.org/2000/svg" class="arrow-list-mobile-svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
               <path d="M6.82725 0H1.0021C0.0723016 0 -0.354209 1.15797 0.353448 1.76108L3.46019 4.40888C3.85322 4.74385 4.43666 4.72446 4.80659 4.36414L7.52499 1.71635C8.16774 1.09029 7.72451 0 6.82725 0Z" fill="white"/>
@@ -187,7 +187,7 @@
             {% for s in sf.social.items %}
               <a href="{{ s.url }}" class="logo-social-{{ s.platform }}" target="_blank" rel="noopener">
                 {% if s.icon %}
-                  <img src="image/{{ s.icon }}" alt="{{ s.platform }}" width="32" height="32" />
+                  {{ load_svg('image/' ~ s.icon) }}
                 {% else %}
                   {{ s.platform }}
                 {% endif %}
