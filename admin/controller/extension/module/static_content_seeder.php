@@ -177,10 +177,16 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
 
         // --- key_features ---
         $this->setT($m, $p, 'key_features', 'title', [
-            1 => 'Агенція нерухомості «Ріелтор» — це',
-            2 => 'Estate Agency "Realtor" Is This',
-            3 => 'Immobilienagentur „Realtor" — das ist',
-            4 => 'Агентство недвижимости «Риелтор» — это',
+            1 => 'Агенція нерухомості', 2 => 'Estate Agency',
+            3 => 'Immobilienagentur', 4 => 'Агентство недвижимости',
+        ]);
+        $this->setT($m, $p, 'key_features', 'title_highlight', [
+            1 => '«Ріелтор»', 2 => '"Realtor"',
+            3 => '„Realtor"', 4 => '«Риелтор»',
+        ]);
+        $this->setT($m, $p, 'key_features', 'title_suffix', [
+            1 => '— це', 2 => 'Is This',
+            3 => '— das ist', 4 => '— это',
         ]);
         $this->setJson($m, $p, 'key_features', 'items', 1, [
             ['icon' => 'catalog/svg/key-features/database.svg', 'description' => 'Найбільша база продажу та оренди нерухомості'],

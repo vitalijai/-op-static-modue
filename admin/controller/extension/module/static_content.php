@@ -259,7 +259,9 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'Key Features',
                     'sort_order' => 1,
                     'fields'     => [
-                        'title' => ['type' => 'text'],
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'title_suffix'    => ['type' => 'text'],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
