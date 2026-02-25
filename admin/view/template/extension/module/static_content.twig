@@ -102,10 +102,9 @@
 
                             {% elseif fieldDef.type == 'image' %}
                               {% set iid = 'img-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
-                              {% set thumb = thumbs[cv] is defined ? thumbs[cv] : placeholder %}
                               <div class="ce-img-widget">
                                 <a href="" id="thumb-{{ iid }}" data-toggle="image" class="img-thumbnail">
-                                  <img src="{{ thumb }}" alt="" data-placeholder="{{ placeholder }}" />
+                                  <img src="{{ cv ? image_base ~ cv : placeholder }}" alt="" data-placeholder="{{ placeholder }}" />
                                 </a>
                                 <input type="hidden" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ cv }}" id="input-{{ iid }}" />
                               </div>
@@ -135,10 +134,9 @@
 
                         {% elseif fieldDef.type == 'image' %}
                           {% set iid = 'img-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
-                          {% set thumb = thumbs[cv] is defined ? thumbs[cv] : placeholder %}
                           <div class="ce-img-widget">
                             <a href="" id="thumb-{{ iid }}" data-toggle="image" class="img-thumbnail">
-                              <img src="{{ thumb }}" alt="" data-placeholder="{{ placeholder }}" />
+                              <img src="{{ cv ? image_base ~ cv : placeholder }}" alt="" data-placeholder="{{ placeholder }}" />
                             </a>
                             <input type="hidden" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ cv }}" id="input-{{ iid }}" />
                           </div>
@@ -245,6 +243,7 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
 document.addEventListener('DOMContentLoaded', function() {
 
   var placeholder = '{{ placeholder }}';
+  var imageBase = '{{ image_base }}';
 
   // ===== Repeater =====
   document.querySelectorAll('.repeater-container').forEach(function(container) {
@@ -293,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
           } else if (cType === 'image') {
             // Image with OC3 file manager
             var iid = 'rep-img-' + container.id + '-' + idx + '-' + col;
-            var imgSrc = val ? '/image/' + val : ph;
+            var imgSrc = val ? imageBase + val : ph;
             html += '<td>';
             html += '<a href="" id="thumb-' + iid + '" data-toggle="image" class="img-thumbnail"><img src="' + imgSrc + '" data-placeholder="' + ph + '" /></a>';
             html += '<input type="hidden" name="repeater_temp_img" value="' + escapeHtml(val) + '" id="input-' + iid + '" data-col="' + col + '" />';
@@ -398,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var thumb = document.getElementById(iid);
         if (thumb) {
           var img = thumb.querySelector('img');
-          if (img) img.src = inp.value ? '/image/' + inp.value : placeholder;
+          if (img) img.src = inp.value ? imageBase + inp.value : placeholder;
         }
         // Trigger collect
         var cont = inp.closest('.repeater-container');

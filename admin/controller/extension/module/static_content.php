@@ -83,19 +83,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
             $data['placeholder'] = '';
         }
 
-        // Pre-generate thumbs for existing image values
-        $data['thumbs'] = [];
-        foreach ($data['content'] as $page => $sections) {
-            foreach ($sections as $section => $fields) {
-                foreach ($fields as $key => $langs) {
-                    foreach ($langs as $langId => $row) {
-                        if ($row['type'] === 'image' && !empty($row['value']) && is_file(DIR_IMAGE . $row['value'])) {
-                            $data['thumbs'][$row['value']] = $this->model_tool_image->resize($row['value'], 100, 100);
-                        }
-                    }
-                }
-            }
-        }
+        // Базовый URL к папке image/ для прямого отображения
+        $data['image_base'] = defined('HTTPS_CATALOG') ? HTTPS_CATALOG . 'image/' : HTTP_CATALOG . 'image/';
 
         $data['header']      = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
