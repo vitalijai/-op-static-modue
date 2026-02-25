@@ -245,38 +245,43 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
 
         // --- achievements ---
         $this->setT($m, $p, 'achievements', 'title', [
-            1 => 'Досягнення компанії', 2 => 'Company Achievements',
-            3 => 'Unternehmensleistungen', 4 => 'Достижения компании',
+            1 => 'Досягнення', 2 => 'Company',
+            3 => 'Unternehmens', 4 => 'Достижения',
+        ]);
+        $this->setT($m, $p, 'achievements', 'title_highlight', [
+            1 => 'компанії', 2 => 'Achievements',
+            3 => 'leistungen', 4 => 'компании',
         ]);
         $this->setT($m, $p, 'achievements', 'desc', [
-            1 => 'Наша компанія не просто займається нерухомістю — ми створюємо безклопітні, вигідні та комфортні угоди, змінюючи ринок на краще.',
-            2 => 'Our company doesn\'t just deal with real estate - we create hassle-free, profitable and comfortable deals, changing the market for the better.',
-            3 => 'Unser Unternehmen handelt nicht nur mit Immobilien — wir schaffen unkomplizierte, profitable und komfortable Geschäfte und verändern den Markt zum Besseren.',
-            4 => 'Наша компания не просто занимается недвижимостью — мы создаём беспроблемные, выгодные и комфортные сделки, меняя рынок к лучшему.',
+            1 => 'Наша компанія не просто займається нерухомістю — ми створюємо безклопітні, вигідні та комфортні угоди, змінюючи ринок на краще. За роки роботи ми досягли значних результатів:',
+            2 => 'Our company doesn\'t just deal with real estate - we create hassle-free, profitable and comfortable deals, changing the market for the better. Over the years of work, we have achieved significant results:',
+            3 => 'Unser Unternehmen handelt nicht nur mit Immobilien — wir schaffen unkomplizierte, profitable und komfortable Geschäfte. Im Laufe der Jahre haben wir bedeutende Ergebnisse erzielt:',
+            4 => 'Наша компания не просто занимается недвижимостью — мы создаём беспроблемные, выгодные и комфортные сделки, меняя рынок к лучшему. За годы работы мы достигли значительных результатов:',
         ]);
+        $m->setValue($p, 'achievements', 'image', 'image', 'catalog/company-achivment-image.png', 0);
         $this->setJson($m, $p, 'achievements', 'items', 1, [
-            ['value' => '19', 'suffix' => '', 'label' => 'років досвіду роботи', 'description' => 'Ми працюємо для вас з 2006 року'],
-            ['value' => '10108', 'suffix' => '', 'label' => 'успішних угод', 'description' => 'Сотні задоволених клієнтів знайшли своє ідеальне житло'],
-            ['value' => '2453', 'suffix' => '', 'label' => 'ексклюзивних об\'єктів', 'description' => 'Нерухомість, яку ви не знайдете у відкритому доступі'],
-            ['value' => '80', 'suffix' => '%', 'label' => 'нових клієнтів', 'description' => 'Прийшли за рекомендацією друзів та партнерів'],
+            ['value' => '19', 'is_percent' => '', 'label' => 'років досвіду роботи', 'description' => 'Ми працюємо для вас з 2006 року, пропонуючи лише найкращі рішення у сфері нерухомості'],
+            ['value' => '10108', 'is_percent' => '', 'label' => 'успішних угод', 'description' => 'Успішні угоди — це не просто цифра, а сотні задоволених клієнтів, які знайшли своє ідеальне житло'],
+            ['value' => '2453', 'is_percent' => '', 'label' => 'ексклюзивних об\'єктів', 'description' => 'Ми пропонуємо нерухомість, яку ви не знайдете у відкритому доступі'],
+            ['value' => '80', 'is_percent' => '1', 'label' => 'нових клієнтів', 'description' => 'Більшість клієнтів — ті, хто прийшов за рекомендацією друзів, колег або партнерів'],
         ]);
         $this->setJson($m, $p, 'achievements', 'items', 2, [
-            ['value' => '19', 'suffix' => '', 'label' => 'years of experience', 'description' => 'Working for you since 2006'],
-            ['value' => '10108', 'suffix' => '', 'label' => 'successful deals', 'description' => 'Hundreds of satisfied clients found their perfect home'],
-            ['value' => '2453', 'suffix' => '', 'label' => 'exclusive objects', 'description' => 'Real estate you won\'t find in the public domain'],
-            ['value' => '80', 'suffix' => '%', 'label' => 'new customers', 'description' => 'Came on recommendation of friends and partners'],
+            ['value' => '19', 'is_percent' => '', 'label' => 'years of work experience', 'description' => 'We have been working for you since 2006, offering only the best real estate solutions'],
+            ['value' => '10108', 'is_percent' => '', 'label' => 'successful deals', 'description' => 'Successful deals are not just a number, but hundreds of satisfied clients who found their perfect home'],
+            ['value' => '2453', 'is_percent' => '', 'label' => 'exclusive objects', 'description' => 'We offer real estate that you will not find in the public domain'],
+            ['value' => '80', 'is_percent' => '1', 'label' => 'new customers', 'description' => 'Most of our clients came on the recommendation of friends, colleagues or partners'],
         ]);
         $this->setJson($m, $p, 'achievements', 'items', 3, [
-            ['value' => '19', 'suffix' => '', 'label' => 'Jahre Erfahrung', 'description' => 'Seit 2006 für Sie tätig'],
-            ['value' => '10108', 'suffix' => '', 'label' => 'erfolgreiche Geschäfte', 'description' => 'Hunderte zufriedener Kunden fanden ihr Traumhaus'],
-            ['value' => '2453', 'suffix' => '', 'label' => 'exklusive Objekte', 'description' => 'Immobilien, die Sie nicht öffentlich finden'],
-            ['value' => '80', 'suffix' => '%', 'label' => 'Neukunden', 'description' => 'Kamen auf Empfehlung von Freunden und Partnern'],
+            ['value' => '19', 'is_percent' => '', 'label' => 'Jahre Erfahrung', 'description' => 'Seit 2006 für Sie tätig mit den besten Immobilienlösungen'],
+            ['value' => '10108', 'is_percent' => '', 'label' => 'erfolgreiche Geschäfte', 'description' => 'Hunderte zufriedener Kunden fanden ihr perfektes Zuhause'],
+            ['value' => '2453', 'is_percent' => '', 'label' => 'exklusive Objekte', 'description' => 'Immobilien, die Sie nicht öffentlich finden werden'],
+            ['value' => '80', 'is_percent' => '1', 'label' => 'Neukunden', 'description' => 'Kamen auf Empfehlung von Freunden, Kollegen oder Partnern'],
         ]);
         $this->setJson($m, $p, 'achievements', 'items', 4, [
-            ['value' => '19', 'suffix' => '', 'label' => 'лет опыта', 'description' => 'Работаем для вас с 2006 года'],
-            ['value' => '10108', 'suffix' => '', 'label' => 'успешных сделок', 'description' => 'Сотни довольных клиентов нашли идеальное жильё'],
-            ['value' => '2453', 'suffix' => '', 'label' => 'эксклюзивных объектов', 'description' => 'Недвижимость, которую не найдёте в открытом доступе'],
-            ['value' => '80', 'suffix' => '%', 'label' => 'новых клиентов', 'description' => 'Пришли по рекомендации друзей и партнёров'],
+            ['value' => '19', 'is_percent' => '', 'label' => 'лет опыта работы', 'description' => 'Работаем для вас с 2006 года, предлагая лучшие решения в сфере недвижимости'],
+            ['value' => '10108', 'is_percent' => '', 'label' => 'успешных сделок', 'description' => 'Сотни довольных клиентов нашли своё идеальное жильё'],
+            ['value' => '2453', 'is_percent' => '', 'label' => 'эксклюзивных объектов', 'description' => 'Недвижимость, которую не найдёте в открытом доступе'],
+            ['value' => '80', 'is_percent' => '1', 'label' => 'новых клиентов', 'description' => 'Большинство пришли по рекомендации друзей, коллег или партнёров'],
         ]);
 
         // --- agency ---
@@ -284,6 +289,7 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             1 => 'Агенція нерухомості «РІЕЛТОР»', 2 => 'Real Estate Agency "REALTOR"',
             3 => 'Immobilienagentur „REALTOR"', 4 => 'Агентство недвижимости «РИЕЛТОР»',
         ]);
+        $m->setValue($p, 'agency', 'image', 'image', 'catalog/logo/logo-old.png', 0);
         $this->setT($m, $p, 'agency', 'text', [
             1 => '<p>• інформаційні послуги у напрямку продажу та оренди, включаючи подобову, обміну, купівлі житлової нерухомості</p><p>• первинний та вторинний ринки; комерційна нерухомість</p><p>• гіпермаркети, торговельні центри, магазини, ресторани, кафе, бари, офіси тощо</p><p>• цілісні майнові комплекси, готовий бізнес, склади, агропромислові комплекси; земельні ділянки</p><p>Малі та великі інвестиційні проекти. Експертна оцінка. Супровід при складанні договору купівлі-продажу. Комісію сплачують власники нерухомості за ексклюзивними договорами. Велика база нерухомості ведеться з 2006 року.</p>',
             2 => '<p>• information services: sale, rental, daily rental, exchange, purchase of residential real estate</p><p>• primary and secondary markets; commercial real estate</p><p>• hypermarkets, shopping centers, shops, restaurants, cafes, offices, etc.</p><p>• integral property complexes, ready-made businesses, warehouses; land plots</p><p>Small and large investment projects. Expert assessment. Support in drawing up contracts. Commission is paid by property owners under exclusive agreements. Large real estate database maintained since 2006.</p>',

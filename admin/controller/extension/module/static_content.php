@@ -294,12 +294,15 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'Company Achievements',
                     'sort_order' => 4,
                     'fields'     => [
-                        'title' => ['type' => 'text'],
-                        'desc'  => ['type' => 'textarea'],
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'desc'            => ['type' => 'textarea'],
+                        'image'           => ['type' => 'image', 'translatable' => false],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['value', 'suffix', 'label', 'description'],
+                            'columns' => ['value', 'is_percent', 'label', 'description'],
+                            'col_types' => ['description' => 'textarea'],
                         ],
                     ],
                 ],
@@ -308,6 +311,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'sort_order' => 5,
                     'fields'     => [
                         'title' => ['type' => 'text'],
+                        'image' => ['type' => 'image', 'translatable' => false],
                         'text'  => ['type' => 'wysiwyg'],
                     ],
                 ],
