@@ -394,10 +394,12 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'Contacts',
                     'sort_order' => 1,
                     'fields'     => [
-                        'address_street' => ['type' => 'text'],
-                        'address_city'   => ['type' => 'text'],
-                        'phone_office'   => ['type' => 'text', 'translatable' => false],
-                        'phone_mobile'   => ['type' => 'text', 'translatable' => false],
+                        'address_street'     => ['type' => 'text'],
+                        'address_city'       => ['type' => 'text'],
+                        'phone_office_label' => ['type' => 'text'],
+                        'phone_office'       => ['type' => 'text', 'translatable' => false],
+                        'phone_mobile_label' => ['type' => 'text'],
+                        'phone_mobile'       => ['type' => 'text', 'translatable' => false],
                     ],
                 ],
                 'about_links' => [

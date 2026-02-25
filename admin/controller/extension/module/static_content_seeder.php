@@ -443,7 +443,13 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             1 => 'Івано-Франківськ', 2 => 'Ivano-Frankivsk',
             3 => 'Iwano-Frankiwsk', 4 => 'Ивано-Франковск',
         ]);
+        $this->setT($m, $p, 'contacts', 'phone_office_label', [
+            1 => 'офіс:', 2 => 'office:', 3 => 'Büro:', 4 => 'офис:',
+        ]);
         $m->setValue($p, 'contacts', 'phone_office', 'text', '+38 (0342) 501-303', 0);
+        $this->setT($m, $p, 'contacts', 'phone_mobile_label', [
+            1 => 'моб.:', 2 => 'mobile:', 3 => 'Mobil:', 4 => 'моб.:',
+        ]);
         $m->setValue($p, 'contacts', 'phone_mobile', 'text', '+38 (067) 343-80-74', 0);
 
         // --- about_links ---

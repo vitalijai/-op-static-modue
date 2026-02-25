@@ -31,12 +31,12 @@
             <span class="logo-address-city">{{ sf.contacts.address_city }}</span>
             {% if sf.contacts.phone_office %}
               <a class="logo-address-office" href="tel:{{ sf.contacts.phone_office|replace({' ': '', '(': '', ')': '', '-': ''}) }}">
-                office: {{ sf.contacts.phone_office }}
+                {{ sf.contacts.phone_office_label }} {{ sf.contacts.phone_office }}
               </a>
             {% endif %}
             {% if sf.contacts.phone_mobile %}
               <a class="logo-address-phone" href="tel:{{ sf.contacts.phone_mobile|replace({' ': '', '(': '', ')': '', '-': ''}) }}">
-                mobile: {{ sf.contacts.phone_mobile }}
+                {{ sf.contacts.phone_mobile_label }} {{ sf.contacts.phone_mobile }}
               </a>
             {% endif %}
           </div>
