@@ -18,7 +18,7 @@
           <!-- Лого -->
           <div class="footer__logo">
             {% if sf.logo.image %}
-              <img src="image/{{ sf.logo.image }}" alt="REALTOR" class="footer-logo-img" />
+              {{ load_svg('image/' ~ sf.logo.image) }}
             {% endif %}
             <div class="logo-box">
               <span class="logo-span-main">REALTOR</span>
@@ -51,25 +51,11 @@
           <!-- Email input -->
           <div class="email-input">
             <span class="email-input__icon-left">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <g opacity="0.6">
-                  <path d="M17.25 11.25C13.95 11.25 11.25 13.95 11.25 17.25C11.25 20.55 13.95 23.25 17.25 23.25C20.55 23.25 23.25 20.55 23.25 17.25C23.25 13.95 20.55 11.25 17.25 11.25ZM19.5 18H18V19.5C18 19.95 17.7 20.25 17.25 20.25C16.8 20.25 16.5 19.95 16.5 19.5V18H15C14.55 18 14.25 17.7 14.25 17.25C14.25 16.8 14.55 16.5 15 16.5H16.5V15C16.5 14.55 16.8 14.25 17.25 14.25C17.7 14.25 18 14.55 18 15V16.5H19.5C19.95 16.5 20.25 16.8 20.25 17.25C20.25 17.7 19.95 18 19.5 18Z" fill="white"/>
-                  <path d="M9.75 17.25C9.75 16.2 9.975 15.15 10.425 14.25C10.275 14.25 10.125 14.175 10.05 14.1L8.85 13.05L5.025 16.35C4.875 16.425 4.65 16.5 4.5 16.5C4.275 16.5 4.05 16.425 3.9 16.275C3.6 15.975 3.675 15.525 3.975 15.225L7.65 12.075L3.975 8.925C3.675 8.625 3.6 8.175 3.9 7.875C4.2 7.575 4.65 7.5 4.95 7.8L10.425 12.6L15.9 7.8C16.2 7.5 16.65 7.575 16.95 7.875C17.25 8.175 17.175 8.625 16.875 8.925L15.75 9.9C16.2 9.825 16.725 9.75 17.25 9.75C18.3 9.75 19.35 9.975 20.25 10.35V6.75C20.25 5.475 19.275 4.5 18 4.5H3C1.725 4.5 0.75 5.475 0.75 6.75V17.25C0.75 18.525 1.725 19.5 3 19.5H10.125C9.9 18.825 9.75 18 9.75 17.25Z" fill="white"/>
-                </g>
-              </svg>
+              {{ load_svg('image/catalog/svg/ui/email-icon.svg') }}
             </span>
             <input type="email" class="email-input__field" placeholder="Enter your e-mail" />
             <button class="email-input__send">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <g clip-path="url(#clip0_1789_1123)">
-                  <path d="M20.7825 3.21745C20.6813 3.1167 20.5534 3.04695 20.4139 3.01639C20.2744 2.98584 20.1291 2.99574 19.995 3.04495L3.495 9.04495C3.3527 9.09892 3.23019 9.19491 3.14374 9.32016C3.05729 9.44542 3.01099 9.59401 3.01099 9.7462C3.01099 9.89839 3.05729 10.047 3.14374 10.1722C3.23019 10.2975 3.3527 10.3935 3.495 10.4474L9.9375 13.0199L14.6925 8.24995L15.75 9.30745L10.9725 14.0849L13.5525 20.5275C13.6081 20.667 13.7043 20.7866 13.8286 20.8709C13.953 20.9551 14.0998 21.0001 14.25 20.9999C14.4016 20.9968 14.5486 20.9479 14.6718 20.8595C14.795 20.7711 14.8885 20.6475 14.94 20.5049L20.94 4.00495C20.9911 3.87226 21.0034 3.72777 20.9755 3.58834C20.9477 3.44891 20.8807 3.32028 20.7825 3.21745Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1789_1123">
-                    <rect width="24" height="24" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
+              {{ load_svg('image/catalog/svg/ui/email-send.svg') }}
             </button>
           </div>
         </div>
@@ -89,11 +75,9 @@
           {% endif %}
         </div>
 
-        <!-- Навигація -->
+        <!-- Навигация -->
         <div class="footer__navigation-container footer__row-container">
-          <h3>{{ sf.nav.title }} <svg xmlns="http://www.w3.org/2000/svg" class="arrow-list-mobile-svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
-              <path d="M6.82725 0H1.0021C0.0723016 0 -0.354209 1.15797 0.353448 1.76108L3.46019 4.40888C3.85322 4.74385 4.43666 4.72446 4.80659 4.36414L7.52499 1.71635C8.16774 1.09029 7.72451 0 6.82725 0Z" fill="white"/>
-            </svg></h3>
+          <h3>{{ sf.nav.title }} {{ load_svg('image/catalog/svg/ui/arrow-list-mobile.svg') }}</h3>
           <div class="footer__navigation-box footer__row-box">
             {% if sf.nav.items %}
               {% set col1 = [] %}
@@ -121,9 +105,7 @@
 
         <!-- Лева часть -->
         <div class="footer__rowLeft-form footer__row-container">
-          <h3>{{ sf.listing_left.title }} <svg xmlns="http://www.w3.org/2000/svg" class="arrow-list-mobile-svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
-              <path d="M6.82725 0H1.0021C0.0723016 0 -0.354209 1.15797 0.353448 1.76108L3.46019 4.40888C3.85322 4.74385 4.43666 4.72446 4.80659 4.36414L7.52499 1.71635C8.16774 1.09029 7.72451 0 6.82725 0Z" fill="white"/>
-            </svg></h3>
+          <h3>{{ sf.listing_left.title }} {{ load_svg('image/catalog/svg/ui/arrow-list-mobile.svg') }}</h3>
           <div class="footer__rowLeft-box footer__row-box">
             {% if sf.listing_left.items %}
               {% set col1 = [] %}
@@ -151,9 +133,7 @@
 
         <!-- Правая часть -->
         <div class="footer__rowRight-form footer__row-container">
-          <h3>{{ sf.listing_right.title }} <svg xmlns="http://www.w3.org/2000/svg" class="arrow-list-mobile-svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
-              <path d="M6.82725 0H1.0021C0.0723016 0 -0.354209 1.15797 0.353448 1.76108L3.46019 4.40888C3.85322 4.74385 4.43666 4.72446 4.80659 4.36414L7.52499 1.71635C8.16774 1.09029 7.72451 0 6.82725 0Z" fill="white"/>
-            </svg></h3>
+          <h3>{{ sf.listing_right.title }} {{ load_svg('image/catalog/svg/ui/arrow-list-mobile.svg') }}</h3>
           <div class="footer__rowRight-box footer__row-box">
             {% if sf.listing_right.items %}
               {% set col1 = [] %}
