@@ -369,8 +369,12 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'FAQ / Questions',
                     'sort_order' => 10,
                     'fields'     => [
-                        'title' => ['type' => 'text'],
-                        'desc'  => ['type' => 'textarea'],
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'view_all_text'   => ['type' => 'text'],
+                        'view_all_href'   => ['type' => 'text', 'translatable' => false],
+                        'desc'            => ['type' => 'textarea'],
+                        'btn_text'        => ['type' => 'text'],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
