@@ -32,6 +32,7 @@
                   {% if pageKey == 'header' %}<i class="fa fa-arrow-up"></i> <span>{{ tab_header }}</span>
                   {% elseif pageKey == 'home' %}<i class="fa fa-home"></i> <span>{{ tab_home }}</span>
                   {% elseif pageKey == 'menu' %}<i class="fa fa-sitemap"></i> <span>Mega Menu</span>
+                  {% elseif pageKey == 'mobile' %}<i class="fa fa-mobile"></i> <span>Mobile Menu</span>
                   {% elseif pageKey == 'footer' %}<i class="fa fa-arrow-down"></i> <span>{{ tab_footer }}</span>
                   {% else %}<i class="fa fa-file-o"></i> <span>{{ pageKey|capitalize }}</span>{% endif %}
                   <span class="badge pull-right">{{ sections|length }}</span>
@@ -59,7 +60,7 @@
             <div class="tab-pane{% if pageKey == active_tab %} active{% endif %}" id="page-{{ pageKey }}">
 
               {# ===== MEGA MENU — special layout ===== #}
-              {% if pageKey == 'menu' %}
+              {% if pageKey == 'menu' or pageKey == 'mobile' %}
               <div class="ce-mega-menu">
                 <div class="ce-mega-header">
                   <h3><i class="fa fa-sitemap"></i> Mega Menu</h3>

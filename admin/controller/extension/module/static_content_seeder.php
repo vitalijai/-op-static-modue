@@ -18,6 +18,7 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
 
         $this->seedHeader($m);
         $this->seedMenu($m);
+        $this->seedMobile($m);
         $this->seedHome($m);
         $this->seedFooter($m);
 
@@ -201,6 +202,14 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['platform' => 'twitter', 'icon' => 'catalog/svg/social/twitter.svg', 'url' => '#'],
             ['platform' => 'tiktok', 'icon' => 'catalog/svg/social/tiktok.svg', 'url' => '#'],
         ]);
+
+    }
+
+    // ============================================================
+    //  MOBILE MENU
+    // ============================================================
+    private function seedMobile($m) {
+        $p = 'mobile';
 
         // --- bottom_menu (mobile bottom nav bar) ---
         $this->setT($m, $p, 'bottom_menu', 'items', [

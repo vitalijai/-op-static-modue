@@ -268,10 +268,14 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         ],
                     ],
                 ],
+            ],
+
+            // ===================== MOBILE MENU =====================
+            'mobile' => [
                 'bottom_menu' => [
-                    'label'      => 'Мобільне нижнє меню',
-                    'sort_order' => 6,
-                    'icon'       => 'fa-mobile',
+                    'label'      => 'Нижня панель навігації',
+                    'sort_order' => 0,
+                    'icon'       => 'fa-ellipsis-h',
                     'fields'     => [
                         'items' => [
                             'type'    => 'json',
@@ -283,7 +287,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                 ],
                 'drop_realty' => [
                     'label'      => 'Випадашка: Нерухомість',
-                    'sort_order' => 7,
+                    'sort_order' => 1,
                     'icon'       => 'fa-building',
                     'fields'     => [
                         'items' => [
@@ -295,7 +299,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                 ],
                 'drop_blog' => [
                     'label'      => 'Випадашка: Блог',
-                    'sort_order' => 8,
+                    'sort_order' => 2,
                     'icon'       => 'fa-newspaper-o',
                     'fields'     => [
                         'items' => [
