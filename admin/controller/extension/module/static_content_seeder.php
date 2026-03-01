@@ -17,6 +17,7 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $this->db->query("TRUNCATE TABLE `" . DB_PREFIX . "static_content`");
 
         $this->seedHeader($m);
+        $this->seedMenu($m);
         $this->seedHome($m);
         $this->seedFooter($m);
 
@@ -40,7 +41,22 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             4 => 'Агентство недвижимости',
         ]);
 
-        // --- nav ---
+        // --- logo ---
+        $m->setValue($p, 'logo', 'image', 'image', 'catalog/svg/logo.svg', 0);
+
+        // --- phone ---
+        $m->setValue($p, 'phone', 'office', 'text', '+38 (0342) 501-303', 0);
+        $m->setValue($p, 'phone', 'mobile', 'text', '+38 (067) 343-80-74', 0);
+
+    }
+
+    // ============================================================
+    //  MEGA MENU
+    // ============================================================
+    private function seedMenu($m) {
+        $p = 'menu';
+
+        // --- nav (головна навігація) ---
         $this->setJson($m, $p, 'nav', 'items', 1, [
             ['text' => 'Головна',                    'href' => '/'],
             ['text' => 'Про нас',                     'href' => '#'],
@@ -144,22 +160,6 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['text' => 'Бронирование отелей', 'href' => '#'],
         ]);
 
-        // --- menu_socials (mobile menu social links) ---
-        $this->setJson($m, $p, 'menu_socials', 'items', 0, [
-            ['platform' => 'youtube', 'icon' => 'catalog/svg/social/youtube.svg', 'url' => '#'],
-            ['platform' => 'facebook', 'icon' => 'catalog/svg/social/facebook.svg', 'url' => '#'],
-            ['platform' => 'instagram', 'icon' => 'catalog/svg/social/instagram.svg', 'url' => '#'],
-            ['platform' => 'twitter', 'icon' => 'catalog/svg/social/twitter.svg', 'url' => '#'],
-            ['platform' => 'tiktok', 'icon' => 'catalog/svg/social/tiktok.svg', 'url' => '#'],
-        ]);
-
-        // --- logo ---
-        $m->setValue($p, 'logo', 'image', 'image', 'catalog/svg/logo.svg', 0);
-
-        // --- phone ---
-        $m->setValue($p, 'phone', 'office', 'text', '+38 (0342) 501-303', 0);
-        $m->setValue($p, 'phone', 'mobile', 'text', '+38 (067) 343-80-74', 0);
-
         // --- menu_information ---
         $this->setJson($m, $p, 'menu_information', 'items', 1, [
             ['text' => 'Довідник', 'href' => '#'], ['text' => 'Погода', 'href' => '#'],
@@ -176,6 +176,15 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $this->setJson($m, $p, 'menu_information', 'items', 4, [
             ['text' => 'Справочник', 'href' => '#'], ['text' => 'Погода', 'href' => '#'],
             ['text' => 'FAQ', 'href' => '#'], ['text' => 'Помощь', 'href' => '#'],
+        ]);
+
+        // --- menu_socials ---
+        $this->setJson($m, $p, 'menu_socials', 'items', 0, [
+            ['platform' => 'youtube', 'icon' => 'catalog/svg/social/youtube.svg', 'url' => '#'],
+            ['platform' => 'facebook', 'icon' => 'catalog/svg/social/facebook.svg', 'url' => '#'],
+            ['platform' => 'instagram', 'icon' => 'catalog/svg/social/instagram.svg', 'url' => '#'],
+            ['platform' => 'twitter', 'icon' => 'catalog/svg/social/twitter.svg', 'url' => '#'],
+            ['platform' => 'tiktok', 'icon' => 'catalog/svg/social/tiktok.svg', 'url' => '#'],
         ]);
     }
 

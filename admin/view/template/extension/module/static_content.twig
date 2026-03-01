@@ -31,6 +31,7 @@
                 <a href="#page-{{ pageKey }}" data-toggle="pill">
                   {% if pageKey == 'header' %}<i class="fa fa-arrow-up"></i> <span>{{ tab_header }}</span>
                   {% elseif pageKey == 'home' %}<i class="fa fa-home"></i> <span>{{ tab_home }}</span>
+                  {% elseif pageKey == 'menu' %}<i class="fa fa-sitemap"></i> <span>Mega Menu</span>
                   {% elseif pageKey == 'footer' %}<i class="fa fa-arrow-down"></i> <span>{{ tab_footer }}</span>
                   {% else %}<i class="fa fa-file-o"></i> <span>{{ pageKey|capitalize }}</span>{% endif %}
                   <span class="badge pull-right">{{ sections|length }}</span>
@@ -56,6 +57,81 @@
 
             {% for pageKey, sections in registry %}
             <div class="tab-pane{% if pageKey == active_tab %} active{% endif %}" id="page-{{ pageKey }}">
+
+              {# ===== MEGA MENU — special layout ===== #}
+              {% if pageKey == 'menu' %}
+              <div class="ce-mega-menu">
+                <div class="ce-mega-header">
+                  <h3><i class="fa fa-sitemap"></i> Mega Menu</h3>
+                  <p class="text-muted">Керування навігацією сайту та мобільного меню. Кожна секція — окрема група посилань.</p>
+                </div>
+
+                <div class="ce-mega-grid">
+                  {% for sectionKey, sectionDef in sections %}
+                  <div class="ce-mega-card{% if sectionKey == 'nav' %} ce-mega-card--primary{% endif %}">
+                    <div class="ce-mega-card-header" data-toggle="collapse" data-target="#mega-{{ sectionKey }}">
+                      <div class="ce-mega-card-title">
+                        <i class="fa {{ sectionDef.icon is defined ? sectionDef.icon : 'fa-list' }}"></i>
+                        {{ sectionDef.label }}
+                        {% if sectionKey == 'nav' %}<span class="label label-primary" style="margin-left:6px;">Desktop + Mobile</span>{% endif %}
+                      </div>
+                      <i class="fa fa-chevron-down ce-mega-chevron"></i>
+                    </div>
+                    <div class="collapse{% if sectionKey == 'nav' %} in{% endif %}" id="mega-{{ sectionKey }}">
+                      <div class="ce-mega-card-body">
+                        {% for fieldKey, fieldDef in sectionDef.fields %}
+                          {% set ft = fieldDef.translatable is defined ? fieldDef.translatable : true %}
+
+                          {% if ft %}
+                            <div class="ce-lang-grid">
+                              {% for language in languages %}
+                              <div class="ce-lang-col">
+                                <div class="ce-lang-flag"><img src="language/{{ language.code }}/{{ language.code }}.png" /> {{ language.name }}</div>
+                                {% set cv = '' %}
+                                {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey][language.language_id] is defined %}
+                                  {% set cv = content[pageKey][sectionKey][fieldKey][language.language_id].value %}
+                                {% endif %}
+
+                                {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
+                                  {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
+                                  <div class="repeater-container" id="{{ rid }}"
+                                       data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
+                                       data-lang="{{ language.language_id }}" data-translatable="1"
+                                       data-columns='{{ fieldDef.columns|json_encode }}'
+                                       data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                       data-placeholder="{{ placeholder }}"></div>
+                                  <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
+                                {% endif %}
+                              </div>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                            {% set cv = '' %}
+                            {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey]['0'] is defined %}
+                              {% set cv = content[pageKey][sectionKey][fieldKey]['0'].value %}
+                            {% endif %}
+
+                            {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
+                              {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
+                              <div class="repeater-container" id="{{ rid }}"
+                                   data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
+                                   data-lang="0" data-translatable="0"
+                                   data-columns='{{ fieldDef.columns|json_encode }}'
+                                   data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                   data-placeholder="{{ placeholder }}"></div>
+                              <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+
+              {% else %}
+              {# ===== Standard sections ===== #}
 
               {% for sectionKey, sectionDef in sections %}
               <div class="ce-block">
@@ -148,6 +224,7 @@
                 </div>
               </div>
               {% endfor %}
+              {% endif %}
             </div>
             {% endfor %}
 
@@ -238,6 +315,27 @@ $data['static_home'] = $this->model_extension_module_static_content->getPageData
   .page-header { border-bottom:2px solid #e8e8e8; }
   .page-header h1 { font-size:22px; font-weight:600; }
   .page-header h1 .fa { color:#337ab7; }
+
+  /* Mega Menu admin */
+  .ce-mega-menu { }
+  .ce-mega-header { margin-bottom:20px; }
+  .ce-mega-header h3 { font-size:18px; font-weight:700; color:#333; margin:0 0 6px; }
+  .ce-mega-header h3 .fa { color:#337ab7; margin-right:6px; }
+  .ce-mega-header p { margin:0; font-size:13px; }
+  .ce-mega-grid { display:flex; flex-direction:column; gap:12px; }
+  .ce-mega-card { background:#fff; border:1px solid #e3e3e3; border-radius:8px; overflow:hidden; transition:box-shadow .15s; }
+  .ce-mega-card:hover { box-shadow:0 2px 8px rgba(0,0,0,.06); }
+  .ce-mega-card--primary { border-left:3px solid #337ab7; }
+  .ce-mega-card-header { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; cursor:pointer; background:linear-gradient(180deg,#fafbfc,#f5f6f8); transition:background .15s; }
+  .ce-mega-card-header:hover { background:#eef1f5; }
+  .ce-mega-card-title { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333; }
+  .ce-mega-card-title .fa { color:#666; width:18px; text-align:center; }
+  .ce-mega-card--primary .ce-mega-card-title .fa { color:#337ab7; }
+  .ce-mega-chevron { color:#aaa; font-size:12px; transition:transform .2s; }
+  .ce-mega-card-header[aria-expanded="true"] .ce-mega-chevron,
+  .ce-mega-card-header:not(.collapsed) .ce-mega-chevron { transform:rotate(180deg); }
+  .collapsed .ce-mega-chevron { transform:rotate(0); }
+  .ce-mega-card-body { padding:16px 20px; border-top:1px solid #eee; }
 </style>
 
 <script>

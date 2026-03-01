@@ -185,9 +185,14 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'mobile' => ['type' => 'text', 'translatable' => false],
                     ],
                 ],
+            ],
+
+            // ===================== MEGA MENU =====================
+            'menu' => [
                 'nav' => [
-                    'label'      => 'Main Navigation',
-                    'sort_order' => 1,
+                    'label'      => 'Головна навігація',
+                    'sort_order' => 0,
+                    'icon'       => 'fa-bars',
                     'fields'     => [
                         'items' => [
                             'type'    => 'json',
@@ -197,8 +202,9 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     ],
                 ],
                 'menu_real_estate' => [
-                    'label'      => 'Mobile Menu: Real Estate',
-                    'sort_order' => 2,
+                    'label'      => 'Нерухомість',
+                    'sort_order' => 1,
+                    'icon'       => 'fa-building',
                     'fields'     => [
                         'items' => [
                             'type'    => 'json',
@@ -208,8 +214,9 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     ],
                 ],
                 'menu_about' => [
-                    'label'      => 'Mobile Menu: About Us',
-                    'sort_order' => 3,
+                    'label'      => 'Про нас',
+                    'sort_order' => 2,
+                    'icon'       => 'fa-users',
                     'fields'     => [
                         'items' => [
                             'type'    => 'json',
@@ -219,8 +226,9 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     ],
                 ],
                 'menu_services' => [
-                    'label'      => 'Mobile Menu: Our Services',
-                    'sort_order' => 4,
+                    'label'      => 'Наші послуги',
+                    'sort_order' => 3,
+                    'icon'       => 'fa-briefcase',
                     'fields'     => [
                         'items' => [
                             'type'    => 'json',
@@ -230,8 +238,9 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     ],
                 ],
                 'menu_information' => [
-                    'label'      => 'Mobile Menu: Information',
-                    'sort_order' => 5,
+                    'label'      => 'Інформація',
+                    'sort_order' => 4,
+                    'icon'       => 'fa-info-circle',
                     'fields'     => [
                         'items' => [
                             'type'    => 'json',
@@ -241,8 +250,9 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     ],
                 ],
                 'menu_socials' => [
-                    'label'      => 'Mobile Menu: Social Links',
-                    'sort_order' => 6,
+                    'label'      => 'Соціальні мережі',
+                    'sort_order' => 5,
+                    'icon'       => 'fa-share-alt',
                     'fields'     => [
                         'items' => [
                             'type'         => 'json',
