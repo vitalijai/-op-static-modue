@@ -345,15 +345,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'fields'     => [
                         'title_highlight' => ['type' => 'text'],
                         'text'            => ['type' => 'textarea'],
-                        'search_placeholder' => ['type' => 'text'],
-                        'search_btn'      => ['type' => 'text'],
                         'hero_image'      => ['type' => 'image', 'translatable' => false],
                         'bg_image'        => ['type' => 'image', 'translatable' => false],
-                        'tags' => [
-                            'type'    => 'json',
-                            'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
-                        ],
                     ],
                 ],
             ],

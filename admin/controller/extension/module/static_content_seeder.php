@@ -383,30 +383,8 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             3 => 'Es gibt viele Variationen von Lorem Ipsum Passagen, aber die Mehrheit hat in irgendeiner Form Veränderungen erfahren',
             4 => 'Существует множество вариаций отрывков Lorem Ipsum, но большинство из них претерпели изменения в той или иной форме',
         ]);
-        $this->setT($m, $p, 'hero', 'search_placeholder', [
-            1 => 'Пошук статей', 2 => 'Search for articles', 3 => 'Artikel suchen', 4 => 'Поиск статей',
-        ]);
-        $this->setT($m, $p, 'hero', 'search_btn', [
-            1 => 'Знайти', 2 => 'Find', 3 => 'Suchen', 4 => 'Найти',
-        ]);
         $this->setGlobal($m, $p, 'hero', 'hero_image', 'image', 'images/blog/hero.jpg');
         $this->setGlobal($m, $p, 'hero', 'bg_image', 'image', 'images/prod-page/realtor.svg');
-        $this->setJson($m, $p, 'hero', 'tags', 1, [
-            ['text' => '# тег 1', 'href' => '#'], ['text' => '# тег 2', 'href' => '#'],
-            ['text' => '# тег 3', 'href' => '#'], ['text' => '# тег 4', 'href' => '#'],
-        ]);
-        $this->setJson($m, $p, 'hero', 'tags', 2, [
-            ['text' => '# title tag 1', 'href' => '#'], ['text' => '# title tag 2', 'href' => '#'],
-            ['text' => '# title tag 3', 'href' => '#'], ['text' => '# title tag 4', 'href' => '#'],
-        ]);
-        $this->setJson($m, $p, 'hero', 'tags', 3, [
-            ['text' => '# Tag 1', 'href' => '#'], ['text' => '# Tag 2', 'href' => '#'],
-            ['text' => '# Tag 3', 'href' => '#'], ['text' => '# Tag 4', 'href' => '#'],
-        ]);
-        $this->setJson($m, $p, 'hero', 'tags', 4, [
-            ['text' => '# тег 1', 'href' => '#'], ['text' => '# тег 2', 'href' => '#'],
-            ['text' => '# тег 3', 'href' => '#'], ['text' => '# тег 4', 'href' => '#'],
-        ]);
     }
 
     // ============================================================
