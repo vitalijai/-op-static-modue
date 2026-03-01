@@ -280,9 +280,15 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
 
         // --- choose_us ---
         $this->setT($m, $p, 'choose_us', 'title', [
-            1 => 'Чому обирають нас?', 2 => 'Why Choose Us?',
-            3 => 'Warum uns wählen?', 4 => 'Почему выбирают нас?',
+            1 => 'Чому', 2 => 'Why', 3 => 'Warum', 4 => 'Почему',
         ]);
+        $this->setT($m, $p, 'choose_us', 'title_highlight', [
+            1 => 'обирають', 2 => 'Choose', 3 => 'uns', 4 => 'выбирают',
+        ]);
+        $this->setT($m, $p, 'choose_us', 'title_suffix', [
+            1 => 'нас?', 2 => 'Us?', 3 => 'wählen?', 4 => 'нас?',
+        ]);
+        $this->setGlobal($m, $p, 'choose_us', 'mobile_image', 'image', 'images/home/image-block-why-choose-us-mob.jpg');
         $this->setJson($m, $p, 'choose_us', 'items', 1, [
             ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Максимальна безпека угоди', 'description' => 'Ми гарантуємо юридичну чистоту кожної угоди. Перевіряємо документи, супроводжуємо клієнта на всіх етапах і захищаємо від ризиків'],
             ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Велика база перевірених об\'єктів', 'description' => 'Доступ до ексклюзивних пропозицій ринку! Ми знаємо, де знайти ідеальну квартиру чи будинок під ваші вимоги'],

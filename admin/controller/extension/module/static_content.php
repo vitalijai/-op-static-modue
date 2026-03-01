@@ -310,7 +310,10 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'Why Choose Us',
                     'sort_order' => 3,
                     'fields'     => [
-                        'title' => ['type' => 'text'],
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'title_suffix'    => ['type' => 'text'],
+                        'mobile_image'    => ['type' => 'image', 'translatable' => false],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
