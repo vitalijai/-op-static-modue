@@ -82,46 +82,77 @@
                         {% for fieldKey, fieldDef in sectionDef.fields %}
                           {% set ft = fieldDef.translatable is defined ? fieldDef.translatable : true %}
 
-                          {% if ft %}
-                            <div class="ce-lang-grid">
-                              {% for language in languages %}
-                              <div class="ce-lang-col">
-                                <div class="ce-lang-flag"><img src="language/{{ language.code }}/{{ language.code }}.png" /> {{ language.name }}</div>
-                                {% set cv = '' %}
-                                {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey][language.language_id] is defined %}
-                                  {% set cv = content[pageKey][sectionKey][fieldKey][language.language_id].value %}
-                                {% endif %}
+                          <div class="ce-field">
+                            <div class="ce-field-label">{{ fieldKey }}{% if not ft %} <span class="label label-default" style="font-size:10px;">global</span>{% endif %}</div>
 
-                                {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                                  {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
-                                  <div class="repeater-container" id="{{ rid }}"
-                                       data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
-                                       data-lang="{{ language.language_id }}" data-translatable="1"
-                                       data-columns='{{ fieldDef.columns|json_encode }}'
-                                       data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
-                                       data-placeholder="{{ placeholder }}"></div>
-                                  <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
-                                {% endif %}
+                            {% if ft %}
+                              <div class="ce-lang-grid">
+                                {% for language in languages %}
+                                <div class="ce-lang-col">
+                                  <div class="ce-lang-flag"><img src="language/{{ language.code }}/{{ language.code }}.png" /> {{ language.name }}</div>
+                                  {% set cv = '' %}
+                                  {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey][language.language_id] is defined %}
+                                    {% set cv = content[pageKey][sectionKey][fieldKey][language.language_id].value %}
+                                  {% endif %}
+
+                                  {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
+                                    {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
+                                    <div class="repeater-container" id="{{ rid }}"
+                                         data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
+                                         data-lang="{{ language.language_id }}" data-translatable="1"
+                                         data-columns='{{ fieldDef.columns|json_encode }}'
+                                         data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                         data-placeholder="{{ placeholder }}"></div>
+                                    <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
+
+                                  {% elseif fieldDef.type == 'text' %}
+                                    <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ cv|e('html_attr') }}" class="form-control" />
+
+                                  {% elseif fieldDef.type == 'textarea' %}
+                                    <textarea name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" rows="3" class="form-control">{{ cv|e }}</textarea>
+
+                                  {% elseif fieldDef.type == 'image' %}
+                                    {% set iid = 'img-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-' ~ language.language_id %}
+                                    <div class="ce-img-widget">
+                                      <a href="" id="thumb-{{ iid }}" data-toggle="image" class="img-thumbnail">
+                                        <img src="{{ cv ? image_base ~ cv : placeholder }}" alt="" data-placeholder="{{ placeholder }}" />
+                                      </a>
+                                      <input type="hidden" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}][{{ language.language_id }}]" value="{{ cv }}" id="input-{{ iid }}" />
+                                    </div>
+                                  {% endif %}
+                                </div>
+                                {% endfor %}
                               </div>
-                              {% endfor %}
-                            </div>
-                          {% else %}
-                            {% set cv = '' %}
-                            {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey]['0'] is defined %}
-                              {% set cv = content[pageKey][sectionKey][fieldKey]['0'].value %}
-                            {% endif %}
+                            {% else %}
+                              {% set cv = '' %}
+                              {% if content[pageKey] is defined and content[pageKey][sectionKey] is defined and content[pageKey][sectionKey][fieldKey] is defined and content[pageKey][sectionKey][fieldKey]['0'] is defined %}
+                                {% set cv = content[pageKey][sectionKey][fieldKey]['0'].value %}
+                              {% endif %}
 
-                            {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
-                              {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
-                              <div class="repeater-container" id="{{ rid }}"
-                                   data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
-                                   data-lang="0" data-translatable="0"
-                                   data-columns='{{ fieldDef.columns|json_encode }}'
-                                   data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
-                                   data-placeholder="{{ placeholder }}"></div>
-                              <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
+                              {% if fieldDef.schema is defined and fieldDef.schema == 'repeater' %}
+                                {% set rid = 'rep-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
+                                <div class="repeater-container" id="{{ rid }}"
+                                     data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
+                                     data-lang="0" data-translatable="0"
+                                     data-columns='{{ fieldDef.columns|json_encode }}'
+                                     data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                     data-placeholder="{{ placeholder }}"></div>
+                                <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
+
+                              {% elseif fieldDef.type == 'text' %}
+                                <input type="text" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ cv|e('html_attr') }}" class="form-control" style="max-width:600px;" />
+
+                              {% elseif fieldDef.type == 'image' %}
+                                {% set iid = 'img-' ~ pageKey ~ '-' ~ sectionKey ~ '-' ~ fieldKey ~ '-0' %}
+                                <div class="ce-img-widget">
+                                  <a href="" id="thumb-{{ iid }}" data-toggle="image" class="img-thumbnail">
+                                    <img src="{{ cv ? image_base ~ cv : placeholder }}" alt="" data-placeholder="{{ placeholder }}" />
+                                  </a>
+                                  <input type="hidden" name="{{ pageKey }}[{{ sectionKey }}][{{ fieldKey }}]" value="{{ cv }}" id="input-{{ iid }}" />
+                                </div>
+                              {% endif %}
                             {% endif %}
-                          {% endif %}
+                          </div>
                         {% endfor %}
                       </div>
                     </div>
