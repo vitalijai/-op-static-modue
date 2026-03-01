@@ -201,6 +201,94 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['platform' => 'twitter', 'icon' => 'catalog/svg/social/twitter.svg', 'url' => '#'],
             ['platform' => 'tiktok', 'icon' => 'catalog/svg/social/tiktok.svg', 'url' => '#'],
         ]);
+
+        // --- bottom_menu (mobile bottom nav bar) ---
+        $this->setT($m, $p, 'bottom_menu', 'items', [
+            1 => json_encode([
+                ['text' => 'Головна', 'href' => '/', 'icon' => 'catalog/svg/ui/home.svg'],
+                ['text' => 'Нерухомість', 'href' => '#', 'icon' => 'catalog/svg/ui/realty.svg'],
+                ['text' => 'Блог', 'href' => '#', 'icon' => 'catalog/svg/ui/blog.svg'],
+                ['text' => 'Профіль', 'href' => '#', 'icon' => 'catalog/svg/ui/profile.svg'],
+            ], JSON_UNESCAPED_UNICODE),
+            2 => json_encode([
+                ['text' => 'Home', 'href' => '/', 'icon' => 'catalog/svg/ui/home.svg'],
+                ['text' => 'Realty', 'href' => '#', 'icon' => 'catalog/svg/ui/realty.svg'],
+                ['text' => 'Blog', 'href' => '#', 'icon' => 'catalog/svg/ui/blog.svg'],
+                ['text' => 'Profile', 'href' => '#', 'icon' => 'catalog/svg/ui/profile.svg'],
+            ], JSON_UNESCAPED_UNICODE),
+            3 => json_encode([
+                ['text' => 'Startseite', 'href' => '/', 'icon' => 'catalog/svg/ui/home.svg'],
+                ['text' => 'Immobilien', 'href' => '#', 'icon' => 'catalog/svg/ui/realty.svg'],
+                ['text' => 'Blog', 'href' => '#', 'icon' => 'catalog/svg/ui/blog.svg'],
+                ['text' => 'Profil', 'href' => '#', 'icon' => 'catalog/svg/ui/profile.svg'],
+            ], JSON_UNESCAPED_UNICODE),
+            4 => json_encode([
+                ['text' => 'Главная', 'href' => '/', 'icon' => 'catalog/svg/ui/home.svg'],
+                ['text' => 'Недвижимость', 'href' => '#', 'icon' => 'catalog/svg/ui/realty.svg'],
+                ['text' => 'Блог', 'href' => '#', 'icon' => 'catalog/svg/ui/blog.svg'],
+                ['text' => 'Профиль', 'href' => '#', 'icon' => 'catalog/svg/ui/profile.svg'],
+            ], JSON_UNESCAPED_UNICODE),
+        ]);
+
+        // --- drop_realty (mobile dropdown: realty) ---
+        $this->setJson($m, $p, 'drop_realty', 'items', 1, [
+            ['text' => 'Квартири на продаж', 'href' => '#'], ['text' => 'Особняки на продаж', 'href' => '#'],
+            ['text' => 'Офіси на продаж', 'href' => '#'], ['text' => 'Комерційна нерухомість на продаж', 'href' => '#'],
+            ['text' => 'Гаражі на продаж', 'href' => '#'], ['text' => 'Земельні ділянки на продаж', 'href' => '#'],
+            ['text' => 'Нерухомість у Карпатах', 'href' => '#'],
+            ['text' => 'Квартири в оренду', 'href' => '#'], ['text' => 'Особняки в оренду', 'href' => '#'],
+            ['text' => 'Офіси в оренду', 'href' => '#'], ['text' => 'Комерційна нерухомість в оренду', 'href' => '#'],
+            ['text' => 'Гаражі в оренду', 'href' => '#'], ['text' => 'Земельні ділянки в оренду', 'href' => '#'],
+            ['text' => 'Ексклюзиви', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'drop_realty', 'items', 2, [
+            ['text' => 'Flats for Sale', 'href' => '#'], ['text' => 'Mansions for Sale', 'href' => '#'],
+            ['text' => 'Offices for Sale', 'href' => '#'], ['text' => 'Commercial Real Estate for Sale', 'href' => '#'],
+            ['text' => 'Garages for Sale', 'href' => '#'], ['text' => 'Land for Sale', 'href' => '#'],
+            ['text' => 'Real Estate in the Carpathians', 'href' => '#'],
+            ['text' => 'Flats for Rent', 'href' => '#'], ['text' => 'Mansions for Rent', 'href' => '#'],
+            ['text' => 'Offices for Rent', 'href' => '#'], ['text' => 'Commercial Real Estate for Rent', 'href' => '#'],
+            ['text' => 'Garages for Rent', 'href' => '#'], ['text' => 'Land for Rent', 'href' => '#'],
+            ['text' => 'Exclusive', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'drop_realty', 'items', 3, [
+            ['text' => 'Wohnungen zum Verkauf', 'href' => '#'], ['text' => 'Villen zum Verkauf', 'href' => '#'],
+            ['text' => 'Büros zum Verkauf', 'href' => '#'], ['text' => 'Gewerbeimmobilien zum Verkauf', 'href' => '#'],
+            ['text' => 'Garagen zum Verkauf', 'href' => '#'], ['text' => 'Grundstücke zum Verkauf', 'href' => '#'],
+            ['text' => 'Immobilien in den Karpaten', 'href' => '#'],
+            ['text' => 'Wohnungen zur Miete', 'href' => '#'], ['text' => 'Villen zur Miete', 'href' => '#'],
+            ['text' => 'Büros zur Miete', 'href' => '#'], ['text' => 'Gewerbeimmobilien zur Miete', 'href' => '#'],
+            ['text' => 'Garagen zur Miete', 'href' => '#'], ['text' => 'Grundstücke zur Miete', 'href' => '#'],
+            ['text' => 'Exklusiv', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'drop_realty', 'items', 4, [
+            ['text' => 'Квартиры на продажу', 'href' => '#'], ['text' => 'Особняки на продажу', 'href' => '#'],
+            ['text' => 'Офисы на продажу', 'href' => '#'], ['text' => 'Коммерческая недвижимость на продажу', 'href' => '#'],
+            ['text' => 'Гаражи на продажу', 'href' => '#'], ['text' => 'Земельные участки на продажу', 'href' => '#'],
+            ['text' => 'Недвижимость в Карпатах', 'href' => '#'],
+            ['text' => 'Квартиры в аренду', 'href' => '#'], ['text' => 'Особняки в аренду', 'href' => '#'],
+            ['text' => 'Офисы в аренду', 'href' => '#'], ['text' => 'Коммерческая недвижимость в аренду', 'href' => '#'],
+            ['text' => 'Гаражи в аренду', 'href' => '#'], ['text' => 'Земельные участки в аренду', 'href' => '#'],
+            ['text' => 'Эксклюзивы', 'href' => '#'],
+        ]);
+
+        // --- drop_blog (mobile dropdown: blog) ---
+        $this->setJson($m, $p, 'drop_blog', 'items', 1, [
+            ['text' => 'Новини', 'href' => '#'], ['text' => 'Корисне', 'href' => '#'],
+            ['text' => 'Новини нерухомості', 'href' => '#'], ['text' => 'Інвестиційні проекти', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'drop_blog', 'items', 2, [
+            ['text' => 'News', 'href' => '#'], ['text' => 'Useful', 'href' => '#'],
+            ['text' => 'Real Estate News', 'href' => '#'], ['text' => 'Investment Projects', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'drop_blog', 'items', 3, [
+            ['text' => 'Nachrichten', 'href' => '#'], ['text' => 'Nützliches', 'href' => '#'],
+            ['text' => 'Immobilien-News', 'href' => '#'], ['text' => 'Investitionsprojekte', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'drop_blog', 'items', 4, [
+            ['text' => 'Новости', 'href' => '#'], ['text' => 'Полезное', 'href' => '#'],
+            ['text' => 'Новости недвижимости', 'href' => '#'], ['text' => 'Инвестиционные проекты', 'href' => '#'],
+        ]);
     }
 
     // ============================================================
