@@ -8,3 +8,4 @@ $_['text_objects']      = 'aktive Objekte';
 $_['text_breadcrumb_home']  = 'Startseite';
 $_['text_breadcrumb_about'] = 'Über uns';
 $_['text_breadcrumb_customers'] = 'Unsere Kunden';
+$_['text_results']      = 'Anzeige %d - %d von %d Ergebnissen';

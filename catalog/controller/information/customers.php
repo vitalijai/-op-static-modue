@@ -1,7 +1,7 @@
 <?php
 /**
  * Контроллер страницы "Наши клиенты".
- * Подтягивает статический контент из модуля static_content + языковой файл для лейблов.
+ * Статический контент из модуля static_content + пагинация OC3.
  */
 class ControllerInformationCustomers extends Controller {
 
@@ -22,24 +22,54 @@ class ControllerInformationCustomers extends Controller {
         $data['text_breadcrumb_about']     = $this->language->get('text_breadcrumb_about');
         $data['text_breadcrumb_customers'] = $this->language->get('text_breadcrumb_customers');
 
-        // Сортируем клиентов по active_objects desc для рейтинга (топ-10)
-        $customers = [];
+        // Все клиенты из repeater
+        $all_customers = [];
         if (!empty($data['sc']['items']['list']) && is_array($data['sc']['items']['list'])) {
-            $customers = $data['sc']['items']['list'];
+            $all_customers = $data['sc']['items']['list'];
         }
 
-        $rated = $customers;
+        // Топ-10 по active_objects для рейтинга
+        $rated = $all_customers;
         usort($rated, function($a, $b) {
             return (int)($b['active_objects'] ?? 0) - (int)($a['active_objects'] ?? 0);
         });
         $data['top_customers'] = array_slice($rated, 0, 10);
-
-        // max для прогрессбара
         $data['max_objects'] = !empty($data['top_customers'])
             ? (int)$data['top_customers'][0]['active_objects']
             : 1;
 
+        // Пагинация
+        $limit = 12;
+        $page  = isset($this->request->get['page']) ? max(1, (int)$this->request->get['page']) : 1;
+        $total = count($all_customers);
+
+        $start = ($page - 1) * $limit;
+        $data['customers'] = array_slice($all_customers, $start, $limit);
+
+        // Индекс вставки рейтинг-блока (после 8-й карточки на первой странице)
+        $data['rating_after'] = ($page === 1) ? 8 : -1;
+
+        // Текст "Showing X - Y of Z"
+        $end = min($start + $limit, $total);
+        $data['text_results'] = sprintf(
+            $this->language->get('text_results'),
+            ($total > 0 ? $start + 1 : 0),
+            $end,
+            $total
+        );
+
+        // OC3 Pagination
+        $pagination = new Pagination();
+        $pagination->total = $total;
+        $pagination->page  = $page;
+        $pagination->limit = $limit;
+        $pagination->url   = $this->url->link('information/customers', 'page={page}');
+        $data['pagination'] = $pagination->render();
+
         $this->document->setTitle($this->language->get('heading_title'));
+
+        $data['header'] = $this->load->controller('common/header');
+        $data['footer'] = $this->load->controller('common/footer');
 
         $this->response->setOutput(
             $this->load->view('information/customers', $data)

@@ -8,3 +8,4 @@ $_['text_objects']      = 'активных объектов';
 $_['text_breadcrumb_home']  = 'Главная';
 $_['text_breadcrumb_about'] = 'О нас';
 $_['text_breadcrumb_customers'] = 'Наши клиенты';
+$_['text_results']      = 'Показано %d - %d из %d результатов';
