@@ -361,10 +361,6 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'desc'            => ['type' => 'textarea'],
                         'review_invite'   => ['type' => 'text'],
                         'review_btn'      => ['type' => 'text'],
-                        'label_activity'  => ['type' => 'text'],
-                        'label_category'  => ['type' => 'text'],
-                        'label_review'    => ['type' => 'text'],
-                        'label_objects'   => ['type' => 'text'],
                     ],
                 ],
                 'rating' => [

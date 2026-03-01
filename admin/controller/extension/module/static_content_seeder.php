@@ -415,19 +415,6 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $this->setT($m, $p, 'hero', 'review_btn', [
             1 => '+ Написати відгук', 2 => '+ Write to Review', 3 => '+ Bewertung schreiben', 4 => '+ Написать отзыв',
         ]);
-        $this->setT($m, $p, 'hero', 'label_activity', [
-            1 => 'Тип діяльності', 2 => 'Type of Activity', 3 => 'Art der Tätigkeit', 4 => 'Тип деятельности',
-        ]);
-        $this->setT($m, $p, 'hero', 'label_category', [
-            1 => 'Категорія', 2 => 'Category', 3 => 'Kategorie', 4 => 'Категория',
-        ]);
-        $this->setT($m, $p, 'hero', 'label_review', [
-            1 => 'Що вони кажуть про нас:', 2 => 'What they say about us:', 3 => 'Was sie über uns sagen:', 4 => 'Что они говорят о нас:',
-        ]);
-        $this->setT($m, $p, 'hero', 'label_objects', [
-            1 => 'активних об\'єктів', 2 => 'active objects', 3 => 'aktive Objekte', 4 => 'активных объектов',
-        ]);
-
         // --- rating ---
         $this->setT($m, $p, 'rating', 'title', [
             1 => 'Рейтинг найбільш', 2 => 'Rating of the Most', 3 => 'Bewertung der', 4 => 'Рейтинг самых',
