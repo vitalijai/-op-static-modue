@@ -30,6 +30,16 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
     private function seedHeader($m) {
         $p = 'header';
 
+        // --- logo ---
+        $this->setGlobal($m, $p, 'logo', 'image', 'image', 'catalog/svg/logos/realtor-logo.svg');
+        $this->setGlobal($m, $p, 'logo', 'title', 'text', 'REALTOR');
+        $this->setT($m, $p, 'logo', 'subtitle', [
+            1 => 'Агенція нерухомості',
+            2 => 'Estate Agency',
+            3 => 'Immobilienagentur',
+            4 => 'Агентство недвижимости',
+        ]);
+
         // --- nav ---
         $this->setJson($m, $p, 'nav', 'items', 1, [
             ['text' => 'Головна',                    'href' => '/'],

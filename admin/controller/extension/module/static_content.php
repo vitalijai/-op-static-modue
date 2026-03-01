@@ -172,7 +172,9 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'Logo',
                     'sort_order' => 0,
                     'fields'     => [
-                        'image' => ['type' => 'image', 'translatable' => false],
+                        'image'    => ['type' => 'image', 'translatable' => false],
+                        'title'    => ['type' => 'text', 'translatable' => false],
+                        'subtitle' => ['type' => 'text'],
                     ],
                 ],
                 'phone' => [
