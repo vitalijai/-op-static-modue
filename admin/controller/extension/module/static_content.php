@@ -194,6 +194,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'sort_order' => 0,
                     'icon'       => 'fa-bars',
                     'fields'     => [
+                        'title' => ['type' => 'text'],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
@@ -206,6 +207,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'sort_order' => 1,
                     'icon'       => 'fa-building',
                     'fields'     => [
+                        'title' => ['type' => 'text'],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
@@ -218,6 +220,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'sort_order' => 2,
                     'icon'       => 'fa-users',
                     'fields'     => [
+                        'title' => ['type' => 'text'],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
@@ -230,6 +233,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'sort_order' => 3,
                     'icon'       => 'fa-briefcase',
                     'fields'     => [
+                        'title' => ['type' => 'text'],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
@@ -242,6 +246,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'sort_order' => 4,
                     'icon'       => 'fa-info-circle',
                     'fields'     => [
+                        'title' => ['type' => 'text'],
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',

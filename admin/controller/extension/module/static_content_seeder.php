@@ -57,6 +57,9 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $p = 'menu';
 
         // --- nav (головна навігація) ---
+        $this->setT($m, $p, 'nav', 'title', [
+            1 => 'Головна', 2 => 'Main', 3 => 'Hauptmenü', 4 => 'Главная',
+        ]);
         $this->setJson($m, $p, 'nav', 'items', 1, [
             ['text' => 'Головна',                    'href' => '/'],
             ['text' => 'Про нас',                     'href' => '#'],
@@ -91,6 +94,9 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         ]);
 
         // --- menu_real_estate ---
+        $this->setT($m, $p, 'menu_real_estate', 'title', [
+            1 => 'Нерухомість', 2 => 'Real Estate', 3 => 'Immobilien', 4 => 'Недвижимость',
+        ]);
         $this->setJson($m, $p, 'menu_real_estate', 'items', 1, [
             ['text' => 'Квартири', 'href' => '#'], ['text' => 'Особняки', 'href' => '#'],
             ['text' => 'Офіси', 'href' => '#'], ['text' => 'Комерційна нерухомість', 'href' => '#'],
@@ -113,6 +119,9 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         ]);
 
         // --- menu_about ---
+        $this->setT($m, $p, 'menu_about', 'title', [
+            1 => 'Про нас', 2 => 'About Us', 3 => 'Über uns', 4 => 'О нас',
+        ]);
         $this->setJson($m, $p, 'menu_about', 'items', 1, [
             ['text' => 'Відгуки', 'href' => '#'], ['text' => 'Партнери', 'href' => '#'],
             ['text' => 'Наші клієнти', 'href' => '#'], ['text' => 'Наші ріелтори', 'href' => '#'],
@@ -135,6 +144,9 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         ]);
 
         // --- menu_services ---
+        $this->setT($m, $p, 'menu_services', 'title', [
+            1 => 'Наші послуги', 2 => 'Our Services', 3 => 'Unsere Dienstleistungen', 4 => 'Наши услуги',
+        ]);
         $this->setJson($m, $p, 'menu_services', 'items', 1, [
             ['text' => 'Продаж', 'href' => '#'], ['text' => 'Оренда', 'href' => '#'],
             ['text' => 'Подобова оренда', 'href' => '#'], ['text' => 'Інвестиційні проекти', 'href' => '#'],
@@ -161,6 +173,9 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         ]);
 
         // --- menu_information ---
+        $this->setT($m, $p, 'menu_information', 'title', [
+            1 => 'Інформація', 2 => 'Information', 3 => 'Information', 4 => 'Информация',
+        ]);
         $this->setJson($m, $p, 'menu_information', 'items', 1, [
             ['text' => 'Довідник', 'href' => '#'], ['text' => 'Погода', 'href' => '#'],
             ['text' => 'FAQ', 'href' => '#'], ['text' => 'Допомога', 'href' => '#'],
