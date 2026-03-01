@@ -350,6 +350,49 @@ class ControllerExtensionModuleStaticContent extends Controller {
                 ],
             ],
 
+            // ===================== CUSTOMERS =====================
+            'customers' => [
+                'hero' => [
+                    'label'      => 'Верхній блок',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'desc'            => ['type' => 'textarea'],
+                        'review_invite'   => ['type' => 'text'],
+                        'review_btn'      => ['type' => 'text'],
+                        'label_activity'  => ['type' => 'text'],
+                        'label_category'  => ['type' => 'text'],
+                        'label_review'    => ['type' => 'text'],
+                        'label_objects'   => ['type' => 'text'],
+                    ],
+                ],
+                'rating' => [
+                    'label'      => 'Блок рейтингу',
+                    'sort_order' => 1,
+                    'fields'     => [
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'desc'            => ['type' => 'textarea'],
+                        'btn_text'        => ['type' => 'text'],
+                        'btn_href'        => ['type' => 'text', 'translatable' => false],
+                        'tooltip'         => ['type' => 'text'],
+                    ],
+                ],
+                'items' => [
+                    'label'      => 'Клієнти',
+                    'sort_order' => 2,
+                    'fields'     => [
+                        'list' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['logo', 'name', 'activity', 'category', 'website', 'review', 'active_objects'],
+                            'col_types' => ['logo' => 'image', 'review' => 'textarea'],
+                        ],
+                    ],
+                ],
+            ],
+
             // ===================== HOME =====================
             'home' => [
                 'first_screen' => [

@@ -35,6 +35,7 @@
                   {% elseif pageKey == 'mobile' %}<i class="fa fa-mobile"></i> <span>Mobile Menu</span>
                   {% elseif pageKey == 'common' %}<i class="fa fa-th-large"></i> <span>Загальні</span>
                   {% elseif pageKey == 'blog' %}<i class="fa fa-pencil-square-o"></i> <span>Blog</span>
+                  {% elseif pageKey == 'customers' %}<i class="fa fa-users"></i> <span>Customers</span>
                   {% elseif pageKey == 'footer' %}<i class="fa fa-arrow-down"></i> <span>{{ tab_footer }}</span>
                   {% else %}<i class="fa fa-file-o"></i> <span>{{ pageKey|capitalize }}</span>{% endif %}
                   <span class="badge pull-right">{{ sections|length }}</span>

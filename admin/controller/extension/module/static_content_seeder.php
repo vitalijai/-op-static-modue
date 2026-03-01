@@ -21,6 +21,7 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $this->seedMobile($m);
         $this->seedCommon($m);
         $this->seedBlog($m);
+        $this->seedCustomers($m);
         $this->seedHome($m);
         $this->seedFooter($m);
 
@@ -384,6 +385,114 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             4 => 'Существует множество вариаций отрывков Lorem Ipsum, но большинство из них претерпели изменения в той или иной форме',
         ]);
         $this->setGlobal($m, $p, 'hero', 'hero_image', 'image', 'images/blog/hero.jpg');
+    }
+
+    // ============================================================
+    //  CUSTOMERS
+    // ============================================================
+    private function seedCustomers($m) {
+        $p = 'customers';
+
+        // --- hero ---
+        $this->setT($m, $p, 'hero', 'title', [
+            1 => 'Наші цінні', 2 => 'Our Valued', 3 => 'Unsere geschätzten', 4 => 'Наши ценные',
+        ]);
+        $this->setT($m, $p, 'hero', 'title_highlight', [
+            1 => 'Клієнти', 2 => 'Customers', 3 => 'Kunden', 4 => 'Клиенты',
+        ]);
+        $this->setT($m, $p, 'hero', 'desc', [
+            1 => 'Ми мали честь працювати з різними клієнтами з різних галузей. Ось деякі з клієнтів, яких ми мали задоволення обслуговувати:',
+            2 => 'We have had the honor of working with a variety of clients from various industries. Here are some of the clients we have had the pleasure of serving:',
+            3 => 'Wir hatten die Ehre, mit einer Vielzahl von Kunden aus verschiedenen Branchen zusammenzuarbeiten.',
+            4 => 'Мы имели честь работать с различными клиентами из разных отраслей.',
+        ]);
+        $this->setT($m, $p, 'hero', 'review_invite', [
+            1 => 'Ви наш клієнт і хочете залишити відгук про нас?',
+            2 => 'Are you our Customer and would like to leave a review about us?',
+            3 => 'Sind Sie unser Kunde und möchten eine Bewertung hinterlassen?',
+            4 => 'Вы наш клиент и хотите оставить отзыв о нас?',
+        ]);
+        $this->setT($m, $p, 'hero', 'review_btn', [
+            1 => '+ Написати відгук', 2 => '+ Write to Review', 3 => '+ Bewertung schreiben', 4 => '+ Написать отзыв',
+        ]);
+        $this->setT($m, $p, 'hero', 'label_activity', [
+            1 => 'Тип діяльності', 2 => 'Type of Activity', 3 => 'Art der Tätigkeit', 4 => 'Тип деятельности',
+        ]);
+        $this->setT($m, $p, 'hero', 'label_category', [
+            1 => 'Категорія', 2 => 'Category', 3 => 'Kategorie', 4 => 'Категория',
+        ]);
+        $this->setT($m, $p, 'hero', 'label_review', [
+            1 => 'Що вони кажуть про нас:', 2 => 'What they say about us:', 3 => 'Was sie über uns sagen:', 4 => 'Что они говорят о нас:',
+        ]);
+        $this->setT($m, $p, 'hero', 'label_objects', [
+            1 => 'активних об\'єктів', 2 => 'active objects', 3 => 'aktive Objekte', 4 => 'активных объектов',
+        ]);
+
+        // --- rating ---
+        $this->setT($m, $p, 'rating', 'title', [
+            1 => 'Рейтинг найбільш', 2 => 'Rating of the Most', 3 => 'Bewertung der', 4 => 'Рейтинг самых',
+        ]);
+        $this->setT($m, $p, 'rating', 'title_highlight', [
+            1 => 'Активних клієнтів', 2 => 'Active Customers', 3 => 'Aktivsten Kunden', 4 => 'Активных клиентов',
+        ]);
+        $this->setT($m, $p, 'rating', 'desc', [
+            1 => 'Ми мали честь працювати з різними клієнтами з різних галузей.',
+            2 => 'We have had the honor of working with a variety of clients from various industries. Here are some of the clients we have had the pleasure of serving:',
+            3 => 'Wir hatten die Ehre, mit verschiedenen Kunden zusammenzuarbeiten.',
+            4 => 'Мы имели честь работать с различными клиентами из разных отраслей.',
+        ]);
+        $this->setT($m, $p, 'rating', 'btn_text', [
+            1 => 'Переглянути весь рейтинг', 2 => 'View All Rating', 3 => 'Alle Bewertungen', 4 => 'Смотреть весь рейтинг',
+        ]);
+        $this->setGlobal($m, $p, 'rating', 'btn_href', 'text', '#');
+        $this->setT($m, $p, 'rating', 'tooltip', [
+            1 => 'тут короткий текст з інформацією', 2 => 'here is a short informational text',
+            3 => 'hier ist ein kurzer Informationstext', 4 => 'тут короткий текст с информацией',
+        ]);
+
+        // --- items (customers) ---
+        $customers_uk = [
+            ['logo' => 'images/logos-custumers/ieg.svg', 'name' => 'Infinity Energy Group', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'infinity-energy-group.com', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"', 'active_objects' => '52'],
+            ['logo' => 'images/logos-custumers/raif.png', 'name' => 'Raiffeisen Bank', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'raiffeisen.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок"', 'active_objects' => '41'],
+            ['logo' => 'images/logos-custumers/pv.svg', 'name' => 'PrivatBank', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'privatbank.ua', 'review' => '"Чудовий сервіс та професійний підхід до кожного клієнта"', 'active_objects' => '34'],
+            ['logo' => 'images/logos-custumers/pod.svg', 'name' => 'Подорожник', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'podorozhnyk.ua', 'review' => '"Рекомендуємо всім, хто шукає надійного партнера"', 'active_objects' => '27'],
+            ['logo' => 'images/logos-custumers/np.svg', 'name' => 'Нова Пошта', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'novaposhta.ua', 'review' => '"Професійна робота з нерухомістю на найвищому рівні"', 'active_objects' => '20'],
+            ['logo' => 'images/logos-custumers/ub.svg', 'name' => 'Universal Bank', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'universalbank.com.ua', 'review' => '"Завжди допомагають знайти найкращі варіанти"', 'active_objects' => '18'],
+            ['logo' => 'images/logos-custumers/ob.svg', 'name' => 'OTP Bank', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'otpbank.com.ua', 'review' => '"Відмінна якість послуг та швидка комунікація"', 'active_objects' => '10'],
+            ['logo' => 'images/logos-custumers/ukrp.svg', 'name' => 'Укрпошта', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'ukrposhta.ua', 'review' => '"Надійний партнер у сфері нерухомості"', 'active_objects' => '5'],
+            ['logo' => 'images/logos-custumers/mzoo.svg', 'name' => 'Master Zoo', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'masterzoo.ua', 'review' => '"Дуже задоволені співпрацею"', 'active_objects' => '3'],
+            ['logo' => 'images/logos-custumers/rztk.png', 'name' => 'Rozetka', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'rozetka.com.ua', 'review' => '"Професіонали своєї справи"', 'active_objects' => '15'],
+            ['logo' => 'images/logos-custumers/atb.svg', 'name' => 'АТБ', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'atbmarket.com', 'review' => '"Рекомендуємо агенцію РІЕЛТОР"', 'active_objects' => '12'],
+            ['logo' => 'images/logos-custumers/epicentr.svg', 'name' => 'Епіцентр', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'epicentrk.ua', 'review' => '"Швидко та якісно допомогли з пошуком"', 'active_objects' => '8'],
+            ['logo' => 'images/logos-custumers/ib.svg', 'name' => 'Idea Bank', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'ideabank.ua', 'review' => '"Відповідальний підхід до роботи"', 'active_objects' => '4'],
+            ['logo' => 'images/logos-custumers/eva.svg', 'name' => 'EVA', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'eva.ua', 'review' => '"Чудовий досвід співпраці"', 'active_objects' => '7'],
+            ['logo' => 'images/logos-custumers/kyiv.svg', 'name' => 'Київміськбуд', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'kyivmiskbud.ua', 'review' => '"Найкращі фахівці з нерухомості"', 'active_objects' => '9'],
+            ['logo' => 'images/logos-custumers/allo.svg', 'name' => 'Алло', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'allo.ua', 'review' => '"Вражаючий рівень обслуговування"', 'active_objects' => '6'],
+        ];
+
+        $customers_en = [
+            ['logo' => 'images/logos-custumers/ieg.svg', 'name' => 'Infinity Energy Group', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'infinity-energy-group.com', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text"', 'active_objects' => '52'],
+            ['logo' => 'images/logos-custumers/raif.png', 'name' => 'Raiffeisen Bank', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'raiffeisen.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum"', 'active_objects' => '41'],
+            ['logo' => 'images/logos-custumers/pv.svg', 'name' => 'PrivatBank', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'privatbank.ua', 'review' => '"Excellent service and professional approach to every client"', 'active_objects' => '34'],
+            ['logo' => 'images/logos-custumers/pod.svg', 'name' => 'Podorozhnyk', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'podorozhnyk.ua', 'review' => '"We recommend to everyone looking for a reliable partner"', 'active_objects' => '27'],
+            ['logo' => 'images/logos-custumers/np.svg', 'name' => 'Nova Poshta', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'novaposhta.ua', 'review' => '"Professional work with real estate at the highest level"', 'active_objects' => '20'],
+            ['logo' => 'images/logos-custumers/ub.svg', 'name' => 'Universal Bank', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'universalbank.com.ua', 'review' => '"Always help find the best options"', 'active_objects' => '18'],
+            ['logo' => 'images/logos-custumers/ob.svg', 'name' => 'OTP Bank', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'otpbank.com.ua', 'review' => '"Excellent quality of services and fast communication"', 'active_objects' => '10'],
+            ['logo' => 'images/logos-custumers/ukrp.svg', 'name' => 'Ukrposhta', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'ukrposhta.ua', 'review' => '"Reliable partner in the real estate industry"', 'active_objects' => '5'],
+            ['logo' => 'images/logos-custumers/mzoo.svg', 'name' => 'Master Zoo', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'masterzoo.ua', 'review' => '"Very satisfied with the cooperation"', 'active_objects' => '3'],
+            ['logo' => 'images/logos-custumers/rztk.png', 'name' => 'Rozetka', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'rozetka.com.ua', 'review' => '"True professionals in their field"', 'active_objects' => '15'],
+            ['logo' => 'images/logos-custumers/atb.svg', 'name' => 'ATB', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'atbmarket.com', 'review' => '"We recommend REALTOR agency"', 'active_objects' => '12'],
+            ['logo' => 'images/logos-custumers/epicentr.svg', 'name' => 'Epicentr', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'epicentrk.ua', 'review' => '"Quickly and efficiently helped with the search"', 'active_objects' => '8'],
+            ['logo' => 'images/logos-custumers/ib.svg', 'name' => 'Idea Bank', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'ideabank.ua', 'review' => '"Responsible approach to work"', 'active_objects' => '4'],
+            ['logo' => 'images/logos-custumers/eva.svg', 'name' => 'EVA', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'eva.ua', 'review' => '"Wonderful cooperation experience"', 'active_objects' => '7'],
+            ['logo' => 'images/logos-custumers/kyiv.svg', 'name' => 'Kyivmiskbud', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'kyivmiskbud.ua', 'review' => '"The best real estate specialists"', 'active_objects' => '9'],
+            ['logo' => 'images/logos-custumers/allo.svg', 'name' => 'Allo', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'allo.ua', 'review' => '"Impressive level of service"', 'active_objects' => '6'],
+        ];
+
+        $this->setJson($m, $p, 'items', 'list', 1, $customers_uk);
+        $this->setJson($m, $p, 'items', 'list', 2, $customers_en);
+        $this->setJson($m, $p, 'items', 'list', 3, $customers_en); // DE = EN placeholder
+        $this->setJson($m, $p, 'items', 'list', 4, $customers_uk); // RU ≈ UK placeholder
     }
 
     // ============================================================
