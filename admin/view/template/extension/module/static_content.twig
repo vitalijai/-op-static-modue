@@ -102,7 +102,8 @@
                                          data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                          data-lang="{{ language.language_id }}" data-translatable="1"
                                          data-columns='{{ fieldDef.columns|json_encode }}'
-                                         data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                         data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}'
+                                       data-col-options='{{ fieldDef.col_options is defined ? fieldDef.col_options|json_encode : '{}' }}' }}'
                                          data-placeholder="{{ placeholder }}"></div>
                                     <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
 
@@ -136,7 +137,8 @@
                                      data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                      data-lang="0" data-translatable="0"
                                      data-columns='{{ fieldDef.columns|json_encode }}'
-                                     data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                     data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}'
+                                       data-col-options='{{ fieldDef.col_options is defined ? fieldDef.col_options|json_encode : '{}' }}' }}'
                                      data-placeholder="{{ placeholder }}"></div>
                                 <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
 
@@ -195,7 +197,8 @@
                                    data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                    data-lang="{{ language.language_id }}" data-translatable="1"
                                    data-columns='{{ fieldDef.columns|json_encode }}'
-                                   data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                                   data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}'
+                                       data-col-options='{{ fieldDef.col_options is defined ? fieldDef.col_options|json_encode : '{}' }}' }}'
                                    data-placeholder="{{ placeholder }}"></div>
                               <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
 
@@ -233,7 +236,8 @@
                                data-page="{{ pageKey }}" data-section="{{ sectionKey }}" data-field="{{ fieldKey }}"
                                data-lang="0" data-translatable="0"
                                data-columns='{{ fieldDef.columns|json_encode }}'
-                               data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}' }}'
+                               data-col-types='{{ fieldDef.col_types is defined ? fieldDef.col_types|json_encode : '{}'
+                                       data-col-options='{{ fieldDef.col_options is defined ? fieldDef.col_options|json_encode : '{}' }}' }}'
                                data-placeholder="{{ placeholder }}"></div>
                           <script type="application/json" data-for="{{ rid }}">{{ cv ? cv|raw : '[]' }}</script>
 
@@ -387,6 +391,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     try { columns = JSON.parse(container.dataset.columns || '[]'); } catch(e) { columns = []; }
     try { colTypes = JSON.parse(container.dataset.colTypes || '{}'); } catch(e) { colTypes = {}; }
+    var colOptions;
+    try { colOptions = JSON.parse(container.dataset.colOptions || '{}'); } catch(e) { colOptions = {}; }
     if (!Array.isArray(columns) || columns.length === 0) return;
 
     var translatable = container.dataset.translatable === '1';
@@ -418,7 +424,16 @@ document.addEventListener('DOMContentLoaded', function() {
           var val = row[col] || '';
           var cType = colTypes[col] || 'text';
 
-          if (cType === 'textarea') {
+          if (cType === 'select' && colOptions[col]) {
+            html += '<td><select name="repeater_temp" class="form-control" style="font-size:12px;padding:4px 6px;">';
+            var opts = colOptions[col];
+            for (var optKey in opts) {
+              if (opts.hasOwnProperty(optKey)) {
+                html += '<option value="' + escapeHtml(optKey) + '"' + (val === optKey ? ' selected' : '') + '>' + escapeHtml(opts[optKey]) + '</option>';
+              }
+            }
+            html += '</select></td>';
+          } else if (cType === 'textarea') {
             html += '<td><textarea name="repeater_temp">' + escapeHtml(val) + '</textarea></td>';
           } else if (cType === 'image') {
             // Image with OC3 file manager
@@ -453,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var newRows = [];
       container.querySelectorAll('tbody tr').forEach(function(tr) {
         var obj = {};
-        var textInputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]');
+        var textInputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"], select[name="repeater_temp"]');
         var imgInputs = tr.querySelectorAll('input[name="repeater_temp_img"]');
         var colIdx = 0;
 
@@ -510,6 +525,9 @@ document.addEventListener('DOMContentLoaded', function() {
     container.addEventListener('input', function(e) {
       if (e.target.name === 'repeater_temp') collectFromDom();
     });
+    container.addEventListener('change', function(e) {
+      if (e.target.name === 'repeater_temp') collectFromDom();
+    });
 
     var origRender = render;
     render = function() { origRender(); observeImageInputs(); };
@@ -555,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var newRows = [];
       container.querySelectorAll('tbody tr').forEach(function(tr) {
         var obj = {};
-        var textInputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"]');
+        var textInputs = tr.querySelectorAll('input[name="repeater_temp"], textarea[name="repeater_temp"], select[name="repeater_temp"]');
         var colIdx = 0;
         columns.forEach(function(col) {
           var cType = colTypes[col] || 'text';
