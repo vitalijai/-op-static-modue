@@ -22,6 +22,7 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $this->seedCommon($m);
         $this->seedBlog($m);
         $this->seedCustomers($m);
+        $this->seedPartners($m);
         $this->seedHome($m);
         $this->seedFooter($m);
 
@@ -480,6 +481,72 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $this->setJson($m, $p, 'items', 'list', 2, $customers_en);
         $this->setJson($m, $p, 'items', 'list', 3, $customers_en); // DE = EN placeholder
         $this->setJson($m, $p, 'items', 'list', 4, $customers_uk); // RU ≈ UK placeholder
+    }
+
+    // ============================================================
+    //  PARTNERS
+    // ============================================================
+    private function seedPartners($m) {
+        $p = 'partners';
+
+        // --- hero ---
+        $this->setT($m, $p, 'hero', 'title', [
+            1 => 'Наші цінні',
+            2 => 'Our',
+            3 => 'Unsere geschätzten',
+            4 => 'Наши ценные',
+        ]);
+        $this->setT($m, $p, 'hero', 'title_highlight', [
+            1 => 'Партнери',
+            2 => 'Partners',
+            3 => 'Partner',
+            4 => 'Партнеры',
+        ]);
+        $this->setT($m, $p, 'hero', 'desc', [
+            1 => 'Ми пишаємося співпрацею з провідними компаніями та організаціями, які поділяють наші цінності та прагнення до інновацій.',
+            2 => 'We take pride in collaborating with leading companies and organizations that share our values and commitment to innovation. Through partnerships, we implement bold projects, introduce cutting-edge technologies, and create high-quality products and services for our customers.',
+            3 => 'Wir sind stolz auf die Zusammenarbeit mit führenden Unternehmen und Organisationen.',
+            4 => 'Мы гордимся сотрудничеством с ведущими компаниями и организациями.',
+        ]);
+        $this->setT($m, $p, 'hero', 'review_invite', [
+            1 => 'Ви наш партнер і хочете залишити відгук про нас?',
+            2 => 'Are you our Customer and would like to leave a review about us?',
+            3 => 'Sind Sie unser Partner und möchten eine Bewertung hinterlassen?',
+            4 => 'Вы наш партнер и хотите оставить отзыв о нас?',
+        ]);
+        $this->setT($m, $p, 'hero', 'review_btn', [
+            1 => '+ Написати відгук',
+            2 => '+ Write to Review',
+            3 => '+ Bewertung schreiben',
+            4 => '+ Написать отзыв',
+        ]);
+
+        // --- items (партнеры) ---
+        $partners_uk = [
+            ['logo' => 'images/logos-custumers/ivano-fr.svg', 'name' => 'Івано-Франківська ОДА', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'if.gov.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+            ['logo' => 'images/logos-custumers/dom.svg', 'name' => 'DIM Development', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'dim.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+            ['logo' => 'images/logos-custumers/ibud.svg', 'name' => 'iBud', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'ibud.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+            ['logo' => 'images/logos-custumers/vox.svg', 'name' => 'VOX Architecture', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'vox.com.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+            ['logo' => 'images/logos-custumers/ivano-fr.svg', 'name' => 'Карпатський Дім', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'karpatskiy-dim.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+            ['logo' => 'images/logos-custumers/dom.svg', 'name' => 'Будівельний Альянс', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'bud-alliance.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+            ['logo' => 'images/logos-custumers/ibud.svg', 'name' => 'Галицький Стандарт', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'galstandard.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+            ['logo' => 'images/logos-custumers/vox.svg', 'name' => 'Преміум Естейт', 'since_year' => '2016', 'activity' => 'Комерційна нерухомість', 'category' => 'Будівництво будинків', 'website' => 'premium-estate.ua', 'review' => '"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum"'],
+        ];
+        $partners_en = [
+            ['logo' => 'images/logos-custumers/ivano-fr.svg', 'name' => 'Ivano-Frankivsk Regional Administration', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'if.gov.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+            ['logo' => 'images/logos-custumers/dom.svg', 'name' => 'DIM Development', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'dim.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+            ['logo' => 'images/logos-custumers/ibud.svg', 'name' => 'iBud', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'ibud.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+            ['logo' => 'images/logos-custumers/vox.svg', 'name' => 'VOX Architecture', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'vox.com.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+            ['logo' => 'images/logos-custumers/ivano-fr.svg', 'name' => 'Carpathian Home', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'karpatskiy-dim.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+            ['logo' => 'images/logos-custumers/dom.svg', 'name' => 'Construction Alliance', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'bud-alliance.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+            ['logo' => 'images/logos-custumers/ibud.svg', 'name' => 'Galician Standard', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'galstandard.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+            ['logo' => 'images/logos-custumers/vox.svg', 'name' => 'Premium Estate', 'since_year' => '2016', 'activity' => 'Commercial Real Estate', 'category' => 'Construction of Houses', 'website' => 'premium-estate.ua', 'review' => '"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites"'],
+        ];
+
+        $this->setJson($m, $p, 'items', 'list', 1, $partners_uk);
+        $this->setJson($m, $p, 'items', 'list', 2, $partners_en);
+        $this->setJson($m, $p, 'items', 'list', 3, $partners_en);
+        $this->setJson($m, $p, 'items', 'list', 4, $partners_uk);
     }
 
     // ============================================================

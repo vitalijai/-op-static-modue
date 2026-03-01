@@ -389,6 +389,33 @@ class ControllerExtensionModuleStaticContent extends Controller {
                 ],
             ],
 
+            // ===================== PARTNERS =====================
+            'partners' => [
+                'hero' => [
+                    'label'      => 'Верхній блок',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'desc'            => ['type' => 'textarea'],
+                        'review_invite'   => ['type' => 'text'],
+                        'review_btn'      => ['type' => 'text'],
+                    ],
+                ],
+                'items' => [
+                    'label'      => 'Партнери',
+                    'sort_order' => 1,
+                    'fields'     => [
+                        'list' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['logo', 'name', 'since_year', 'activity', 'category', 'website', 'review'],
+                            'col_types' => ['logo' => 'image', 'review' => 'textarea'],
+                        ],
+                    ],
+                ],
+            ],
+
             // ===================== HOME =====================
             'home' => [
                 'first_screen' => [

@@ -1,0 +1,156 @@
+{{ header }}
+
+<main>
+<div class="customers-block">
+  <div class="container container--default">
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+      <a href="/" class="breadcrumbs__item">{{ text_breadcrumb_home }}</a>
+      <a href="#!" class="breadcrumbs__item">{{ text_breadcrumb_about }}</a>
+      <span class="breadcrumbs__item">{{ text_breadcrumb_partners }}</span>
+    </div>
+
+    <div class="customers-block__top">
+      <div class="title title--mid">{{ sp.hero.title }} <span class="color-prime">{{ sp.hero.title_highlight }}</span></div>
+      <div class="text-button">
+        <span class="text-button__text">{{ sp.hero.review_invite }}</span>
+        <button class="button button--mid-sec button--blue js-call-popup-static" data-id="modal-wr">{{ sp.hero.review_btn }}</button>
+      </div>
+      <p class="simple-text simple-text--th simple-text--dark simple-text--medium js-cut-text" data-max-chars="140">
+        {{ sp.hero.desc }}
+      </p>
+    </div>
+  </div>
+
+  <div class="customers-block__bg-blue bg-blue">
+    <div class="container container--default">
+      <div class="customers-block__list">
+
+        {% for partner in partners %}
+          <div class="customer-card customer-card--sec">
+            <div class="since-itm">
+              <div class="since-itm__icon">
+                <svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M31.6313 12.635H33.25C33.7141 12.635 34.1593 12.8194 34.4874 13.1476C34.8156 13.4758 35 13.9209 35 14.385V23.135C35 23.5992 34.8156 24.0443 34.4874 24.3725C34.1593 24.7007 33.7141 24.885 33.25 24.885H30.0641L22.7413 14.3063L21.8899 13.1005L16.6784 15.5068C16.3416 15.6623 15.9641 15.7067 15.6004 15.6337C14.0096 15.3143 13.4759 14.7578 13.9991 13.9633C14.5058 13.1942 16.6618 11.6472 20.468 9.32055C20.5678 9.2593 20.671 9.2068 20.7769 9.1648C22.3755 8.4123 24.1999 8.68355 26.2491 9.97942C27.9433 11.0536 29.7472 11.9439 31.6304 12.635H31.6313ZM8.19525 24.7949C7.84711 24.6786 7.54437 24.4557 7.32987 24.1578C7.11537 23.8599 6.99997 23.5021 7 23.135V14.385C7 13.9209 7.18437 13.4758 7.51256 13.1476C7.84075 12.8194 8.28587 12.635 8.75 12.635H12.7855L12.7785 12.6412C12.5349 12.8606 12.3418 13.1303 12.2125 13.4316C12.0833 13.733 12.021 14.0588 12.0299 14.3865C12.0388 14.7143 12.1187 15.0362 12.2641 15.3301C12.4095 15.624 12.617 15.8828 12.8721 16.0887C13.5028 16.5977 14.2544 16.9351 15.0539 17.068C15.8535 17.2009 16.6738 17.1249 17.4353 16.8473L21.3719 15.4123L24.1325 19.4023C24.2174 19.4837 24.2939 19.5734 24.3609 19.67L29.1996 26.663C29.3426 26.8696 29.4393 27.1046 29.4833 27.3519C29.5274 27.5993 29.5176 27.8532 29.4548 28.0964C29.392 28.3396 29.2775 28.5665 29.1192 28.7616C28.9608 28.9566 28.7624 29.1153 28.5373 29.2268L20.8075 33.0514C20.4488 33.229 20.055 33.2728 19.6875 33.1984L19.9736 32.9088C20.6213 32.2536 20.9845 31.3695 20.9845 30.4483C20.9845 29.5271 20.6213 28.643 19.9736 27.9878L14.3736 22.3213C14.1295 22.0742 13.8387 21.878 13.5182 21.7441C13.1977 21.6102 12.8537 21.5413 12.5064 21.5413C12.159 21.5413 11.8151 21.6102 11.4946 21.7441C11.174 21.878 10.8833 22.0742 10.6391 22.3213L8.19437 24.7949H8.19525ZM13.6815 24.0424L18.648 29.0667C18.8621 29.2835 19.016 29.5524 19.0942 29.8469C19.1725 30.1414 19.1725 30.4513 19.0943 30.7458L18.844 31.6934C18.7876 31.9059 18.6802 32.1014 18.5311 32.2629C18.3819 32.4245 18.1956 32.5471 17.9882 32.6201C17.7808 32.6932 17.5588 32.7145 17.3413 32.6821C17.1239 32.6498 16.9176 32.5648 16.7405 32.4345L10.3547 27.7375C10.1524 27.5887 9.98447 27.3979 9.86239 27.1784C9.74031 26.9588 9.66694 26.7155 9.64726 26.465C9.62759 26.2146 9.66207 25.9628 9.74837 25.7269C9.83466 25.4909 9.97075 25.2763 10.1474 25.0977L11.1913 24.0407C11.354 23.876 11.5478 23.7452 11.7615 23.656C11.9752 23.5668 12.2044 23.5208 12.4359 23.5208C12.6675 23.5208 12.8967 23.5668 13.1104 23.656C13.324 23.7452 13.5179 23.876 13.6806 24.0407L13.6815 24.0424Z"/>
+                </svg>
+              </div>
+              <div class="since-itm__text">{{ text_since }} {{ partner.since_year }}</div>
+            </div>
+            <div class="customer-card__body">
+              <div class="customer-card__left">
+                <picture class="customer-card__img">
+                  <img class="lazy" src="image/images/empty.gif" data-src="image/{{ partner.logo }}" width="170" height="152" alt="{{ partner.name }}">
+                </picture>
+                <div class="customer-card__text-item">
+                  <span class="customer-card__m-title">{{ text_activity }}</span>
+                  <span class="customer-card__s-title">{{ partner.activity }}</span>
+                </div>
+                <div class="customer-card__text-item">
+                  <span class="customer-card__m-title">{{ text_category }}</span>
+                  <span class="customer-card__s-title">{{ partner.category }}</span>
+                </div>
+                {% if partner.website %}
+                <a href="https://{{ partner.website }}" class="simp-item simp-item--five simp-item--btn simp-item--purp-sec" target="_blank">
+                  <div class="simp-item__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 12.75C7.725 18.15 9.9 21.75 12 21.75C14.1 21.75 16.275 18.15 16.5 12.75H7.5Z"/>
+                      <path d="M12 2.25C9.9 2.25 7.725 5.85 7.5 11.25H16.5C16.275 5.85 14.1 2.25 12 2.25Z"/>
+                      <path d="M18 11.25H22.5C22.125 6.675 18.9 2.925 14.625 1.875C16.5 3.525 17.85 7.05 18 11.25Z"/>
+                      <path d="M6 12.75H1.5C1.8 17.325 5.025 21.075 9.375 22.125C7.5 20.475 6.15 16.95 6 12.75Z"/>
+                      <path d="M18 12.75C17.85 16.95 16.5 20.475 14.625 22.125C18.9 21 22.125 17.25 22.5 12.75H18Z"/>
+                      <path d="M5.99922 11.25C6.14922 7.05 7.49922 3.525 9.37422 1.875C5.09922 2.925 1.87422 6.675 1.57422 11.25H5.99922Z"/>
+                    </svg>
+                  </div>
+                  <div class="simp-item__text">{{ partner.website }}</div>
+                </a>
+                {% endif %}
+              </div>
+              <div class="customer-card__right">
+                <span class="customer-card__m-title">{{ text_review }}</span>
+                <div class="customer-card__text">{{ partner.review }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+
+      {# Пагинация #}
+      {% if pagination.total_pages > 1 %}
+      <div class="customers-block__pagination">
+        <nav class="catalog-pagination" aria-label="Catalog pagination">
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.first }}" aria-label="First page">
+            <span class="catalog-pagination__control">
+              <span class="catalog-pagination__bar" aria-hidden="true"></span>
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6.5 1L2 6L6.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.prev ? pagination.prev : pagination.first }}" aria-label="Previous page">
+            <span class="catalog-pagination__control">
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6.5 1L2 6L6.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          {% for page_item in pagination.pages %}
+          <a class="catalog-pagination__item{% if page_item.active %} is-active{% endif %}" href="{{ page_item.href }}" aria-label="Page {{ page_item.number }}"{% if page_item.active %} aria-current="page"{% endif %}>
+            <span class="catalog-pagination__text">{{ page_item.number }}</span>
+          </a>
+          {% endfor %}
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.next ? pagination.next : pagination.last }}" aria-label="Next page">
+            <span class="catalog-pagination__control">
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1.5 1L6 6L1.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.last }}" aria-label="Last page">
+            <span class="catalog-pagination__control">
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1.5 1L6 6L1.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="catalog-pagination__bar" aria-hidden="true"></span>
+            </span>
+          </a>
+        </nav>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{# ==================== section-ads (common) ==================== #}
+<section class="section-ads">
+  <div class="section-ads__body-wrap">
+    <div class="container container--default">
+      <div class="section-ads__body">
+        <h1 class="h1-ads">{{ scom.ads.title }}</h1>
+        <a href="{{ scom.ads.button_url }}" class="btn btn-book btn-ads">{{ scom.ads.button_text }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ==================== agency (common) ==================== #}
+<section class="agency">
+  <div class="company-achivements-body">
+    <div class="container container-company-achivements-body bg-realtor right bottom">
+      <div class="container-achivements-left">
+        <img src="image/{{ scom.agency.image }}" alt="logo" />
+      </div>
+      <div class="container-achivements-right">
+        <h5>{{ scom.agency.title }}</h5>
+        <div class="container-achivements-header-p" data-max-chars="360">
+          {{ scom.agency.text|raw }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+{{ footer }}
