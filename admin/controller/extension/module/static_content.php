@@ -346,7 +346,6 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'title_highlight' => ['type' => 'text'],
                         'text'            => ['type' => 'textarea'],
                         'hero_image'      => ['type' => 'image', 'translatable' => false],
-                        'bg_image'        => ['type' => 'image', 'translatable' => false],
                     ],
                 ],
             ],

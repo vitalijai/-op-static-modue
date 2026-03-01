@@ -384,7 +384,6 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             4 => 'Существует множество вариаций отрывков Lorem Ipsum, но большинство из них претерпели изменения в той или иной форме',
         ]);
         $this->setGlobal($m, $p, 'hero', 'hero_image', 'image', 'images/blog/hero.jpg');
-        $this->setGlobal($m, $p, 'hero', 'bg_image', 'image', 'images/prod-page/realtor.svg');
     }
 
     // ============================================================
