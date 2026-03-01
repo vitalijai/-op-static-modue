@@ -410,20 +410,34 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
 
         // --- customers ---
         $this->setT($m, $p, 'customers', 'title', [
-            1 => 'Наші цінні клієнти', 2 => 'Our Valued Customers',
-            3 => 'Unsere geschätzten Kunden', 4 => 'Наши ценные клиенты',
+            1 => 'Наші цінні', 2 => 'Our Valued', 3 => 'Unsere geschätzten', 4 => 'Наши ценные',
         ]);
+        $this->setT($m, $p, 'customers', 'title_highlight', [
+            1 => 'Клієнти', 2 => 'Customers', 3 => 'Kunden', 4 => 'Клиенты',
+        ]);
+        $this->setT($m, $p, 'customers', 'view_all_text', [
+            1 => 'Переглянути всі', 2 => 'View All', 3 => 'Alle anzeigen', 4 => 'Смотреть все',
+        ]);
+        $this->setGlobal($m, $p, 'customers', 'view_all_href', 'text', '/customers');
         $this->setT($m, $p, 'customers', 'desc', [
-            1 => 'Ми мали честь працювати з різноманітними клієнтами з різних галузей.',
-            2 => 'We have had the honor of working with a variety of clients from various industries.',
-            3 => 'Wir hatten die Ehre, mit Kunden aus verschiedenen Branchen zusammenzuarbeiten.',
-            4 => 'Мы имели честь работать с клиентами из различных отраслей.',
+            1 => 'Ми мали честь працювати з різноманітними клієнтами з різних галузей. Ось деякі з клієнтів, яких ми мали задоволення обслуговувати:',
+            2 => 'We have had the honor of working with a variety of clients from various industries. Here are some of the clients we have had the pleasure of serving:',
+            3 => 'Wir hatten die Ehre, mit Kunden aus verschiedenen Branchen zusammenzuarbeiten. Hier sind einige der Kunden, die wir betreuen durften:',
+            4 => 'Мы имели честь работать с клиентами из различных отраслей. Вот некоторые из клиентов, которых мы имели удовольствие обслуживать:',
         ]);
+        // Top row — big SVG logos
+        $this->setJson($m, $p, 'customers', 'logos', 0, [
+            ['image' => 'catalog/svg/customers/customer-1.svg', 'name' => 'Raiffeisen Bank'],
+            ['image' => 'catalog/svg/customers/customer-2.svg', 'name' => 'SoftServe'],
+            ['image' => 'catalog/svg/customers/customer-3.svg', 'name' => 'GlobalLogic'],
+            ['image' => 'catalog/svg/customers/customer-4.svg', 'name' => 'Eleks'],
+        ]);
+        // Bottom row — smaller image cards
         $this->setJson($m, $p, 'customers', 'items', 0, [
-            ['image' => 'catalog/svg/customers/customer-1.svg', 'name' => 'Customer 1', 'href' => '#'],
-            ['image' => 'catalog/svg/customers/customer-2.svg', 'name' => 'Customer 2', 'href' => '#'],
-            ['image' => 'catalog/svg/customers/customer-3.svg', 'name' => 'Customer 3', 'href' => '#'],
-            ['image' => 'catalog/svg/customers/customer-4.svg', 'name' => 'Customer 4', 'href' => '#'],
+            ['image' => 'catalog/svg/customers/customer-1.svg', 'name' => 'Raiffeisen Bank', 'href' => '#'],
+            ['image' => 'catalog/svg/customers/customer-2.svg', 'name' => 'SoftServe', 'href' => '#'],
+            ['image' => 'catalog/svg/customers/customer-3.svg', 'name' => 'GlobalLogic', 'href' => '#'],
+            ['image' => 'catalog/svg/customers/customer-4.svg', 'name' => 'Eleks', 'href' => '#'],
         ]);
 
         // --- reviews (header only, cards are dynamic) ---

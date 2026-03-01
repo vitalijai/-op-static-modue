@@ -374,8 +374,18 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'Valued Customers',
                     'sort_order' => 7,
                     'fields'     => [
-                        'title' => ['type' => 'text'],
-                        'desc'  => ['type' => 'textarea'],
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'view_all_text'   => ['type' => 'text'],
+                        'view_all_href'   => ['type' => 'text', 'translatable' => false],
+                        'desc'            => ['type' => 'textarea'],
+                        'logos' => [
+                            'type'         => 'json',
+                            'schema'       => 'repeater',
+                            'columns'      => ['image', 'name'],
+                            'col_types'    => ['image' => 'image'],
+                            'translatable' => false,
+                        ],
                         'items' => [
                             'type'         => 'json',
                             'schema'       => 'repeater',
