@@ -293,7 +293,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
+                            'columns' => ['text', 'href', 'style', 'icon'],
+                            'col_types' => ['icon' => 'image', 'style' => 'text'],
                         ],
                     ],
                 ],
@@ -305,7 +306,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
+                            'columns' => ['text', 'href', 'style', 'icon'],
+                            'col_types' => ['icon' => 'image', 'style' => 'text'],
                         ],
                     ],
                 ],

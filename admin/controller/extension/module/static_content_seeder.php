@@ -240,63 +240,98 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         ]);
 
         // --- drop_realty (mobile dropdown: realty) ---
+        // style: '' (default), 'active', 'green', 'blue'
+        // icon: опціонально, шлях до SVG
+        $excIcon = 'catalog/svg/ui/exclusive-star.svg';
         $this->setJson($m, $p, 'drop_realty', 'items', 1, [
-            ['text' => 'Квартири на продаж', 'href' => '#'], ['text' => 'Особняки на продаж', 'href' => '#'],
-            ['text' => 'Офіси на продаж', 'href' => '#'], ['text' => 'Комерційна нерухомість на продаж', 'href' => '#'],
-            ['text' => 'Гаражі на продаж', 'href' => '#'], ['text' => 'Земельні ділянки на продаж', 'href' => '#'],
-            ['text' => 'Нерухомість у Карпатах', 'href' => '#'],
-            ['text' => 'Квартири в оренду', 'href' => '#'], ['text' => 'Особняки в оренду', 'href' => '#'],
-            ['text' => 'Офіси в оренду', 'href' => '#'], ['text' => 'Комерційна нерухомість в оренду', 'href' => '#'],
-            ['text' => 'Гаражі в оренду', 'href' => '#'], ['text' => 'Земельні ділянки в оренду', 'href' => '#'],
-            ['text' => 'Ексклюзиви', 'href' => '#'],
+            ['text' => 'Квартири на продаж', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Особняки на продаж', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Офіси на продаж', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Комерційна нерухомість на продаж', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Гаражі на продаж', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Земельні ділянки на продаж', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Нерухомість у Карпатах', 'href' => '#', 'style' => 'green', 'icon' => ''],
+            ['text' => 'Квартири в оренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Особняки в оренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Офіси в оренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Комерційна нерухомість в оренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Гаражі в оренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Земельні ділянки в оренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Ексклюзиви', 'href' => '#', 'style' => 'blue', 'icon' => $excIcon],
         ]);
         $this->setJson($m, $p, 'drop_realty', 'items', 2, [
-            ['text' => 'Flats for Sale', 'href' => '#'], ['text' => 'Mansions for Sale', 'href' => '#'],
-            ['text' => 'Offices for Sale', 'href' => '#'], ['text' => 'Commercial Real Estate for Sale', 'href' => '#'],
-            ['text' => 'Garages for Sale', 'href' => '#'], ['text' => 'Land for Sale', 'href' => '#'],
-            ['text' => 'Real Estate in the Carpathians', 'href' => '#'],
-            ['text' => 'Flats for Rent', 'href' => '#'], ['text' => 'Mansions for Rent', 'href' => '#'],
-            ['text' => 'Offices for Rent', 'href' => '#'], ['text' => 'Commercial Real Estate for Rent', 'href' => '#'],
-            ['text' => 'Garages for Rent', 'href' => '#'], ['text' => 'Land for Rent', 'href' => '#'],
-            ['text' => 'Exclusive', 'href' => '#'],
+            ['text' => 'Flats for Sale', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Mansions for Sale', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Offices for Sale', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Commercial Real Estate for Sale', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Garages for Sale', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Land for Sale', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Real Estate in the Carpathians', 'href' => '#', 'style' => 'green', 'icon' => ''],
+            ['text' => 'Flats for Rent', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Mansions for Rent', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Offices for Rent', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Commercial Real Estate for Rent', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Garages for Rent', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Land for Rent', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Exclusive', 'href' => '#', 'style' => 'blue', 'icon' => $excIcon],
         ]);
         $this->setJson($m, $p, 'drop_realty', 'items', 3, [
-            ['text' => 'Wohnungen zum Verkauf', 'href' => '#'], ['text' => 'Villen zum Verkauf', 'href' => '#'],
-            ['text' => 'Büros zum Verkauf', 'href' => '#'], ['text' => 'Gewerbeimmobilien zum Verkauf', 'href' => '#'],
-            ['text' => 'Garagen zum Verkauf', 'href' => '#'], ['text' => 'Grundstücke zum Verkauf', 'href' => '#'],
-            ['text' => 'Immobilien in den Karpaten', 'href' => '#'],
-            ['text' => 'Wohnungen zur Miete', 'href' => '#'], ['text' => 'Villen zur Miete', 'href' => '#'],
-            ['text' => 'Büros zur Miete', 'href' => '#'], ['text' => 'Gewerbeimmobilien zur Miete', 'href' => '#'],
-            ['text' => 'Garagen zur Miete', 'href' => '#'], ['text' => 'Grundstücke zur Miete', 'href' => '#'],
-            ['text' => 'Exklusiv', 'href' => '#'],
+            ['text' => 'Wohnungen zum Verkauf', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Villen zum Verkauf', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Büros zum Verkauf', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Gewerbeimmobilien zum Verkauf', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Garagen zum Verkauf', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Grundstücke zum Verkauf', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Immobilien in den Karpaten', 'href' => '#', 'style' => 'green', 'icon' => ''],
+            ['text' => 'Wohnungen zur Miete', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Villen zur Miete', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Büros zur Miete', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Gewerbeimmobilien zur Miete', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Garagen zur Miete', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Grundstücke zur Miete', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Exklusiv', 'href' => '#', 'style' => 'blue', 'icon' => $excIcon],
         ]);
         $this->setJson($m, $p, 'drop_realty', 'items', 4, [
-            ['text' => 'Квартиры на продажу', 'href' => '#'], ['text' => 'Особняки на продажу', 'href' => '#'],
-            ['text' => 'Офисы на продажу', 'href' => '#'], ['text' => 'Коммерческая недвижимость на продажу', 'href' => '#'],
-            ['text' => 'Гаражи на продажу', 'href' => '#'], ['text' => 'Земельные участки на продажу', 'href' => '#'],
-            ['text' => 'Недвижимость в Карпатах', 'href' => '#'],
-            ['text' => 'Квартиры в аренду', 'href' => '#'], ['text' => 'Особняки в аренду', 'href' => '#'],
-            ['text' => 'Офисы в аренду', 'href' => '#'], ['text' => 'Коммерческая недвижимость в аренду', 'href' => '#'],
-            ['text' => 'Гаражи в аренду', 'href' => '#'], ['text' => 'Земельные участки в аренду', 'href' => '#'],
-            ['text' => 'Эксклюзивы', 'href' => '#'],
+            ['text' => 'Квартиры на продажу', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Особняки на продажу', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Офисы на продажу', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Коммерческая недвижимость на продажу', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Гаражи на продажу', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Земельные участки на продажу', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Недвижимость в Карпатах', 'href' => '#', 'style' => 'green', 'icon' => ''],
+            ['text' => 'Квартиры в аренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Особняки в аренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Офисы в аренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Коммерческая недвижимость в аренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Гаражи в аренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Земельные участки в аренду', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Эксклюзивы', 'href' => '#', 'style' => 'blue', 'icon' => $excIcon],
         ]);
 
         // --- drop_blog (mobile dropdown: blog) ---
         $this->setJson($m, $p, 'drop_blog', 'items', 1, [
-            ['text' => 'Новини', 'href' => '#'], ['text' => 'Корисне', 'href' => '#'],
-            ['text' => 'Новини нерухомості', 'href' => '#'], ['text' => 'Інвестиційні проекти', 'href' => '#'],
+            ['text' => 'Новини', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Корисне', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Новини нерухомості', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Інвестиційні проекти', 'href' => '#', 'style' => '', 'icon' => ''],
         ]);
         $this->setJson($m, $p, 'drop_blog', 'items', 2, [
-            ['text' => 'News', 'href' => '#'], ['text' => 'Useful', 'href' => '#'],
-            ['text' => 'Real Estate News', 'href' => '#'], ['text' => 'Investment Projects', 'href' => '#'],
+            ['text' => 'News', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Useful', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Real Estate News', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Investment Projects', 'href' => '#', 'style' => '', 'icon' => ''],
         ]);
         $this->setJson($m, $p, 'drop_blog', 'items', 3, [
-            ['text' => 'Nachrichten', 'href' => '#'], ['text' => 'Nützliches', 'href' => '#'],
-            ['text' => 'Immobilien-News', 'href' => '#'], ['text' => 'Investitionsprojekte', 'href' => '#'],
+            ['text' => 'Nachrichten', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Nützliches', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Immobilien-News', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Investitionsprojekte', 'href' => '#', 'style' => '', 'icon' => ''],
         ]);
         $this->setJson($m, $p, 'drop_blog', 'items', 4, [
-            ['text' => 'Новости', 'href' => '#'], ['text' => 'Полезное', 'href' => '#'],
-            ['text' => 'Новости недвижимости', 'href' => '#'], ['text' => 'Инвестиционные проекты', 'href' => '#'],
+            ['text' => 'Новости', 'href' => '#', 'style' => 'active', 'icon' => ''],
+            ['text' => 'Полезное', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Новости недвижимости', 'href' => '#', 'style' => '', 'icon' => ''],
+            ['text' => 'Инвестиционные проекты', 'href' => '#', 'style' => '', 'icon' => ''],
         ]);
     }
 
