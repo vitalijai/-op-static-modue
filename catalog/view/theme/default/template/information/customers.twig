@@ -126,10 +126,46 @@
 
       </div>
 
-      {# Пагинация OC3 #}
-      {% if pagination %}
+      {# Пагинация #}
+      {% if pagination.total_pages > 1 %}
       <div class="customers-block__pagination">
-        {{ pagination }}
+        <nav class="catalog-pagination" aria-label="Catalog pagination">
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.first }}" aria-label="First page">
+            <span class="catalog-pagination__control">
+              <span class="catalog-pagination__bar" aria-hidden="true"></span>
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6.5 1L2 6L6.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.prev ? pagination.prev : pagination.first }}" aria-label="Previous page">
+            <span class="catalog-pagination__control">
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6.5 1L2 6L6.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          {% for page_item in pagination.pages %}
+          <a class="catalog-pagination__item{% if page_item.active %} is-active{% endif %}" href="{{ page_item.href }}" aria-label="Page {{ page_item.number }}"{% if page_item.active %} aria-current="page"{% endif %}>
+            <span class="catalog-pagination__text">{{ page_item.number }}</span>
+          </a>
+          {% endfor %}
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.next ? pagination.next : pagination.last }}" aria-label="Next page">
+            <span class="catalog-pagination__control">
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1.5 1L6 6L1.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a class="catalog-pagination__item catalog-pagination__item--control" href="{{ pagination.last }}" aria-label="Last page">
+            <span class="catalog-pagination__control">
+              <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1.5 1L6 6L1.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="catalog-pagination__bar" aria-hidden="true"></span>
+            </span>
+          </a>
+        </nav>
       </div>
       {% endif %}
 

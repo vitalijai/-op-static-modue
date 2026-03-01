@@ -58,13 +58,28 @@ class ControllerInformationCustomers extends Controller {
             $total
         );
 
-        // OC3 Pagination
-        $pagination = new Pagination();
-        $pagination->total = $total;
-        $pagination->page  = $page;
-        $pagination->limit = $limit;
-        $pagination->url   = $this->url->link('information/customers', 'page={page}');
-        $data['pagination'] = $pagination->render();
+        // Пагинация — массив данных для шаблона
+        $total_pages = ceil($total / $limit);
+        $url_base = $this->url->link('information/customers');
+
+        $pages = [];
+        for ($i = 1; $i <= $total_pages; $i++) {
+            $pages[] = [
+                'number' => $i,
+                'href'   => $i == 1 ? $url_base : $url_base . '&page=' . $i,
+                'active' => ($i == $page),
+            ];
+        }
+
+        $data['pagination'] = [
+            'total_pages' => $total_pages,
+            'current'     => $page,
+            'first'       => $url_base,
+            'last'        => $total_pages > 1 ? $url_base . '&page=' . $total_pages : $url_base,
+            'prev'        => $page > 1 ? $url_base . '&page=' . ($page - 1) : '',
+            'next'        => $page < $total_pages ? $url_base . '&page=' . ($page + 1) : '',
+            'pages'       => $pages,
+        ];
 
         $this->document->setTitle($this->language->get('heading_title'));
 
