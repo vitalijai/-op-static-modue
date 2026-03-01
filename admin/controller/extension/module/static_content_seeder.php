@@ -19,6 +19,8 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         $this->seedHeader($m);
         $this->seedMenu($m);
         $this->seedMobile($m);
+        $this->seedCommon($m);
+        $this->seedBlog($m);
         $this->seedHome($m);
         $this->seedFooter($m);
 
@@ -336,6 +338,78 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
     }
 
     // ============================================================
+    //  COMMON (shared sections)
+    // ============================================================
+    private function seedCommon($m) {
+        $p = 'common';
+
+        // --- ads ---
+        $this->setT($m, $p, 'ads', 'title', [
+            1 => 'Місце для вашої реклами', 2 => 'Place for your advertisement',
+            3 => 'Platz für Ihre Werbung', 4 => 'Место для вашей рекламы',
+        ]);
+        $this->setT($m, $p, 'ads', 'button_text', [
+            1 => 'Забронювати', 2 => 'Book Now', 3 => 'Jetzt buchen', 4 => 'Забронировать',
+        ]);
+        $this->setGlobal($m, $p, 'ads', 'button_url', 'text', '#');
+
+        // --- agency ---
+        $this->setT($m, $p, 'agency', 'title', [
+            1 => 'Агенція нерухомості «РІЕЛТОР»', 2 => 'Real Estate Agency "REALTOR"',
+            3 => 'Immobilienagentur „REALTOR"', 4 => 'Агентство недвижимости «РИЕЛТОР»',
+        ]);
+        $this->setGlobal($m, $p, 'agency', 'image', 'image', 'images/logo/logo-old.png');
+        $this->setT($m, $p, 'agency', 'text', [
+            1 => '<p>• інформаційні послуги у напрямку продажу та оренди, включаючи подобову, обміну, купівлі житлової нерухомості — квартир, особняків, житлових будинків, котеджів<br />• первинний та вторинний ринки; комерційна нерухомість<br />• гіпермаркети, торговельні центри, магазини, мінімаркети, ресторани, кафе, бари, офіси, розважальні заклади, оптові бази тощо; промислова нерухомість<br />• цілісні майнові комплекси, готовий бізнес, окремі цехи, склади, агропромислові комплекси тощо; земельні ділянки</p><br /><p>Малі та великі інвестиційні проекти. Експертна оцінка. Супровід при складанні договору купівлі-продажу, оформленні кредиту тощо. Комісію нам сплачують власники нерухомості за ексклюзивними договорами. Велика база нерухомості ведеться з 2006 року.</p><br /><p>Допоможемо власникам швидко та вигідно продати нерухомість. В агенції працюють два сертифіковані ріелтори та один сертифікований оцінювач. Агенція є членом Української асоціації фахівців з нерухомості та Національної асоціації ріелторів (НАР).</p>',
+            2 => '<p>• information services in the direction of sale and rental, including daily, exchange, purchase of residential real estate - apartments, mansions, residential buildings, cottages<br />• primary and secondary markets; commercial real estate<br />• hypermarkets, shopping centers, shops, minimarkets, restaurants, cafes, bars, offices, entertainment venues, wholesale bases, etc.; industrial real estate<br />• integral property complexes, ready-made businesses, separate workshops, warehouses, agro-industrial complexes, etc.; land plots</p><br /><p>Small and large investment projects. Expert assessment. Support in drawing up a purchase and sale agreement, drawing up a loan, etc. The commission is paid to us by property owners under exclusive agreements. The large real estate database has been maintained since 2006.</p><br /><p>We will help owners quickly and profitably sell their real estate, whether it is an apartment or a mansion, commercial real estate or land. The agency employs two certified realtors and one certified appraiser. The agency is a member of the Ukrainian Association of Real Estate Professionals and the National Association of Realtors (NAR).</p>',
+            3 => '<p>• Informationsdienste im Bereich Verkauf und Vermietung, einschließlich täglicher Vermietung, Tausch, Kauf von Wohnimmobilien<br />• Primär- und Sekundärmarkt; Gewerbeimmobilien<br />• Hypermärkte, Einkaufszentren, Geschäfte, Büros usw.; Industrieimmobilien<br />• Grundstücke</p><br /><p>Kleine und große Investitionsprojekte. Expertenbewertung. Unterstützung bei Verträgen. Große Immobiliendatenbank seit 2006.</p><br /><p>Wir helfen Eigentümern, ihre Immobilien schnell und profitabel zu verkaufen. Mitglied der Ukrainischen Vereinigung der Immobilienfachleute und NAR.</p>',
+            4 => '<p>• информационные услуги в направлении продажи и аренды, включая посуточную, обмена, покупки жилой недвижимости — квартир, особняков, жилых домов, коттеджей<br />• первичный и вторичный рынки; коммерческая недвижимость<br />• гипермаркеты, торговые центры, магазины, офисы и т.д.; промышленная недвижимость<br />• земельные участки</p><br /><p>Малые и крупные инвестиционные проекты. Экспертная оценка. Сопровождение при составлении договора купли-продажи. Большая база недвижимости ведётся с 2006 года.</p><br /><p>Поможем собственникам быстро и выгодно продать недвижимость. В агентстве работают два сертифицированных риелтора и один сертифицированный оценщик. Агентство является членом Украинской ассоциации специалистов по недвижимости и НАР.</p>',
+        ]);
+    }
+
+    // ============================================================
+    //  BLOG
+    // ============================================================
+    private function seedBlog($m) {
+        $p = 'blog';
+
+        // --- hero ---
+        $this->setT($m, $p, 'hero', 'title_highlight', [
+            1 => 'Блог', 2 => 'Blog', 3 => 'Blog', 4 => 'Блог',
+        ]);
+        $this->setT($m, $p, 'hero', 'text', [
+            1 => 'Тут ви знайдете багато варіацій статей Lorem Ipsum, але більшість зазнали змін у тій чи іншій формі',
+            2 => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable',
+            3 => 'Es gibt viele Variationen von Lorem Ipsum Passagen, aber die Mehrheit hat in irgendeiner Form Veränderungen erfahren',
+            4 => 'Существует множество вариаций отрывков Lorem Ipsum, но большинство из них претерпели изменения в той или иной форме',
+        ]);
+        $this->setT($m, $p, 'hero', 'search_placeholder', [
+            1 => 'Пошук статей', 2 => 'Search for articles', 3 => 'Artikel suchen', 4 => 'Поиск статей',
+        ]);
+        $this->setT($m, $p, 'hero', 'search_btn', [
+            1 => 'Знайти', 2 => 'Find', 3 => 'Suchen', 4 => 'Найти',
+        ]);
+        $this->setGlobal($m, $p, 'hero', 'hero_image', 'image', 'images/blog/hero.jpg');
+        $this->setGlobal($m, $p, 'hero', 'bg_image', 'image', 'images/prod-page/realtor.svg');
+        $this->setJson($m, $p, 'hero', 'tags', 1, [
+            ['text' => '# тег 1', 'href' => '#'], ['text' => '# тег 2', 'href' => '#'],
+            ['text' => '# тег 3', 'href' => '#'], ['text' => '# тег 4', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'hero', 'tags', 2, [
+            ['text' => '# title tag 1', 'href' => '#'], ['text' => '# title tag 2', 'href' => '#'],
+            ['text' => '# title tag 3', 'href' => '#'], ['text' => '# title tag 4', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'hero', 'tags', 3, [
+            ['text' => '# Tag 1', 'href' => '#'], ['text' => '# Tag 2', 'href' => '#'],
+            ['text' => '# Tag 3', 'href' => '#'], ['text' => '# Tag 4', 'href' => '#'],
+        ]);
+        $this->setJson($m, $p, 'hero', 'tags', 4, [
+            ['text' => '# тег 1', 'href' => '#'], ['text' => '# тег 2', 'href' => '#'],
+            ['text' => '# тег 3', 'href' => '#'], ['text' => '# тег 4', 'href' => '#'],
+        ]);
+    }
+
+    // ============================================================
     //  HOME
     // ============================================================
     private function seedHome($m) {
@@ -399,16 +473,6 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['icon' => 'catalog/svg/key-features/consulting.svg', 'description' => 'Консультационная и юридическая поддержка'],
             ['icon' => 'catalog/svg/key-features/team.svg', 'description' => 'Квалифицированный персонал'],
         ]);
-
-        // --- ads ---
-        $this->setT($m, $p, 'ads', 'title', [
-            1 => 'Місце для вашої реклами', 2 => 'Place for your advertisement',
-            3 => 'Platz für Ihre Werbung', 4 => 'Место для вашей рекламы',
-        ]);
-        $this->setT($m, $p, 'ads', 'button_text', [
-            1 => 'Забронювати', 2 => 'Book Now', 3 => 'Jetzt buchen', 4 => 'Забронировать',
-        ]);
-        $m->setValue($p, 'ads', 'button_url', 'text', '#', 0);
 
         // --- choose_us ---
         $this->setT($m, $p, 'choose_us', 'title', [
@@ -481,19 +545,6 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['value' => '10108', 'is_percent' => '', 'label' => 'успешных сделок', 'description' => 'Сотни довольных клиентов нашли своё идеальное жильё'],
             ['value' => '2453', 'is_percent' => '', 'label' => 'эксклюзивных объектов', 'description' => 'Недвижимость, которую не найдёте в открытом доступе'],
             ['value' => '80', 'is_percent' => '1', 'label' => 'новых клиентов', 'description' => 'Большинство пришли по рекомендации друзей, коллег или партнёров'],
-        ]);
-
-        // --- agency ---
-        $this->setT($m, $p, 'agency', 'title', [
-            1 => 'Агенція нерухомості «РІЕЛТОР»', 2 => 'Real Estate Agency "REALTOR"',
-            3 => 'Immobilienagentur „REALTOR"', 4 => 'Агентство недвижимости «РИЕЛТОР»',
-        ]);
-        $m->setValue($p, 'agency', 'image', 'image', 'catalog/logo/logo-old.png', 0);
-        $this->setT($m, $p, 'agency', 'text', [
-            1 => '<p>• інформаційні послуги у напрямку продажу та оренди, включаючи подобову, обміну, купівлі житлової нерухомості — квартир, особняків, житлових будинків, котеджів<br />• первинний та вторинний ринки; комерційна нерухомість<br />• гіпермаркети, торговельні центри, магазини, мінімаркети, ресторани, кафе, бари, офіси, розважальні заклади, оптові бази тощо; промислова нерухомість<br />• цілісні майнові комплекси, готовий бізнес, окремі цехи, склади, агропромислові комплекси тощо; земельні ділянки — під будівництво гіпермаркетів від 1 до 10 га, торговельних центрів, промислових підприємств, житлових багатоповерхових будинків, приватних будинків, котеджів.</p><br /><p>Малі та великі інвестиційні проекти. Експертна оцінка. Супровід при складанні договору купівлі-продажу, оформленні кредиту тощо. Комісію нам сплачують власники нерухомості за ексклюзивними договорами. Для покупців у нас є варіанти на будь-який смак і гаманець — Велика база нерухомості ведеться з 2006 року.</p><br /><p>Допоможемо власникам швидко та вигідно продати нерухомість, будь то квартира чи особняк, комерційна нерухомість чи земля. В агенції працюють два сертифіковані ріелтори та один сертифікований оцінювач. Агенція є членом Української асоціації фахівців з нерухомості та Національної асоціації ріелторів (НАР).</p>',
-            2 => '<p>• information services in the direction of sale and rental, including daily, exchange, purchase of residential real estate - apartments, mansions, residential buildings, cottages<br />• primary and secondary markets; commercial real estate<br />• hypermarkets, shopping centers, shops, minimarkets, restaurants, cafes, bars, offices, entertainment venues, wholesale bases, etc.; industrial real estate<br />• integral property complexes, ready-made businesses, separate workshops, warehouses, agro-industrial complexes, etc.; land plots - for the construction of hypermarkets from 1 to 10 hectares, shopping centers, industrial enterprises, residential high-rise buildings, residential private houses, cottages.</p><br /><p>Small and large investment projects. Expert assessment. Support in drawing up a purchase and sale agreement, drawing up a loan, etc. The commission is paid to us by property owners under exclusive agreements. For buyers, we have options for every taste and price range - The large real estate database has been maintained since 2006.</p><br /><p>We will help owners quickly and profitably sell their real estate, whether it is an apartment or a mansion, commercial real estate or land. The agency employs two certified realtors and one certified appraiser. The agency is a member of the Ukrainian Association of Real Estate Professionals and the National Association of Realtors (NAR).</p>',
-            3 => '<p>• Informationsdienste im Bereich Verkauf und Vermietung, einschließlich täglicher Vermietung, Tausch, Kauf von Wohnimmobilien — Wohnungen, Villen, Wohnhäuser, Cottages<br />• Primär- und Sekundärmarkt; Gewerbeimmobilien<br />• Hypermärkte, Einkaufszentren, Geschäfte, Minimärkte, Restaurants, Cafés, Bars, Büros, Unterhaltungsstätten, Großhandelslager usw.; Industrieimmobilien<br />• Eigentumskomplexe, fertige Geschäfte, einzelne Werkstätten, Lagerhäuser, Agrarkomplexe usw.; Grundstücke — für den Bau von Hypermärkten von 1 bis 10 Hektar, Einkaufszentren, Industrieunternehmen, Wohnhochhäuser, Privathäuser, Cottages.</p><br /><p>Kleine und große Investitionsprojekte. Expertenbewertung. Unterstützung bei Kauf- und Verkaufsverträgen, Kreditbearbeitung usw. Die Provision wird von Immobilieneigentümern im Rahmen exklusiver Vereinbarungen gezahlt. Große Immobiliendatenbank seit 2006.</p><br /><p>Wir helfen Eigentümern, ihre Immobilien schnell und profitabel zu verkaufen. Die Agentur beschäftigt zwei zertifizierte Makler und einen zertifizierten Gutachter. Mitglied der Ukrainischen Vereinigung der Immobilienfachleute und der Nationalen Vereinigung der Makler (NAR).</p>',
-            4 => '<p>• информационные услуги в направлении продажи и аренды, включая посуточную, обмена, покупки жилой недвижимости — квартир, особняков, жилых домов, коттеджей<br />• первичный и вторичный рынки; коммерческая недвижимость<br />• гипермаркеты, торговые центры, магазины, минимаркеты, рестораны, кафе, бары, офисы, развлекательные заведения, оптовые базы и т.д.; промышленная недвижимость<br />• целостные имущественные комплексы, готовый бизнес, отдельные цеха, склады, агропромышленные комплексы и т.д.; земельные участки — под строительство гипермаркетов от 1 до 10 га, торговых центров, промышленных предприятий, жилых многоэтажных домов, частных домов, коттеджей.</p><br /><p>Малые и крупные инвестиционные проекты. Экспертная оценка. Сопровождение при составлении договора купли-продажи, оформлении кредита и т.д. Комиссию нам оплачивают собственники недвижимости по эксклюзивным договорам. Для покупателей у нас есть варианты на любой вкус и кошелёк — Большая база недвижимости ведётся с 2006 года.</p><br /><p>Поможем собственникам быстро и выгодно продать недвижимость, будь то квартира или особняк, коммерческая недвижимость или земля. В агентстве работают два сертифицированных риелтора и один сертифицированный оценщик. Агентство является членом Украинской ассоциации специалистов по недвижимости и Национальной ассоциации риелторов (НАР).</p>',
         ]);
 
         // --- partners ---

@@ -315,6 +315,49 @@ class ControllerExtensionModuleStaticContent extends Controller {
                 ],
             ],
 
+            // ===================== COMMON (shared across pages) =====================
+            'common' => [
+                'ads' => [
+                    'label'      => 'Рекламний банер',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'title'       => ['type' => 'text'],
+                        'button_text' => ['type' => 'text'],
+                        'button_url'  => ['type' => 'text', 'translatable' => false],
+                    ],
+                ],
+                'agency' => [
+                    'label'      => 'Інформація про агенцію',
+                    'sort_order' => 1,
+                    'fields'     => [
+                        'title' => ['type' => 'text'],
+                        'image' => ['type' => 'image', 'translatable' => false],
+                        'text'  => ['type' => 'wysiwyg'],
+                    ],
+                ],
+            ],
+
+            // ===================== BLOG =====================
+            'blog' => [
+                'hero' => [
+                    'label'      => 'Hero секція',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'title_highlight' => ['type' => 'text'],
+                        'text'            => ['type' => 'textarea'],
+                        'search_placeholder' => ['type' => 'text'],
+                        'search_btn'      => ['type' => 'text'],
+                        'hero_image'      => ['type' => 'image', 'translatable' => false],
+                        'bg_image'        => ['type' => 'image', 'translatable' => false],
+                        'tags' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['text', 'href'],
+                        ],
+                    ],
+                ],
+            ],
+
             // ===================== HOME =====================
             'home' => [
                 'first_screen' => [
@@ -340,15 +383,6 @@ class ControllerExtensionModuleStaticContent extends Controller {
                             'columns' => ['icon', 'description'],
                             'col_types' => ['icon' => 'image', 'description' => 'text'],
                         ],
-                    ],
-                ],
-                'ads' => [
-                    'label'      => 'Ad Banner',
-                    'sort_order' => 2,
-                    'fields'     => [
-                        'title'      => ['type' => 'text'],
-                        'button_text' => ['type' => 'text'],
-                        'button_url' => ['type' => 'text', 'translatable' => false],
                     ],
                 ],
                 'choose_us' => [
@@ -381,15 +415,6 @@ class ControllerExtensionModuleStaticContent extends Controller {
                             'columns' => ['value', 'is_percent', 'label', 'description'],
                             'col_types' => ['description' => 'textarea'],
                         ],
-                    ],
-                ],
-                'agency' => [
-                    'label'      => 'Agency Info',
-                    'sort_order' => 5,
-                    'fields'     => [
-                        'title' => ['type' => 'text'],
-                        'image' => ['type' => 'image', 'translatable' => false],
-                        'text'  => ['type' => 'wysiwyg'],
                     ],
                 ],
                 'partners' => [
