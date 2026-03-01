@@ -175,6 +175,27 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
     private function seedHome($m) {
         $p = 'home';
 
+        // --- first_screen (hero) ---
+        $this->setT($m, $p, 'first_screen', 'title_highlight', [
+            1 => 'Realtor',
+            2 => 'Realtor',
+            3 => 'Realtor',
+            4 => 'Realtor',
+        ]);
+        $this->setT($m, $p, 'first_screen', 'title', [
+            1 => '- Ваш надійний партнер у світі нерухомості',
+            2 => '- Your Reliable Partner in the World of Real Estate',
+            3 => '- Ihr zuverlässiger Partner in der Welt der Immobilien',
+            4 => '- Ваш надёжный партнер в мире недвижимости',
+        ]);
+        $this->setT($m, $p, 'first_screen', 'text', [
+            1 => 'Це команда професіоналів, які допоможуть знайти ідеальний дім або вигідну нерухомість для інвестицій та бізнесу',
+            2 => 'This is a team of professionals who help you find the perfect home or a profitable property for investment and business',
+            3 => 'Ein Team von Fachleuten, das Ihnen hilft, das perfekte Zuhause oder eine profitable Immobilie für Investitionen und Geschäft zu finden',
+            4 => 'Это команда профессионалов, которые помогут найти идеальный дом или выгодную недвижимость для инвестиций и бизнеса',
+        ]);
+        $this->setGlobal($m, $p, 'first_screen', 'bg_image', 'image', 'images/home/main-image.png');
+
         // --- key_features ---
         $this->setT($m, $p, 'key_features', 'title', [
             1 => 'Агенція нерухомості', 2 => 'Estate Agency',
@@ -573,6 +594,10 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         foreach ($values as $langId => $value) {
             $m->setValue($page, $section, $key, 'text', $value, $langId);
         }
+    }
+
+    private function setGlobal($m, $page, $section, $key, $type, $value) {
+        $m->setValue($page, $section, $key, $type, $value, 0);
     }
 
     private function setJson($m, $page, $section, $key, $langId, $data) {

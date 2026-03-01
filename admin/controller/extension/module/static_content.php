@@ -255,6 +255,16 @@ class ControllerExtensionModuleStaticContent extends Controller {
 
             // ===================== HOME =====================
             'home' => [
+                'first_screen' => [
+                    'label'      => 'First Screen (Hero)',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'title_highlight' => ['type' => 'text'],
+                        'title'           => ['type' => 'text'],
+                        'text'            => ['type' => 'textarea'],
+                        'bg_image'        => ['type' => 'image', 'translatable' => false],
+                    ],
+                ],
                 'key_features' => [
                     'label'      => 'Key Features',
                     'sort_order' => 1,
