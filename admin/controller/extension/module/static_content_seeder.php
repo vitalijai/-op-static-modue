@@ -534,12 +534,13 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         ]);
         foreach ($listLeft as $lang => $items) { $this->setJson($m, $p, 'listing_right', 'items', $lang, $items); }
 
-        // --- partners (footer logos) ---
+        // --- partners (footer logos — multi-logo block) ---
         $this->setJson($m, $p, 'partners', 'items', 0, [
-            ['image' => 'catalog/svg/partners/partner-1.svg', 'alt' => 'Partner 1', 'href' => '#'],
-            ['image' => 'catalog/svg/partners/partner-2.svg', 'alt' => 'Partner 2', 'href' => '#'],
-            ['image' => 'catalog/svg/partners/partner-3.svg', 'alt' => 'Partner 3', 'href' => '#'],
-            ['image' => 'catalog/svg/partners/partner-4.svg', 'alt' => 'Partner 4', 'href' => '#'],
+            ['image' => 'images/b1.png', 'alt' => 'R White', 'href' => '#'],
+            ['image' => 'images/b2.png', 'alt' => 'Київміськбуд', 'href' => '#'],
+            ['image' => 'images/b3.png', 'alt' => 'RP Realtor', 'href' => '#'],
+            ['image' => 'images/b4.png', 'alt' => 'DOM.RIA', 'href' => '#'],
+            ['image' => 'images/b5.png', 'alt' => 'OLX Нерухомість', 'href' => '#'],
         ]);
 
         // --- bottom ---
