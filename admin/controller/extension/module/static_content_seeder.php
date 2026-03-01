@@ -360,8 +360,15 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
 
         // --- partners ---
         $this->setT($m, $p, 'partners', 'title', [
-            1 => 'Наші партнери', 2 => 'Our Partners', 3 => 'Unsere Partner', 4 => 'Наши партнёры',
+            1 => 'Наші', 2 => 'Our', 3 => 'Unsere', 4 => 'Наши',
         ]);
+        $this->setT($m, $p, 'partners', 'title_highlight', [
+            1 => 'Партнери', 2 => 'Partners', 3 => 'Partner', 4 => 'Партнёры',
+        ]);
+        $this->setT($m, $p, 'partners', 'view_all_text', [
+            1 => 'Переглянути всі', 2 => 'View All', 3 => 'Alle anzeigen', 4 => 'Смотреть все',
+        ]);
+        $this->setGlobal($m, $p, 'partners', 'view_all_href', 'text', '/partners');
         // Top row — SVG logos (developers/builders)
         $this->setJson($m, $p, 'partners', 'logos', 0, [
             ['image' => 'catalog/svg/partners/partner-1.svg', 'name' => 'Місто для людей'],
@@ -371,28 +378,28 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
         ]);
         // Bottom row — PNG links (services)
         $this->setJson($m, $p, 'partners', 'items', 1, [
-            ['image' => 'catalog/partners/luxury.png', 'name' => 'Елітна нерухомість', 'href' => '#'],
-            ['image' => 'catalog/partners/carpathians.png', 'name' => 'Нерухомість у Карпатах', 'href' => '#'],
-            ['image' => 'catalog/partners/exclusives.png', 'name' => 'Ексклюзиви', 'href' => '#'],
-            ['image' => 'catalog/partners/investment.png', 'name' => 'Інвестиційні проекти', 'href' => '#'],
+            ['image' => 'images/partners/luxury.png', 'name' => 'Елітна нерухомість', 'href' => '#'],
+            ['image' => 'images/partners/carphathians.png', 'name' => 'Нерухомість у Карпатах', 'href' => '#'],
+            ['image' => 'images/partners/exlusives.png', 'name' => 'Ексклюзиви', 'href' => '#'],
+            ['image' => 'images/partners/investment.png', 'name' => 'Інвестиційні проекти', 'href' => '#'],
         ]);
         $this->setJson($m, $p, 'partners', 'items', 2, [
-            ['image' => 'catalog/partners/luxury.png', 'name' => 'Luxury Real Estate', 'href' => '#'],
-            ['image' => 'catalog/partners/carpathians.png', 'name' => 'Real Estate in the Carpathians', 'href' => '#'],
-            ['image' => 'catalog/partners/exclusives.png', 'name' => 'Exclusives', 'href' => '#'],
-            ['image' => 'catalog/partners/investment.png', 'name' => 'Investment Projects', 'href' => '#'],
+            ['image' => 'images/partners/luxury.png', 'name' => 'Luxury Real Estate', 'href' => '#'],
+            ['image' => 'images/partners/carphathians.png', 'name' => 'Real Estate in the Carpathians', 'href' => '#'],
+            ['image' => 'images/partners/exlusives.png', 'name' => 'Exclusives', 'href' => '#'],
+            ['image' => 'images/partners/investment.png', 'name' => 'Investment Projects', 'href' => '#'],
         ]);
         $this->setJson($m, $p, 'partners', 'items', 3, [
-            ['image' => 'catalog/partners/luxury.png', 'name' => 'Luxusimmobilien', 'href' => '#'],
-            ['image' => 'catalog/partners/carpathians.png', 'name' => 'Karpaten-Immobilien', 'href' => '#'],
-            ['image' => 'catalog/partners/exclusives.png', 'name' => 'Exklusiv', 'href' => '#'],
-            ['image' => 'catalog/partners/investment.png', 'name' => 'Investitionsprojekte', 'href' => '#'],
+            ['image' => 'images/partners/luxury.png', 'name' => 'Luxusimmobilien', 'href' => '#'],
+            ['image' => 'images/partners/carphathians.png', 'name' => 'Karpaten-Immobilien', 'href' => '#'],
+            ['image' => 'images/partners/exlusives.png', 'name' => 'Exklusiv', 'href' => '#'],
+            ['image' => 'images/partners/investment.png', 'name' => 'Investitionsprojekte', 'href' => '#'],
         ]);
         $this->setJson($m, $p, 'partners', 'items', 4, [
-            ['image' => 'catalog/partners/luxury.png', 'name' => 'Элитная недвижимость', 'href' => '#'],
-            ['image' => 'catalog/partners/carpathians.png', 'name' => 'Недвижимость в Карпатах', 'href' => '#'],
-            ['image' => 'catalog/partners/exclusives.png', 'name' => 'Эксклюзивы', 'href' => '#'],
-            ['image' => 'catalog/partners/investment.png', 'name' => 'Инвестиционные проекты', 'href' => '#'],
+            ['image' => 'images/partners/luxury.png', 'name' => 'Элитная недвижимость', 'href' => '#'],
+            ['image' => 'images/partners/carphathians.png', 'name' => 'Недвижимость в Карпатах', 'href' => '#'],
+            ['image' => 'images/partners/exlusives.png', 'name' => 'Эксклюзивы', 'href' => '#'],
+            ['image' => 'images/partners/investment.png', 'name' => 'Инвестиционные проекты', 'href' => '#'],
         ]);
 
         // --- customers ---

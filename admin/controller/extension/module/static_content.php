@@ -348,7 +348,10 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     'label'      => 'Partners',
                     'sort_order' => 6,
                     'fields'     => [
-                        'title' => ['type' => 'text'],
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'view_all_text'   => ['type' => 'text'],
+                        'view_all_href'   => ['type' => 'text', 'translatable' => false],
                         'logos' => [
                             'type'         => 'json',
                             'schema'       => 'repeater',
