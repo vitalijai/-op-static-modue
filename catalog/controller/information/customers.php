@@ -86,6 +86,9 @@ class ControllerInformationCustomers extends Controller {
         $data['header'] = $this->load->controller('common/header');
         $data['footer'] = $this->load->controller('common/footer');
 
+        $data['shared_ads'] = $this->load->controller('common/shared_blocks/ads');
+		$data['shared_agency'] = $this->load->controller('common/shared_blocks/agency');
+	
         $this->response->setOutput(
             $this->load->view('information/customers', $data)
         );

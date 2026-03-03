@@ -335,6 +335,22 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'text'  => ['type' => 'wysiwyg'],
                     ],
                 ],
+                'choose_us' => [
+                    'label'      => 'Why Choose Us',
+                    'sort_order' => 2,
+                    'fields'     => [
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'title_suffix'    => ['type' => 'text'],
+                        'mobile_image'    => ['type' => 'image', 'translatable' => false],
+                        'items' => [
+                            'type'    => 'json',
+                            'schema'  => 'repeater',
+                            'columns' => ['icon', 'title', 'description'],
+                            'col_types' => ['icon' => 'image', 'title' => 'text', 'description' => 'textarea'],
+                        ],
+                    ],
+                ],
             ],
 
             // ===================== BLOG =====================
@@ -440,22 +456,6 @@ class ControllerExtensionModuleStaticContent extends Controller {
                             'schema'  => 'repeater',
                             'columns' => ['icon', 'description'],
                             'col_types' => ['icon' => 'image', 'description' => 'text'],
-                        ],
-                    ],
-                ],
-                'choose_us' => [
-                    'label'      => 'Why Choose Us',
-                    'sort_order' => 3,
-                    'fields'     => [
-                        'title'           => ['type' => 'text'],
-                        'title_highlight' => ['type' => 'text'],
-                        'title_suffix'    => ['type' => 'text'],
-                        'mobile_image'    => ['type' => 'image', 'translatable' => false],
-                        'items' => [
-                            'type'    => 'json',
-                            'schema'  => 'repeater',
-                            'columns' => ['icon', 'title', 'description'],
-                            'col_types' => ['icon' => 'image', 'title' => 'text', 'description' => 'textarea'],
                         ],
                     ],
                 ],

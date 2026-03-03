@@ -72,6 +72,9 @@ class ControllerInformationPartners extends Controller {
 
         $data['header'] = $this->load->controller('common/header');
         $data['footer'] = $this->load->controller('common/footer');
+        $data['shared_ads'] = $this->load->controller('common/shared_blocks/ads');
+		$data['shared_agency'] = $this->load->controller('common/shared_blocks/agency');
+		$data['shared_choose_us'] = $this->load->controller('common/shared_blocks/choose_us');
 
         $this->response->setOutput(
             $this->load->view('information/partners', $data)

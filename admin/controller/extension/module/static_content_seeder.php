@@ -367,6 +367,38 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             3 => '<p>• Informationsdienste im Bereich Verkauf und Vermietung, einschließlich täglicher Vermietung, Tausch, Kauf von Wohnimmobilien<br />• Primär- und Sekundärmarkt; Gewerbeimmobilien<br />• Hypermärkte, Einkaufszentren, Geschäfte, Büros usw.; Industrieimmobilien<br />• Grundstücke</p><br /><p>Kleine und große Investitionsprojekte. Expertenbewertung. Unterstützung bei Verträgen. Große Immobiliendatenbank seit 2006.</p><br /><p>Wir helfen Eigentümern, ihre Immobilien schnell und profitabel zu verkaufen. Mitglied der Ukrainischen Vereinigung der Immobilienfachleute und NAR.</p>',
             4 => '<p>• информационные услуги в направлении продажи и аренды, включая посуточную, обмена, покупки жилой недвижимости — квартир, особняков, жилых домов, коттеджей<br />• первичный и вторичный рынки; коммерческая недвижимость<br />• гипермаркеты, торговые центры, магазины, офисы и т.д.; промышленная недвижимость<br />• земельные участки</p><br /><p>Малые и крупные инвестиционные проекты. Экспертная оценка. Сопровождение при составлении договора купли-продажи. Большая база недвижимости ведётся с 2006 года.</p><br /><p>Поможем собственникам быстро и выгодно продать недвижимость. В агентстве работают два сертифицированных риелтора и один сертифицированный оценщик. Агентство является членом Украинской ассоциации специалистов по недвижимости и НАР.</p>',
         ]);
+
+        // --- choose_us ---
+        $this->setT($m, $p, 'choose_us', 'title', [
+            1 => 'Чому', 2 => 'Why', 3 => 'Warum', 4 => 'Почему',
+        ]);
+        $this->setT($m, $p, 'choose_us', 'title_highlight', [
+            1 => 'обирають', 2 => 'Choose', 3 => 'uns', 4 => 'выбирают',
+        ]);
+        $this->setT($m, $p, 'choose_us', 'title_suffix', [
+            1 => 'нас?', 2 => 'Us?', 3 => 'wählen?', 4 => 'нас?',
+        ]);
+        $this->setGlobal($m, $p, 'choose_us', 'mobile_image', 'image', 'images/home/image-block-why-choose-us-mob.jpg');
+        $this->setJson($m, $p, 'choose_us', 'items', 1, [
+            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Максимальна безпека угоди', 'description' => 'Ми гарантуємо юридичну чистоту кожної угоди. Перевіряємо документи, супроводжуємо клієнта на всіх етапах і захищаємо від ризиків'],
+            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Велика база перевірених об\'єктів', 'description' => 'Доступ до ексклюзивних пропозицій ринку! Ми знаємо, де знайти ідеальну квартиру чи будинок під ваші вимоги'],
+            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Економія вашого часу', 'description' => 'Ми беремо на себе всі клопоти: підбір, перегляди, переговори та закриття угоди. Вам залишається лише забрати ключі від ідеального дому!'],
+        ]);
+        $this->setJson($m, $p, 'choose_us', 'items', 2, [
+            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Maximum transaction security', 'description' => 'We guarantee the legal purity of each transaction. We check documents, accompany the client at all stages and protect against risks'],
+            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Large database of verified objects', 'description' => 'Access to exclusive market offers! We know where to find the perfect apartment or house for your requirements'],
+            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Saving your time', 'description' => 'We take care of all the hassle: selection, viewings, negotiations, and closing the deal. All you have to do is take the keys to your ideal home!'],
+        ]);
+        $this->setJson($m, $p, 'choose_us', 'items', 3, [
+            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Maximale Transaktionssicherheit', 'description' => 'Wir garantieren die rechtliche Sauberkeit jeder Transaktion. Wir prüfen Dokumente, begleiten den Kunden in allen Phasen und schützen vor Risiken'],
+            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Große Datenbank geprüfter Objekte', 'description' => 'Zugang zu exklusiven Marktangeboten! Wir wissen, wo die perfekte Wohnung oder das perfekte Haus für Ihre Anforderungen zu finden ist'],
+            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Zeitersparnis', 'description' => 'Wir kümmern uns um alles: Auswahl, Besichtigungen, Verhandlungen und Geschäftsabschluss. Sie müssen nur noch die Schlüssel zu Ihrem Traumhaus abholen!'],
+        ]);
+        $this->setJson($m, $p, 'choose_us', 'items', 4, [
+            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Максимальная безопасность сделки', 'description' => 'Мы гарантируем юридическую чистоту каждой сделки. Проверяем документы, сопровождаем клиента на всех этапах и защищаем от рисков'],
+            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Большая база проверенных объектов', 'description' => 'Доступ к эксклюзивным предложениям рынка! Мы знаем, где найти идеальную квартиру или дом под ваши требования'],
+            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Экономия вашего времени', 'description' => 'Мы берём на себя все хлопоты: подбор, просмотры, переговоры и закрытие сделки. Вам остаётся лишь забрать ключи от идеального дома!'],
+        ]);
     }
 
     // ============================================================
@@ -612,38 +644,6 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
             ['icon' => 'catalog/svg/key-features/handshake.svg', 'description' => 'Выгодные условия сотрудничества для продавцов и покупателей'],
             ['icon' => 'catalog/svg/key-features/consulting.svg', 'description' => 'Консультационная и юридическая поддержка'],
             ['icon' => 'catalog/svg/key-features/team.svg', 'description' => 'Квалифицированный персонал'],
-        ]);
-
-        // --- choose_us ---
-        $this->setT($m, $p, 'choose_us', 'title', [
-            1 => 'Чому', 2 => 'Why', 3 => 'Warum', 4 => 'Почему',
-        ]);
-        $this->setT($m, $p, 'choose_us', 'title_highlight', [
-            1 => 'обирають', 2 => 'Choose', 3 => 'uns', 4 => 'выбирают',
-        ]);
-        $this->setT($m, $p, 'choose_us', 'title_suffix', [
-            1 => 'нас?', 2 => 'Us?', 3 => 'wählen?', 4 => 'нас?',
-        ]);
-        $this->setGlobal($m, $p, 'choose_us', 'mobile_image', 'image', 'images/home/image-block-why-choose-us-mob.jpg');
-        $this->setJson($m, $p, 'choose_us', 'items', 1, [
-            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Максимальна безпека угоди', 'description' => 'Ми гарантуємо юридичну чистоту кожної угоди. Перевіряємо документи, супроводжуємо клієнта на всіх етапах і захищаємо від ризиків'],
-            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Велика база перевірених об\'єктів', 'description' => 'Доступ до ексклюзивних пропозицій ринку! Ми знаємо, де знайти ідеальну квартиру чи будинок під ваші вимоги'],
-            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Економія вашого часу', 'description' => 'Ми беремо на себе всі клопоти: підбір, перегляди, переговори та закриття угоди. Вам залишається лише забрати ключі від ідеального дому!'],
-        ]);
-        $this->setJson($m, $p, 'choose_us', 'items', 2, [
-            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Maximum transaction security', 'description' => 'We guarantee the legal purity of each transaction. We check documents, accompany the client at all stages and protect against risks'],
-            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Large database of verified objects', 'description' => 'Access to exclusive market offers! We know where to find the perfect apartment or house for your requirements'],
-            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Saving your time', 'description' => 'We take care of all the hassle: selection, viewings, negotiations, and closing the deal. All you have to do is take the keys to your ideal home!'],
-        ]);
-        $this->setJson($m, $p, 'choose_us', 'items', 3, [
-            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Maximale Transaktionssicherheit', 'description' => 'Wir garantieren die rechtliche Sauberkeit jeder Transaktion. Wir prüfen Dokumente, begleiten den Kunden in allen Phasen und schützen vor Risiken'],
-            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Große Datenbank geprüfter Objekte', 'description' => 'Zugang zu exklusiven Marktangeboten! Wir wissen, wo die perfekte Wohnung oder das perfekte Haus für Ihre Anforderungen zu finden ist'],
-            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Zeitersparnis', 'description' => 'Wir kümmern uns um alles: Auswahl, Besichtigungen, Verhandlungen und Geschäftsabschluss. Sie müssen nur noch die Schlüssel zu Ihrem Traumhaus abholen!'],
-        ]);
-        $this->setJson($m, $p, 'choose_us', 'items', 4, [
-            ['icon' => 'catalog/svg/choose-us/security.svg', 'title' => 'Максимальная безопасность сделки', 'description' => 'Мы гарантируем юридическую чистоту каждой сделки. Проверяем документы, сопровождаем клиента на всех этапах и защищаем от рисков'],
-            ['icon' => 'catalog/svg/choose-us/database-objects.svg', 'title' => 'Большая база проверенных объектов', 'description' => 'Доступ к эксклюзивным предложениям рынка! Мы знаем, где найти идеальную квартиру или дом под ваши требования'],
-            ['icon' => 'catalog/svg/choose-us/time-saving.svg', 'title' => 'Экономия вашего времени', 'description' => 'Мы берём на себя все хлопоты: подбор, просмотры, переговоры и закрытие сделки. Вам остаётся лишь забрать ключи от идеального дома!'],
         ]);
 
         // --- achievements ---

@@ -172,36 +172,16 @@
     </div>
   </div>
 </div>
-
+   
 {# ==================== section-ads (common) ==================== #}
-<section class="section-ads">
-  <div class="section-ads__body-wrap">
-    <div class="container container--default">
-      <div class="section-ads__body">
-        <h1 class="h1-ads">{{ scom.ads.title }}</h1>
-        <a href="{{ scom.ads.button_url }}" class="btn btn-book btn-ads">{{ scom.ads.button_text }}</a>
-      </div>
-    </div>
-  </div>
-</section>
+{{ shared_ads }}
 
 {# ==================== agency (common) ==================== #}
-<section class="agency">
-  <div class="company-achivements-body">
-    <div class="container container-company-achivements-body bg-realtor right bottom">
-      <div class="container-achivements-left">
-        <img src="image/{{ scom.agency.image }}" alt="logo" />
-      </div>
-      <div class="container-achivements-right">
-        <h5>{{ scom.agency.title }}</h5>
-        <div class="container-achivements-header-p" data-max-chars="360">
-          {{ scom.agency.text|raw }}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{{ shared_agency }}
 
-</main>
-
+ <script src="../assets/js/top-paragraf.js"></script>
+    <script src="../assets/js/rate-sort.js"></script>
+    <script src="../assets/js/count-symbols.js"></script>
+    <script src="../assets/js/upload-single-file.js"></script>
+    <script src="../assets/js/custom-select.js"></script>
 {{ footer }}
