@@ -600,6 +600,9 @@ document.addEventListener('DOMContentLoaded', function() {
           if (cType === 'image') {
             var imgInput = tr.querySelector('input[data-col="' + col + '"]');
             obj[col] = imgInput ? imgInput.value : '';
+          } else if (cType === 'checkbox') {
+            var cb = tr.querySelector('input[data-col="' + col + '"]');
+            obj[col] = (cb && cb.checked) ? '1' : '0';
           } else {
             if (textInputs[colIdx]) {
               obj[col] = textInputs[colIdx].value;
