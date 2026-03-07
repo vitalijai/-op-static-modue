@@ -43,19 +43,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Новини\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Корисне\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Новини нерухомості\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Новини\",\"href\":\"news\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Корисне\",\"href\":\"korysne\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Новини нерухомості\",\"href\":\"real-estate-news\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"investment_projects\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"News\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Useful\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Real Estate News\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Investment Projects\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"News\",\"href\":\"en/news\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Useful\",\"href\":\"en/korysne\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Real Estate News\",\"href\":\"en/real-estate-news\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Investment Projects\",\"href\":\"en/investment_projects\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Nachrichten\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Nützliches\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Immobilien-News\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Investitionsprojekte\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Nachrichten\",\"href\":\"de/news\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Nützliches\",\"href\":\"de/korysne\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Immobilien-News\",\"href\":\"de/real-estate-news\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Investitionsprojekte\",\"href\":\"de/investment_projects\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Новости\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Полезное\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Новости недвижимости\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Новости\",\"href\":\"ru/news\",\"style\":\"active\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Полезное\",\"href\":\"ru/korysne\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Новости недвижимости\",\"href\":\"ru/real-estate-news\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"ru/investment_projects\",\"style\":\"\",\"icon\":\"\",\"status\":\"1\"}]"
       }
     }
   }

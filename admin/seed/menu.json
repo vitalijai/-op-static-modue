@@ -135,19 +135,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Продаж\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Оренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Подобова оренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Елітна нерухомість\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Будівництво будинків\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Бронювання готелів\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Продаж\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Оренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Подобова оренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"investment_projects\",\"status\":\"1\"},{\"text\":\"Елітна нерухомість\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Будівництво будинків\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Бронювання готелів\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Selling\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Rent\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Daily Rent\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Investment Projects\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Luxury Real Estate\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Construction of Houses\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hotel Booking\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Selling\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Rent\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Daily Rent\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Investment Projects\",\"href\":\"en/investment_projects\",\"status\":\"1\"},{\"text\":\"Luxury Real Estate\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Construction of Houses\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hotel Booking\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Verkauf\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Miete\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Tagesmiete\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Investitionsprojekte\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Luxusimmobilien\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hausbau\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hotelbuchung\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Verkauf\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Miete\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Tagesmiete\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Investitionsprojekte\",\"href\":\"de/investment_projects\",\"status\":\"1\"},{\"text\":\"Luxusimmobilien\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hausbau\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hotelbuchung\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Продажа\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Аренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Посуточная аренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Элитная недвижимость\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Строительство домов\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Бронирование отелей\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Продажа\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Аренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Посуточная аренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"ru/investment_projects\",\"status\":\"1\"},{\"text\":\"Элитная недвижимость\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Строительство домов\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Бронирование отелей\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
