@@ -63,15 +63,15 @@
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Flats\",\"href\":\"kvartyry\",\"status\":\"1\"},{\"text\":\"Mansions\",\"href\":\"osobnjak\",\"status\":\"1\"},{\"text\":\"Offices\",\"href\":\"office\",\"status\":\"1\"},{\"text\":\"Commercial Real Estate\",\"href\":\"commertial\",\"status\":\"1\"},{\"text\":\"Garages\",\"href\":\"garazh\",\"status\":\"1\"},{\"text\":\"Land\",\"href\":\"zemlja\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Flats\",\"href\":\"en/kvartyry\",\"status\":\"1\"},{\"text\":\"Mansions\",\"href\":\"en/osobnjak\",\"status\":\"1\"},{\"text\":\"Offices\",\"href\":\"en/office\",\"status\":\"1\"},{\"text\":\"Commercial Real Estate\",\"href\":\"en/commertial\",\"status\":\"1\"},{\"text\":\"Garages\",\"href\":\"en/garazh\",\"status\":\"1\"},{\"text\":\"Land\",\"href\":\"en/zemlja\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Wohnungen\",\"href\":\"kvartyry\",\"status\":\"1\"},{\"text\":\"Villen\",\"href\":\"osobnjak\",\"status\":\"1\"},{\"text\":\"Büros\",\"href\":\"office\",\"status\":\"1\"},{\"text\":\"Gewerbeimmobilien\",\"href\":\"commertial\",\"status\":\"1\"},{\"text\":\"Garagen\",\"href\":\"garazh\",\"status\":\"1\"},{\"text\":\"Grundstücke\",\"href\":\"zemlja\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Wohnungen\",\"href\":\"de/kvartyry\",\"status\":\"1\"},{\"text\":\"Villen\",\"href\":\"de/osobnjak\",\"status\":\"1\"},{\"text\":\"Büros\",\"href\":\"de/office\",\"status\":\"1\"},{\"text\":\"Gewerbeimmobilien\",\"href\":\"de/commertial\",\"status\":\"1\"},{\"text\":\"Garagen\",\"href\":\"de/garazh\",\"status\":\"1\"},{\"text\":\"Grundstücke\",\"href\":\"de/zemlja\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Квартиры\",\"href\":\"kvartyry\",\"status\":\"1\"},{\"text\":\"Особняки\",\"href\":\"osobnjak\",\"status\":\"1\"},{\"text\":\"Офисы\",\"href\":\"office\",\"status\":\"1\"},{\"text\":\"Коммерческая недвижимость\",\"href\":\"commertial\",\"status\":\"1\"},{\"text\":\"Гаражи\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Земельные участки\",\"href\":\"zemlja\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Квартиры\",\"href\":\"ru/kvartyry\",\"status\":\"1\"},{\"text\":\"Особняки\",\"href\":\"ru/osobnjak\",\"status\":\"1\"},{\"text\":\"Офисы\",\"href\":\"ru/office\",\"status\":\"1\"},{\"text\":\"Коммерческая недвижимость\",\"href\":\"ru/commertial\",\"status\":\"1\"},{\"text\":\"Гаражи\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Земельные участки\",\"href\":\"ru/zemlja\",\"status\":\"1\"}]"
       }
     }
   },
