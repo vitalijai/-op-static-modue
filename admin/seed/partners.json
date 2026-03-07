@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Наші цінні"
+      },
+      "2": {
+        "type": "text",
+        "value": "Our"
+      },
+      "3": {
+        "type": "text",
+        "value": "Unsere geschätzten"
+      },
+      "4": {
+        "type": "text",
+        "value": "Наши ценные"
+      }
+    },
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "Партнери"
+      },
+      "2": {
+        "type": "text",
+        "value": "Partners"
+      },
+      "3": {
+        "type": "text",
+        "value": "Partner"
+      },
+      "4": {
+        "type": "text",
+        "value": "Партнеры"
+      }
+    },
+    "desc": {
+      "1": {
+        "type": "text",
+        "value": "Ми пишаємося співпрацею з провідними компаніями та організаціями, які поділяють наші цінності та прагнення до інновацій."
+      },
+      "2": {
+        "type": "text",
+        "value": "We take pride in collaborating with leading companies and organizations that share our values and commitment to innovation. Through partnerships, we implement bold projects, introduce cutting-edge technologies, and create high-quality products and services for our customers."
+      },
+      "3": {
+        "type": "text",
+        "value": "Wir sind stolz auf die Zusammenarbeit mit führenden Unternehmen und Organisationen."
+      },
+      "4": {
+        "type": "text",
+        "value": "Мы гордимся сотрудничеством с ведущими компаниями и организациями."
+      }
+    },
+    "review_invite": {
+      "1": {
+        "type": "text",
+        "value": "Ви наш партнер і хочете залишити відгук про нас?"
+      },
+      "2": {
+        "type": "text",
+        "value": "Are you our Customer and would like to leave a review about us?"
+      },
+      "3": {
+        "type": "text",
+        "value": "Sind Sie unser Partner und möchten eine Bewertung hinterlassen?"
+      },
+      "4": {
+        "type": "text",
+        "value": "Вы наш партнер и хотите оставить отзыв о нас?"
+      }
+    },
+    "review_btn": {
+      "1": {
+        "type": "text",
+        "value": "+ Написати відгук"
+      },
+      "2": {
+        "type": "text",
+        "value": "+ Write to Review"
+      },
+      "3": {
+        "type": "text",
+        "value": "+ Bewertung schreiben"
+      },
+      "4": {
+        "type": "text",
+        "value": "+ Написать отзыв"
+      }
+    }
+  },
+  "items": {
+    "list": {
+      "1": {
+        "type": "json",
+        "value": "[{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Івано-Франківська ОДА\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"if.gov.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"DIM Development\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"dim.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"iBud\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"ibud.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"VOX Architecture\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"vox.com.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Карпатський Дім\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"karpatskiy-dim.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"Будівельний Альянс\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"bud-alliance.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"Галицький Стандарт\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"galstandard.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"Преміум Естейт\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"premium-estate.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Ivano-Frankivsk Regional Administration\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"if.gov.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"DIM Development\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"dim.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"iBud\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"ibud.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"VOX Architecture\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"vox.com.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Carpathian Home\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"karpatskiy-dim.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"Construction Alliance\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"bud-alliance.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"Galician Standard\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"galstandard.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"Premium Estate\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"premium-estate.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Ivano-Frankivsk Regional Administration\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"if.gov.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"DIM Development\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"dim.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"iBud\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"ibud.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"VOX Architecture\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"vox.com.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Carpathian Home\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"karpatskiy-dim.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"Construction Alliance\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"bud-alliance.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"Galician Standard\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"galstandard.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"Premium Estate\",\"since_year\":\"2016\",\"activity\":\"Commercial Real Estate\",\"category\":\"Construction of Houses\",\"website\":\"premium-estate.ua\",\"review\":\"\\\"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites\\\"\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Івано-Франківська ОДА\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"if.gov.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"DIM Development\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"dim.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"iBud\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"ibud.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"VOX Architecture\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"vox.com.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/ivano-fr.svg\",\"name\":\"Карпатський Дім\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"karpatskiy-dim.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/dom.svg\",\"name\":\"Будівельний Альянс\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"bud-alliance.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/ibud.svg\",\"name\":\"Галицький Стандарт\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"galstandard.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"},{\"logo\":\"images/logos-custumers/vox.svg\",\"name\":\"Преміум Естейт\",\"since_year\":\"2016\",\"activity\":\"Комерційна нерухомість\",\"category\":\"Будівництво будинків\",\"website\":\"premium-estate.ua\",\"review\":\"\\\"Багато настільних видавничих пакетів та редакторів веб-сторінок тепер використовують Lorem Ipsum\\\"\"}]"
+      }
+    }
+  }
+}

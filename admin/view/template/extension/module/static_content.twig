@@ -4,7 +4,8 @@
     <div class="container-fluid">
       <div class="pull-right">
         <button type="submit" form="form-static-content" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary btn-lg"><i class="fa fa-save"></i> {{ button_save }}</button>
-        <a href="{{ seed_url }}" class="btn btn-warning" onclick="return confirm('REPLACE all content with defaults?')"><i class="fa fa-database"></i></a>
+        <a href="{{ seed_url }}" class="btn btn-warning" onclick="return confirm('TRUNCATE + re-seed from JSON files?')"><i class="fa fa-database"></i> Seed</a>
+        <a href="{{ export_url }}" class="btn btn-info" onclick="return confirm('Export current DB data to JSON seed files?')"><i class="fa fa-download"></i> Export JSON</a>
         <a href="{{ cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
       </div>
       <h1><i class="fa fa-edit"></i> {{ heading_title }}</h1>

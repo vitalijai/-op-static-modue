@@ -1,0 +1,284 @@
+{
+  "logo": {
+    "image": {
+      "0": {
+        "type": "image",
+        "value": "catalog/svg/logo-footer.svg"
+      }
+    }
+  },
+  "contacts": {
+    "address_street": {
+      "1": {
+        "type": "text",
+        "value": "пл. Ринок, 10/4"
+      },
+      "2": {
+        "type": "text",
+        "value": "10/4 Market Square St."
+      },
+      "3": {
+        "type": "text",
+        "value": "Marktplatz 10/4"
+      },
+      "4": {
+        "type": "text",
+        "value": "пл. Рынок, 10/4"
+      }
+    },
+    "address_city": {
+      "1": {
+        "type": "text",
+        "value": "Івано-Франківськ"
+      },
+      "2": {
+        "type": "text",
+        "value": "Ivano-Frankivsk"
+      },
+      "3": {
+        "type": "text",
+        "value": "Iwano-Frankiwsk"
+      },
+      "4": {
+        "type": "text",
+        "value": "Ивано-Франковск"
+      }
+    },
+    "phone_office_label": {
+      "1": {
+        "type": "text",
+        "value": "офіс:"
+      },
+      "2": {
+        "type": "text",
+        "value": "office:"
+      },
+      "3": {
+        "type": "text",
+        "value": "Büro:"
+      },
+      "4": {
+        "type": "text",
+        "value": "офис:"
+      }
+    },
+    "phone_office": {
+      "0": {
+        "type": "text",
+        "value": "+38 (0342) 501-303"
+      }
+    },
+    "phone_mobile_label": {
+      "1": {
+        "type": "text",
+        "value": "моб.:"
+      },
+      "2": {
+        "type": "text",
+        "value": "mobile:"
+      },
+      "3": {
+        "type": "text",
+        "value": "Mobil:"
+      },
+      "4": {
+        "type": "text",
+        "value": "моб.:"
+      }
+    },
+    "phone_mobile": {
+      "0": {
+        "type": "text",
+        "value": "+38 (067) 343-80-74"
+      }
+    }
+  },
+  "about_links": {
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"text\":\"Про нас\",\"href\":\"#\"},{\"text\":\"Наші ріелтори\",\"href\":\"#\"},{\"text\":\"Зв'яжіться з нами\",\"href\":\"#\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"text\":\"About Us\",\"href\":\"#\"},{\"text\":\"Our Realtors\",\"href\":\"#\"},{\"text\":\"Contact Us\",\"href\":\"#\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"text\":\"Über uns\",\"href\":\"#\"},{\"text\":\"Unsere Makler\",\"href\":\"#\"},{\"text\":\"Kontaktieren Sie uns\",\"href\":\"#\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"text\":\"О нас\",\"href\":\"#\"},{\"text\":\"Наши риелторы\",\"href\":\"#\"},{\"text\":\"Свяжитесь с нами\",\"href\":\"#\"}]"
+      }
+    }
+  },
+  "social": {
+    "items": {
+      "0": {
+        "type": "json",
+        "value": "[{\"platform\":\"youtube\",\"icon\":\"catalog/svg/social/youtube.svg\",\"url\":\"#\"},{\"platform\":\"facebook\",\"icon\":\"catalog/svg/social/facebook.svg\",\"url\":\"#\"},{\"platform\":\"instagram\",\"icon\":\"catalog/svg/social/instagram.svg\",\"url\":\"#\"},{\"platform\":\"twitter\",\"icon\":\"catalog/svg/social/twitter.svg\",\"url\":\"#\"},{\"platform\":\"tiktok\",\"icon\":\"catalog/svg/social/tiktok.svg\",\"url\":\"#\"}]"
+      }
+    }
+  },
+  "nav": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Навігація"
+      },
+      "2": {
+        "type": "text",
+        "value": "Navigation"
+      },
+      "3": {
+        "type": "text",
+        "value": "Navigation"
+      },
+      "4": {
+        "type": "text",
+        "value": "Навигация"
+      }
+    },
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"text\":\"Квартири\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Особняки\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Офіси\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Комерційна нерухомість\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Гаражі\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Земельні ділянки\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Елітна нерухомість\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Нерухомість у Карпатах\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Ексклюзиви\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"text\":\"Flats\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Mansions\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Offices\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Commercial Properties\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Garages\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Land\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Luxury Real Estate\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Carpathian Real Estate\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Exclusives\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Investment Projects\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"text\":\"Wohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Villen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Büros\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Gewerbeimmobilien\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Garagen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Grundstücke\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Luxusimmobilien\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Karpaten-Immobilien\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Exklusiv\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Investitionsprojekte\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"text\":\"Квартиры\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Особняки\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Офисы\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Коммерческая недвижимость\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Гаражи\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Земельные участки\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Элитная недвижимость\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Недвижимость в Карпатах\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Эксклюзивы\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"#\",\"column\":\"2\"}]"
+      }
+    }
+  },
+  "listing_left": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Форма лістингу"
+      },
+      "2": {
+        "type": "text",
+        "value": "Listing Form"
+      },
+      "3": {
+        "type": "text",
+        "value": "Auflistungsformular"
+      },
+      "4": {
+        "type": "text",
+        "value": "Форма листинга"
+      }
+    },
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"text\":\"Квартири в новобудовах\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Однокімнатні квартири\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Двокімнатні квартири\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Трикімнатні квартири\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Вторинний ринок\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Оренда квартир\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Оренда особняків\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Подобова оренда\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"text\":\"New buildings\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"One-room\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Two-room\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Three-room\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Secondary market\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Apartment rentals\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Mansion rentals\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Daily rentals\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"text\":\"Neubauwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Einzimmerwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Zweizimmerwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Dreizimmerwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Sekundärmarkt\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Wohnungsvermietung\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Villenvermietung\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Tagesmiete\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"text\":\"Новостройки\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Однокомнатные\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Двухкомнатные\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Трёхкомнатные\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Вторичный рынок\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Аренда квартир\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Аренда особняков\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Посуточная аренда\",\"href\":\"#\",\"column\":\"2\"}]"
+      }
+    }
+  },
+  "listing_right": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Форма лістингу"
+      },
+      "2": {
+        "type": "text",
+        "value": "Listing Form"
+      },
+      "3": {
+        "type": "text",
+        "value": "Auflistungsformular"
+      },
+      "4": {
+        "type": "text",
+        "value": "Форма листинга"
+      }
+    },
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"text\":\"Квартири в новобудовах\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Однокімнатні квартири\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Двокімнатні квартири\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Трикімнатні квартири\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Вторинний ринок\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Оренда квартир\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Оренда особняків\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Подобова оренда\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"text\":\"New buildings\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"One-room\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Two-room\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Three-room\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Secondary market\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Apartment rentals\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Mansion rentals\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Daily rentals\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"text\":\"Neubauwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Einzimmerwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Zweizimmerwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Dreizimmerwohnungen\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Sekundärmarkt\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Wohnungsvermietung\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Villenvermietung\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Tagesmiete\",\"href\":\"#\",\"column\":\"2\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"text\":\"Новостройки\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Однокомнатные\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Двухкомнатные\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Трёхкомнатные\",\"href\":\"#\",\"column\":\"1\"},{\"text\":\"Вторичный рынок\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Аренда квартир\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Аренда особняков\",\"href\":\"#\",\"column\":\"2\"},{\"text\":\"Посуточная аренда\",\"href\":\"#\",\"column\":\"2\"}]"
+      }
+    }
+  },
+  "partners": {
+    "items": {
+      "0": {
+        "type": "json",
+        "value": "[{\"image\":\"images/b1.png\",\"alt\":\"R White\",\"href\":\"#\"},{\"image\":\"images/b2.png\",\"alt\":\"Київміськбуд\",\"href\":\"#\"},{\"image\":\"images/b3.png\",\"alt\":\"RP Realtor\",\"href\":\"#\"},{\"image\":\"images/b4.png\",\"alt\":\"DOM.RIA\",\"href\":\"#\"},{\"image\":\"images/b5.png\",\"alt\":\"OLX Нерухомість\",\"href\":\"#\"}]"
+      }
+    }
+  },
+  "bottom": {
+    "links": {
+      "1": {
+        "type": "json",
+        "value": "[{\"text\":\"Умови та положення\",\"href\":\"#\"},{\"text\":\"Політика конфіденційності\",\"href\":\"#\"},{\"text\":\"Допомога\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"text\":\"Terms & Conditions\",\"href\":\"#\"},{\"text\":\"Privacy Policy\",\"href\":\"#\"},{\"text\":\"Help\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"text\":\"AGB\",\"href\":\"#\"},{\"text\":\"Datenschutz\",\"href\":\"#\"},{\"text\":\"Hilfe\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"text\":\"Условия\",\"href\":\"#\"},{\"text\":\"Конфиденциальность\",\"href\":\"#\"},{\"text\":\"Помощь\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"}]"
+      }
+    },
+    "copyright": {
+      "1": {
+        "type": "text",
+        "value": "© 2006-2025 Всі права захищені"
+      },
+      "2": {
+        "type": "text",
+        "value": "© 2006-2025 All rights reserved"
+      },
+      "3": {
+        "type": "text",
+        "value": "© 2006-2025 Alle Rechte vorbehalten"
+      },
+      "4": {
+        "type": "text",
+        "value": "© 2006-2025 Все права защищены"
+      }
+    }
+  }
+}

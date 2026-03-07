@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "Блог"
+      },
+      "2": {
+        "type": "text",
+        "value": "Blog"
+      },
+      "3": {
+        "type": "text",
+        "value": "Blog"
+      },
+      "4": {
+        "type": "text",
+        "value": "Блог"
+      }
+    },
+    "text": {
+      "1": {
+        "type": "text",
+        "value": "Тут ви знайдете багато варіацій статей Lorem Ipsum, але більшість зазнали змін у тій чи іншій формі"
+      },
+      "2": {
+        "type": "text",
+        "value": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"
+      },
+      "3": {
+        "type": "text",
+        "value": "Es gibt viele Variationen von Lorem Ipsum Passagen, aber die Mehrheit hat in irgendeiner Form Veränderungen erfahren"
+      },
+      "4": {
+        "type": "text",
+        "value": "Существует множество вариаций отрывков Lorem Ipsum, но большинство из них претерпели изменения в той или иной форме"
+      }
+    },
+    "hero_image": {
+      "0": {
+        "type": "image",
+        "value": "images/blog/hero.jpg"
+      }
+    }
+  }
+}

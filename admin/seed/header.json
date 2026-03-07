@@ -1,0 +1,48 @@
+{
+  "logo": {
+    "image": {
+      "0": {
+        "type": "image",
+        "value": "catalog/svg/logo.svg"
+      }
+    },
+    "title": {
+      "0": {
+        "type": "text",
+        "value": "REALTOR"
+      }
+    },
+    "subtitle": {
+      "1": {
+        "type": "text",
+        "value": "Агенція нерухомості"
+      },
+      "2": {
+        "type": "text",
+        "value": "Estate Agency"
+      },
+      "3": {
+        "type": "text",
+        "value": "Immobilienagentur"
+      },
+      "4": {
+        "type": "text",
+        "value": "Агентство недвижимости"
+      }
+    }
+  },
+  "phone": {
+    "office": {
+      "0": {
+        "type": "text",
+        "value": "+38 (0342) 501-303"
+      }
+    },
+    "mobile": {
+      "0": {
+        "type": "text",
+        "value": "+38 (067) 343-80-74"
+      }
+    }
+  }
+}

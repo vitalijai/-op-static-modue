@@ -1,0 +1,62 @@
+{
+  "bottom_menu": {
+    "items": {
+      "1": {
+        "type": "text",
+        "value": "[{\"text\":\"Головна\",\"href\":\"/\",\"icon\":\"catalog/svg/ui/home.svg\"},{\"text\":\"Нерухомість\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/realty.svg\"},{\"text\":\"Блог\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/blog.svg\"},{\"text\":\"Профіль\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/profile.svg\"}]"
+      },
+      "2": {
+        "type": "text",
+        "value": "[{\"text\":\"Home\",\"href\":\"/\",\"icon\":\"catalog/svg/ui/home.svg\"},{\"text\":\"Realty\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/realty.svg\"},{\"text\":\"Blog\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/blog.svg\"},{\"text\":\"Profile\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/profile.svg\"}]"
+      },
+      "3": {
+        "type": "text",
+        "value": "[{\"text\":\"Startseite\",\"href\":\"/\",\"icon\":\"catalog/svg/ui/home.svg\"},{\"text\":\"Immobilien\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/realty.svg\"},{\"text\":\"Blog\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/blog.svg\"},{\"text\":\"Profil\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/profile.svg\"}]"
+      },
+      "4": {
+        "type": "text",
+        "value": "[{\"text\":\"Главная\",\"href\":\"/\",\"icon\":\"catalog/svg/ui/home.svg\"},{\"text\":\"Недвижимость\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/realty.svg\"},{\"text\":\"Блог\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/blog.svg\"},{\"text\":\"Профиль\",\"href\":\"#\",\"icon\":\"catalog/svg/ui/profile.svg\"}]"
+      }
+    }
+  },
+  "drop_realty": {
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"text\":\"Квартири на продаж\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Особняки на продаж\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Офіси на продаж\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Комерційна нерухомість на продаж\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Гаражі на продаж\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Земельні ділянки на продаж\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Нерухомість у Карпатах\",\"href\":\"#\",\"style\":\"green\",\"icon\":\"\"},{\"text\":\"Квартири в оренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Особняки в оренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Офіси в оренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Комерційна нерухомість в оренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Гаражі в оренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Земельні ділянки в оренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Ексклюзиви\",\"href\":\"#\",\"style\":\"blue\",\"icon\":\"catalog/svg/ui/exclusive-star.svg\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"text\":\"Flats for Sale\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Mansions for Sale\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Offices for Sale\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Commercial Real Estate for Sale\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Garages for Sale\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Land for Sale\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Real Estate in the Carpathians\",\"href\":\"#\",\"style\":\"green\",\"icon\":\"\"},{\"text\":\"Flats for Rent\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Mansions for Rent\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Offices for Rent\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Commercial Real Estate for Rent\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Garages for Rent\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Land for Rent\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Exclusive\",\"href\":\"#\",\"style\":\"blue\",\"icon\":\"catalog/svg/ui/exclusive-star.svg\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"text\":\"Wohnungen zum Verkauf\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Villen zum Verkauf\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Büros zum Verkauf\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Gewerbeimmobilien zum Verkauf\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Garagen zum Verkauf\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Grundstücke zum Verkauf\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Immobilien in den Karpaten\",\"href\":\"#\",\"style\":\"green\",\"icon\":\"\"},{\"text\":\"Wohnungen zur Miete\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Villen zur Miete\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Büros zur Miete\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Gewerbeimmobilien zur Miete\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Garagen zur Miete\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Grundstücke zur Miete\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Exklusiv\",\"href\":\"#\",\"style\":\"blue\",\"icon\":\"catalog/svg/ui/exclusive-star.svg\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"text\":\"Квартиры на продажу\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Особняки на продажу\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Офисы на продажу\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Коммерческая недвижимость на продажу\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Гаражи на продажу\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Земельные участки на продажу\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Недвижимость в Карпатах\",\"href\":\"#\",\"style\":\"green\",\"icon\":\"\"},{\"text\":\"Квартиры в аренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Особняки в аренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Офисы в аренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Коммерческая недвижимость в аренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Гаражи в аренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Земельные участки в аренду\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Эксклюзивы\",\"href\":\"#\",\"style\":\"blue\",\"icon\":\"catalog/svg/ui/exclusive-star.svg\"}]"
+      }
+    }
+  },
+  "drop_blog": {
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"text\":\"Новини\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Корисне\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Новини нерухомості\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"text\":\"News\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Useful\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Real Estate News\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Investment Projects\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"text\":\"Nachrichten\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Nützliches\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Immobilien-News\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Investitionsprojekte\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"text\":\"Новости\",\"href\":\"#\",\"style\":\"active\",\"icon\":\"\"},{\"text\":\"Полезное\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Новости недвижимости\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"#\",\"style\":\"\",\"icon\":\"\"}]"
+      }
+    }
+  }
+}

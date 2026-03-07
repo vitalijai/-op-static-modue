@@ -43,9 +43,10 @@ class ControllerExtensionModuleStaticContent extends Controller {
             'href' => $this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true),
         ];
 
-        $data['action']   = $this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true);
-        $data['cancel']   = $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true);
-        $data['seed_url'] = $this->url->link('extension/module/static_content_seeder', 'user_token=' . $this->session->data['user_token'], true);
+        $data['action']     = $this->url->link('extension/module/static_content', 'user_token=' . $this->session->data['user_token'], true);
+        $data['cancel']     = $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true);
+        $data['seed_url']   = $this->url->link('extension/module/static_content_seeder', 'user_token=' . $this->session->data['user_token'], true);
+        $data['export_url'] = $this->url->link('extension/module/static_content_seeder/export', 'user_token=' . $this->session->data['user_token'], true);
 
         // Ошибки / успех
         $data['error_warning'] = isset($this->error['warning']) ? $this->error['warning'] : '';
@@ -121,7 +122,7 @@ class ControllerExtensionModuleStaticContent extends Controller {
     }
 
     /**
-     * Сохранение всех данных из POST.
+     * Сохранение всех данных из POST + авто-экспорт в JSON.
      */
     private function saveAll() {
         $registry  = $this->getSectionRegistry();
@@ -141,6 +142,47 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     $languages
                 );
             }
+        }
+
+        // Авто-экспорт в JSON (бекап сида)
+        $this->exportToJson(array_keys($registry));
+    }
+
+    /**
+     * Экспорт данных из БД в JSON seed-файлы.
+     *
+     * @param array $pages Список страниц для экспорта
+     */
+    private function exportToJson($pages) {
+        $seedDir = DIR_APPLICATION . 'seed/';
+
+        if (!is_dir($seedDir)) {
+            mkdir($seedDir, 0755, true);
+        }
+
+        foreach ($pages as $page) {
+            $pageData = $this->model_extension_module_static_content->getPageData($page);
+
+            if (empty($pageData)) {
+                continue;
+            }
+
+            $output = [];
+            foreach ($pageData as $section => $fields) {
+                foreach ($fields as $key => $languages) {
+                    foreach ($languages as $langId => $row) {
+                        $output[$section][$key][$langId] = [
+                            'type'  => $row['type'],
+                            'value' => $row['value'],
+                        ];
+                    }
+                }
+            }
+
+            file_put_contents(
+                $seedDir . $page . '.json',
+                json_encode($output, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n"
+            );
         }
     }
 

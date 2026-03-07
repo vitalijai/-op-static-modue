@@ -1,0 +1,642 @@
+{
+  "first_screen": {
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "Realtor"
+      },
+      "2": {
+        "type": "text",
+        "value": "Realtor"
+      },
+      "3": {
+        "type": "text",
+        "value": "Realtor"
+      },
+      "4": {
+        "type": "text",
+        "value": "Realtor"
+      }
+    },
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "- Ваш надійний партнер у світі нерухомості"
+      },
+      "2": {
+        "type": "text",
+        "value": "- Your Reliable Partner in the World of Real Estate"
+      },
+      "3": {
+        "type": "text",
+        "value": "- Ihr zuverlässiger Partner in der Welt der Immobilien"
+      },
+      "4": {
+        "type": "text",
+        "value": "- Ваш надёжный партнер в мире недвижимости"
+      }
+    },
+    "text": {
+      "1": {
+        "type": "text",
+        "value": "Це команда професіоналів, які допоможуть знайти ідеальний дім або вигідну нерухомість для інвестицій та бізнесу"
+      },
+      "2": {
+        "type": "text",
+        "value": "This is a team of professionals who help you find the perfect home or a profitable property for investment and business"
+      },
+      "3": {
+        "type": "text",
+        "value": "Ein Team von Fachleuten, das Ihnen hilft, das perfekte Zuhause oder eine profitable Immobilie für Investitionen und Geschäft zu finden"
+      },
+      "4": {
+        "type": "text",
+        "value": "Это команда профессионалов, которые помогут найти идеальный дом или выгодную недвижимость для инвестиций и бизнеса"
+      }
+    },
+    "bg_image": {
+      "0": {
+        "type": "image",
+        "value": "images/home/main-image.png"
+      }
+    }
+  },
+  "key_features": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Агенція нерухомості"
+      },
+      "2": {
+        "type": "text",
+        "value": "Estate Agency"
+      },
+      "3": {
+        "type": "text",
+        "value": "Immobilienagentur"
+      },
+      "4": {
+        "type": "text",
+        "value": "Агентство недвижимости"
+      }
+    },
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "«Ріелтор»"
+      },
+      "2": {
+        "type": "text",
+        "value": "\"Realtor\""
+      },
+      "3": {
+        "type": "text",
+        "value": "„Realtor\""
+      },
+      "4": {
+        "type": "text",
+        "value": "«Риелтор»"
+      }
+    },
+    "title_suffix": {
+      "1": {
+        "type": "text",
+        "value": "— це"
+      },
+      "2": {
+        "type": "text",
+        "value": "Is This"
+      },
+      "3": {
+        "type": "text",
+        "value": "— das ist"
+      },
+      "4": {
+        "type": "text",
+        "value": "— это"
+      }
+    },
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"icon\":\"catalog/svg/key-features/database.svg\",\"description\":\"Найбільша база продажу та оренди нерухомості\"},{\"icon\":\"catalog/svg/key-features/handshake.svg\",\"description\":\"Вигідні умови співпраці для продавців і покупців\"},{\"icon\":\"catalog/svg/key-features/consulting.svg\",\"description\":\"Консультаційна та юридична підтримка\"},{\"icon\":\"catalog/svg/key-features/team.svg\",\"description\":\"Кваліфікований персонал\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"icon\":\"catalog/svg/key-features/database.svg\",\"description\":\"The largest database of real estate sales and rentals\"},{\"icon\":\"catalog/svg/key-features/handshake.svg\",\"description\":\"Favourable terms of cooperation for sellers and buyers\"},{\"icon\":\"catalog/svg/key-features/consulting.svg\",\"description\":\"Consulting and legal support\"},{\"icon\":\"catalog/svg/key-features/team.svg\",\"description\":\"Qualified staff\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"icon\":\"catalog/svg/key-features/database.svg\",\"description\":\"Die größte Datenbank für Immobilienverkauf und -vermietung\"},{\"icon\":\"catalog/svg/key-features/handshake.svg\",\"description\":\"Günstige Kooperationsbedingungen für Verkäufer und Käufer\"},{\"icon\":\"catalog/svg/key-features/consulting.svg\",\"description\":\"Beratung und rechtliche Unterstützung\"},{\"icon\":\"catalog/svg/key-features/team.svg\",\"description\":\"Qualifiziertes Personal\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"icon\":\"catalog/svg/key-features/database.svg\",\"description\":\"Крупнейшая база продажи и аренды недвижимости\"},{\"icon\":\"catalog/svg/key-features/handshake.svg\",\"description\":\"Выгодные условия сотрудничества для продавцов и покупателей\"},{\"icon\":\"catalog/svg/key-features/consulting.svg\",\"description\":\"Консультационная и юридическая поддержка\"},{\"icon\":\"catalog/svg/key-features/team.svg\",\"description\":\"Квалифицированный персонал\"}]"
+      }
+    }
+  },
+  "achievements": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Досягнення"
+      },
+      "2": {
+        "type": "text",
+        "value": "Company"
+      },
+      "3": {
+        "type": "text",
+        "value": "Unternehmens"
+      },
+      "4": {
+        "type": "text",
+        "value": "Достижения"
+      }
+    },
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "компанії"
+      },
+      "2": {
+        "type": "text",
+        "value": "Achievements"
+      },
+      "3": {
+        "type": "text",
+        "value": "leistungen"
+      },
+      "4": {
+        "type": "text",
+        "value": "компании"
+      }
+    },
+    "desc": {
+      "1": {
+        "type": "text",
+        "value": "Наша компанія не просто займається нерухомістю — ми створюємо безклопітні, вигідні та комфортні угоди, змінюючи ринок на краще. За роки роботи ми досягли значних результатів:"
+      },
+      "2": {
+        "type": "text",
+        "value": "Our company doesn't just deal with real estate - we create hassle-free, profitable and comfortable deals, changing the market for the better. Over the years of work, we have achieved significant results:"
+      },
+      "3": {
+        "type": "text",
+        "value": "Unser Unternehmen handelt nicht nur mit Immobilien — wir schaffen unkomplizierte, profitable und komfortable Geschäfte. Im Laufe der Jahre haben wir bedeutende Ergebnisse erzielt:"
+      },
+      "4": {
+        "type": "text",
+        "value": "Наша компания не просто занимается недвижимостью — мы создаём беспроблемные, выгодные и комфортные сделки, меняя рынок к лучшему. За годы работы мы достигли значительных результатов:"
+      }
+    },
+    "image": {
+      "0": {
+        "type": "image",
+        "value": "catalog/company-achivment-image.png"
+      }
+    },
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"value\":\"19\",\"is_percent\":\"\",\"label\":\"років досвіду роботи\",\"description\":\"Ми працюємо для вас з 2006 року, пропонуючи лише найкращі рішення у сфері нерухомості\"},{\"value\":\"10108\",\"is_percent\":\"\",\"label\":\"успішних угод\",\"description\":\"Успішні угоди — це не просто цифра, а сотні задоволених клієнтів, які знайшли своє ідеальне житло\"},{\"value\":\"2453\",\"is_percent\":\"\",\"label\":\"ексклюзивних об'єктів\",\"description\":\"Ми пропонуємо нерухомість, яку ви не знайдете у відкритому доступі\"},{\"value\":\"80\",\"is_percent\":\"1\",\"label\":\"нових клієнтів\",\"description\":\"Більшість клієнтів — ті, хто прийшов за рекомендацією друзів, колег або партнерів\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"value\":\"19\",\"is_percent\":\"\",\"label\":\"years of work experience\",\"description\":\"We have been working for you since 2006, offering only the best real estate solutions\"},{\"value\":\"10108\",\"is_percent\":\"\",\"label\":\"successful deals\",\"description\":\"Successful deals are not just a number, but hundreds of satisfied clients who found their perfect home\"},{\"value\":\"2453\",\"is_percent\":\"\",\"label\":\"exclusive objects\",\"description\":\"We offer real estate that you will not find in the public domain\"},{\"value\":\"80\",\"is_percent\":\"1\",\"label\":\"new customers\",\"description\":\"Most of our clients came on the recommendation of friends, colleagues or partners\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"value\":\"19\",\"is_percent\":\"\",\"label\":\"Jahre Erfahrung\",\"description\":\"Seit 2006 für Sie tätig mit den besten Immobilienlösungen\"},{\"value\":\"10108\",\"is_percent\":\"\",\"label\":\"erfolgreiche Geschäfte\",\"description\":\"Hunderte zufriedener Kunden fanden ihr perfektes Zuhause\"},{\"value\":\"2453\",\"is_percent\":\"\",\"label\":\"exklusive Objekte\",\"description\":\"Immobilien, die Sie nicht öffentlich finden werden\"},{\"value\":\"80\",\"is_percent\":\"1\",\"label\":\"Neukunden\",\"description\":\"Kamen auf Empfehlung von Freunden, Kollegen oder Partnern\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"value\":\"19\",\"is_percent\":\"\",\"label\":\"лет опыта работы\",\"description\":\"Работаем для вас с 2006 года, предлагая лучшие решения в сфере недвижимости\"},{\"value\":\"10108\",\"is_percent\":\"\",\"label\":\"успешных сделок\",\"description\":\"Сотни довольных клиентов нашли своё идеальное жильё\"},{\"value\":\"2453\",\"is_percent\":\"\",\"label\":\"эксклюзивных объектов\",\"description\":\"Недвижимость, которую не найдёте в открытом доступе\"},{\"value\":\"80\",\"is_percent\":\"1\",\"label\":\"новых клиентов\",\"description\":\"Большинство пришли по рекомендации друзей, коллег или партнёров\"}]"
+      }
+    }
+  },
+  "partners": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Наші"
+      },
+      "2": {
+        "type": "text",
+        "value": "Our"
+      },
+      "3": {
+        "type": "text",
+        "value": "Unsere"
+      },
+      "4": {
+        "type": "text",
+        "value": "Наши"
+      }
+    },
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "Партнери"
+      },
+      "2": {
+        "type": "text",
+        "value": "Partners"
+      },
+      "3": {
+        "type": "text",
+        "value": "Partner"
+      },
+      "4": {
+        "type": "text",
+        "value": "Партнёры"
+      }
+    },
+    "view_all_text": {
+      "1": {
+        "type": "text",
+        "value": "Переглянути всі"
+      },
+      "2": {
+        "type": "text",
+        "value": "View All"
+      },
+      "3": {
+        "type": "text",
+        "value": "Alle anzeigen"
+      },
+      "4": {
+        "type": "text",
+        "value": "Смотреть все"
+      }
+    },
+    "view_all_href": {
+      "0": {
+        "type": "text",
+        "value": "/partners"
+      }
+    },
+    "logos": {
+      "0": {
+        "type": "json",
+        "value": "[{\"image\":\"catalog/svg/partners/partner-1.svg\",\"name\":\"Місто для людей\"},{\"image\":\"catalog/svg/partners/partner-2.svg\",\"name\":\"Doom Development\"},{\"image\":\"catalog/svg/partners/partner-3.svg\",\"name\":\"iBud\"},{\"image\":\"catalog/svg/partners/partner-4.svg\",\"name\":\"Partner 4\"}]"
+      }
+    },
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"image\":\"images/partners/luxury.png\",\"name\":\"Елітна нерухомість\",\"href\":\"#\"},{\"image\":\"images/partners/carphathians.png\",\"name\":\"Нерухомість у Карпатах\",\"href\":\"#\"},{\"image\":\"images/partners/exlusives.png\",\"name\":\"Ексклюзиви\",\"href\":\"#\"},{\"image\":\"images/partners/investment.png\",\"name\":\"Інвестиційні проекти\",\"href\":\"#\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"image\":\"images/partners/luxury.png\",\"name\":\"Luxury Real Estate\",\"href\":\"#\"},{\"image\":\"images/partners/carphathians.png\",\"name\":\"Real Estate in the Carpathians\",\"href\":\"#\"},{\"image\":\"images/partners/exlusives.png\",\"name\":\"Exclusives\",\"href\":\"#\"},{\"image\":\"images/partners/investment.png\",\"name\":\"Investment Projects\",\"href\":\"#\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"image\":\"images/partners/luxury.png\",\"name\":\"Luxusimmobilien\",\"href\":\"#\"},{\"image\":\"images/partners/carphathians.png\",\"name\":\"Karpaten-Immobilien\",\"href\":\"#\"},{\"image\":\"images/partners/exlusives.png\",\"name\":\"Exklusiv\",\"href\":\"#\"},{\"image\":\"images/partners/investment.png\",\"name\":\"Investitionsprojekte\",\"href\":\"#\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"image\":\"images/partners/luxury.png\",\"name\":\"Элитная недвижимость\",\"href\":\"#\"},{\"image\":\"images/partners/carphathians.png\",\"name\":\"Недвижимость в Карпатах\",\"href\":\"#\"},{\"image\":\"images/partners/exlusives.png\",\"name\":\"Эксклюзивы\",\"href\":\"#\"},{\"image\":\"images/partners/investment.png\",\"name\":\"Инвестиционные проекты\",\"href\":\"#\"}]"
+      }
+    }
+  },
+  "customers": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Наші цінні"
+      },
+      "2": {
+        "type": "text",
+        "value": "Our Valued"
+      },
+      "3": {
+        "type": "text",
+        "value": "Unsere geschätzten"
+      },
+      "4": {
+        "type": "text",
+        "value": "Наши ценные"
+      }
+    },
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "Клієнти"
+      },
+      "2": {
+        "type": "text",
+        "value": "Customers"
+      },
+      "3": {
+        "type": "text",
+        "value": "Kunden"
+      },
+      "4": {
+        "type": "text",
+        "value": "Клиенты"
+      }
+    },
+    "view_all_text": {
+      "1": {
+        "type": "text",
+        "value": "Переглянути всі"
+      },
+      "2": {
+        "type": "text",
+        "value": "View All"
+      },
+      "3": {
+        "type": "text",
+        "value": "Alle anzeigen"
+      },
+      "4": {
+        "type": "text",
+        "value": "Смотреть все"
+      }
+    },
+    "view_all_href": {
+      "0": {
+        "type": "text",
+        "value": "/customers"
+      }
+    },
+    "desc": {
+      "1": {
+        "type": "text",
+        "value": "Ми мали честь працювати з різноманітними клієнтами з різних галузей. Ось деякі з клієнтів, яких ми мали задоволення обслуговувати:"
+      },
+      "2": {
+        "type": "text",
+        "value": "We have had the honor of working with a variety of clients from various industries. Here are some of the clients we have had the pleasure of serving:"
+      },
+      "3": {
+        "type": "text",
+        "value": "Wir hatten die Ehre, mit Kunden aus verschiedenen Branchen zusammenzuarbeiten. Hier sind einige der Kunden, die wir betreuen durften:"
+      },
+      "4": {
+        "type": "text",
+        "value": "Мы имели честь работать с клиентами из различных отраслей. Вот некоторые из клиентов, которых мы имели удовольствие обслуживать:"
+      }
+    },
+    "logos": {
+      "0": {
+        "type": "json",
+        "value": "[{\"image\":\"catalog/svg/customers/customer-1.svg\",\"name\":\"Raiffeisen Bank\"},{\"image\":\"catalog/svg/customers/customer-2.svg\",\"name\":\"SoftServe\"},{\"image\":\"catalog/svg/customers/customer-3.svg\",\"name\":\"GlobalLogic\"},{\"image\":\"catalog/svg/customers/customer-4.svg\",\"name\":\"Eleks\"}]"
+      }
+    },
+    "items": {
+      "0": {
+        "type": "json",
+        "value": "[{\"image\":\"catalog/svg/customers/customer-1.svg\",\"name\":\"Raiffeisen Bank\",\"href\":\"#\"},{\"image\":\"catalog/svg/customers/customer-2.svg\",\"name\":\"SoftServe\",\"href\":\"#\"},{\"image\":\"catalog/svg/customers/customer-3.svg\",\"name\":\"GlobalLogic\",\"href\":\"#\"},{\"image\":\"catalog/svg/customers/customer-4.svg\",\"name\":\"Eleks\",\"href\":\"#\"}]"
+      }
+    }
+  },
+  "reviews": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Відгуки наших клієнтів"
+      },
+      "2": {
+        "type": "text",
+        "value": "Feedback from Our Clients"
+      },
+      "3": {
+        "type": "text",
+        "value": "Feedback unserer Kunden"
+      },
+      "4": {
+        "type": "text",
+        "value": "Отзывы наших клиентов"
+      }
+    },
+    "desc": {
+      "1": {
+        "type": "text",
+        "value": "Ми дуже вдячні нашим клієнтам за співпрацю і будемо раді зустрітися знову. Ви також можете залишити свої враження після роботи з нами!"
+      },
+      "2": {
+        "type": "text",
+        "value": "We are very grateful to our customers for their cooperation and will be glad to meet again. You can also leave your impressions after working with us!"
+      },
+      "3": {
+        "type": "text",
+        "value": "Wir sind unseren Kunden sehr dankbar für die Zusammenarbeit und freuen uns auf ein Wiedersehen. Sie können auch Ihre Eindrücke nach der Arbeit mit uns hinterlassen!"
+      },
+      "4": {
+        "type": "text",
+        "value": "Мы очень благодарны нашим клиентам за сотрудничество и будем рады встретиться снова. Вы также можете оставить свои впечатления после работы с нами!"
+      }
+    },
+    "button_text": {
+      "1": {
+        "type": "text",
+        "value": "+ Написати відгук"
+      },
+      "2": {
+        "type": "text",
+        "value": "+ Write Review"
+      },
+      "3": {
+        "type": "text",
+        "value": "+ Bewertung schreiben"
+      },
+      "4": {
+        "type": "text",
+        "value": "+ Написать отзыв"
+      }
+    }
+  },
+  "contact_fab": {
+    "callback_title": {
+      "1": {
+        "type": "text",
+        "value": "Замовити зворотній дзвінок"
+      },
+      "2": {
+        "type": "text",
+        "value": "Request a Callback"
+      },
+      "3": {
+        "type": "text",
+        "value": "Rückruf anfordern"
+      },
+      "4": {
+        "type": "text",
+        "value": "Заказать обратный звонок"
+      }
+    },
+    "callback_desc": {
+      "1": {
+        "type": "text",
+        "value": "Залиште нам свій номер телефону і ми зв'яжемося з вами"
+      },
+      "2": {
+        "type": "text",
+        "value": "Leave us your phone number and we will contact you"
+      },
+      "3": {
+        "type": "text",
+        "value": "Hinterlassen Sie uns Ihre Telefonnummer und wir melden uns bei Ihnen"
+      },
+      "4": {
+        "type": "text",
+        "value": "Оставьте нам свой номер телефона и мы свяжемся с вами"
+      }
+    },
+    "write_title": {
+      "1": {
+        "type": "text",
+        "value": "Написати нам"
+      },
+      "2": {
+        "type": "text",
+        "value": "Write to Us"
+      },
+      "3": {
+        "type": "text",
+        "value": "Schreiben Sie uns"
+      },
+      "4": {
+        "type": "text",
+        "value": "Написать нам"
+      }
+    },
+    "write_desc": {
+      "1": {
+        "type": "text",
+        "value": "Залиште нам свій e-mail і ми зв'яжемося з вами"
+      },
+      "2": {
+        "type": "text",
+        "value": "Leave us your e-mail and we will contact you"
+      },
+      "3": {
+        "type": "text",
+        "value": "Hinterlassen Sie uns Ihre E-Mail und wir melden uns"
+      },
+      "4": {
+        "type": "text",
+        "value": "Оставьте нам свой e-mail и мы свяжемся с вами"
+      }
+    }
+  },
+  "faq": {
+    "title": {
+      "1": {
+        "type": "text",
+        "value": "Загальні"
+      },
+      "2": {
+        "type": "text",
+        "value": "General"
+      },
+      "3": {
+        "type": "text",
+        "value": "Allgemeine"
+      },
+      "4": {
+        "type": "text",
+        "value": "Общие"
+      }
+    },
+    "title_highlight": {
+      "1": {
+        "type": "text",
+        "value": "Питання"
+      },
+      "2": {
+        "type": "text",
+        "value": "Questions"
+      },
+      "3": {
+        "type": "text",
+        "value": "Fragen"
+      },
+      "4": {
+        "type": "text",
+        "value": "Вопросы"
+      }
+    },
+    "view_all_text": {
+      "1": {
+        "type": "text",
+        "value": "Переглянути все"
+      },
+      "2": {
+        "type": "text",
+        "value": "View All"
+      },
+      "3": {
+        "type": "text",
+        "value": "Alle ansehen"
+      },
+      "4": {
+        "type": "text",
+        "value": "Смотреть все"
+      }
+    },
+    "view_all_href": {
+      "0": {
+        "type": "text",
+        "value": "#"
+      }
+    },
+    "desc": {
+      "1": {
+        "type": "text",
+        "value": "Тут ви знайдете найпоширеніші запитання про нашу агенцію. Якщо не знайшли відповіді — перегляньте сторінку <a href=\"#\">FAQ</a> або задайте своє питання там."
+      },
+      "2": {
+        "type": "text",
+        "value": "Here you will find the most frequently asked questions about our agency. If you did not find what you were looking for, perhaps your question will be found on the <a href=\"#\">FAQ</a> page or you can ask your question there."
+      },
+      "3": {
+        "type": "text",
+        "value": "Hier finden Sie die häufigsten Fragen zu unserer Agentur. Falls Sie nichts gefunden haben, besuchen Sie die <a href=\"#\">FAQ</a>-Seite."
+      },
+      "4": {
+        "type": "text",
+        "value": "Здесь вы найдёте самые частые вопросы о нашем агентстве. Если не нашли — загляните на страницу <a href=\"#\">FAQ</a>."
+      }
+    },
+    "btn_text": {
+      "1": {
+        "type": "text",
+        "value": "Переглянути все"
+      },
+      "2": {
+        "type": "text",
+        "value": "View All"
+      },
+      "3": {
+        "type": "text",
+        "value": "Alle ansehen"
+      },
+      "4": {
+        "type": "text",
+        "value": "Смотреть все"
+      }
+    },
+    "items": {
+      "1": {
+        "type": "json",
+        "value": "[{\"question\":\"Як зв'язатися з ріелтором?\",\"answer\":\"Зателефонуйте, напишіть на email або заповніть форму на сайті. Відповідь протягом 30 хвилин.\"},{\"question\":\"Що станеться при скасуванні бронювання?\",\"answer\":\"Повне повернення коштів протягом 3–5 робочих днів.\"},{\"question\":\"Як визначити орендну вартість?\",\"answer\":\"Безкоштовний аналіз ринку на основі розташування, стану та попиту.\"},{\"question\":\"Чи можна застрахувати квартиру?\",\"answer\":\"Так, страхові пакети від $10/місяць.\"},{\"question\":\"Як продовжити оренду?\",\"answer\":\"Повідомте нас за 30 днів до закінчення договору.\"}]"
+      },
+      "2": {
+        "type": "json",
+        "value": "[{\"question\":\"How to contact a realtor?\",\"answer\":\"Call us, email us or fill out the form. Response within 30 minutes.\"},{\"question\":\"What if my booking is cancelled?\",\"answer\":\"Full refund within 3–5 business days.\"},{\"question\":\"How to determine rental value?\",\"answer\":\"Free market analysis based on location, condition, and demand.\"},{\"question\":\"Can I insure my apartment?\",\"answer\":\"Yes, insurance packages from $10/month.\"},{\"question\":\"How does lease extension work?\",\"answer\":\"Notify us 30 days before the contract ends.\"}]"
+      },
+      "3": {
+        "type": "json",
+        "value": "[{\"question\":\"Wie kontaktiere ich einen Makler?\",\"answer\":\"Anrufen, E-Mail senden oder Formular ausfüllen. Antwort innerhalb von 30 Minuten.\"},{\"question\":\"Was bei Stornierung?\",\"answer\":\"Vollständige Rückerstattung innerhalb von 3–5 Werktagen.\"},{\"question\":\"Wie bestimme ich den Mietwert?\",\"answer\":\"Kostenlose Marktanalyse basierend auf Lage, Zustand und Nachfrage.\"},{\"question\":\"Kann ich die Wohnung versichern?\",\"answer\":\"Ja, Versicherungspakete ab 10 $/Monat.\"},{\"question\":\"Wie funktioniert die Verlängerung?\",\"answer\":\"30 Tage vor Vertragsende benachrichtigen.\"}]"
+      },
+      "4": {
+        "type": "json",
+        "value": "[{\"question\":\"Как связаться с риелтором?\",\"answer\":\"Позвоните, напишите на email или заполните форму. Ответ в течение 30 минут.\"},{\"question\":\"Что при отмене бронирования?\",\"answer\":\"Полный возврат в течение 3–5 рабочих дней.\"},{\"question\":\"Как определить арендную стоимость?\",\"answer\":\"Бесплатный анализ рынка по расположению, состоянию и спросу.\"},{\"question\":\"Можно ли застраховать квартиру?\",\"answer\":\"Да, страховые пакеты от $10/месяц.\"},{\"question\":\"Как продлить аренду?\",\"answer\":\"Уведомите за 30 дней до окончания договора.\"}]"
+      }
+    }
+  }
+}
