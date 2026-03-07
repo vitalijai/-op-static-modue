@@ -21,19 +21,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Головна\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"Про нас\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Ексклюзиви\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Нерухомість у Карпатах\",\"href\":\"commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Блог\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Контакти\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Головна\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"Про нас\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Ексклюзиви\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Нерухомість у Карпатах\",\"href\":\"commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Блог\",\"href\":\"index.php?route=blog/latest\",\"status\":\"1\"},{\"text\":\"Контакти\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Home\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"About Us\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Exclusives\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Real Estate in the Carpathians\",\"href\":\"en/commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Blog\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Contact\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Home\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"About Us\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Exclusives\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Real Estate in the Carpathians\",\"href\":\"en/commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Blog\",\"href\":\"index.php?route=blog/latest\",\"status\":\"1\"},{\"text\":\"Contact\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Startseite\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"Über uns\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Exklusiv\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Immobilien in den Karpaten\",\"href\":\"de/commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Blog\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Kontakt\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Startseite\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"Über uns\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Exklusiv\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Immobilien in den Karpaten\",\"href\":\"de/commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Blog\",\"href\":\"index.php?route=blog/latest\",\"status\":\"1\"},{\"text\":\"Kontakt\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Главная\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"О нас\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Эксклюзивы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Недвижимость в Карпатах\",\"href\":\"ru/commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Блог\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Контакты\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Главная\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"О нас\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Эксклюзивы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Недвижимость в Карпатах\",\"href\":\"ru/commertial/nerukhomist-v-karpatah\",\"status\":\"1\"},{\"text\":\"Блог\",\"href\":\"index.php?route=blog/latest\",\"status\":\"1\"},{\"text\":\"Контакты\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
@@ -97,19 +97,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Відгуки\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Партнери\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наші клієнти\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наші ріелтори\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Вакансії\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Відгуки\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Партнери\",\"href\":\"index.php?route=information/partners\",\"status\":\"1\"},{\"text\":\"Наші клієнти\",\"href\":\"index.php?route=information/customers\",\"status\":\"1\"},{\"text\":\"Наші ріелтори\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Вакансії\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Reviews\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Partners\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Our Customers\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Our Realtors\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Vacancies Jobs\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Reviews\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Partners\",\"href\":\"index.php?route=information/partners\",\"status\":\"1\"},{\"text\":\"Our Customers\",\"href\":\"index.php?route=information/customers\",\"status\":\"1\"},{\"text\":\"Our Realtors\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Vacancies Jobs\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Bewertungen\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Partner\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Unsere Kunden\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Unsere Makler\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Stellenangebote\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Bewertungen\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Partner\",\"href\":\"index.php?route=information/partners\",\"status\":\"1\"},{\"text\":\"Unsere Kunden\",\"href\":\"index.php?route=information/customers\",\"status\":\"1\"},{\"text\":\"Unsere Makler\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Stellenangebote\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Отзывы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Партнёры\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наши клиенты\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наши риелторы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Вакансии\",\"href\":\"#\",\"status\":\"1\"}]"
+        "value": "[{\"text\":\"Отзывы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Партнёры\",\"href\":\"index.php?route=information/partners\",\"status\":\"1\"},{\"text\":\"Наши клиенты\",\"href\":\"index.php?route=information/customers\",\"status\":\"1\"},{\"text\":\"Наши риелторы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Вакансии\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
