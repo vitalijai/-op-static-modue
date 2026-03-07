@@ -437,6 +437,9 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             }
             html += '</select></td>';
+          } else if (cType === 'checkbox') {
+            var checked = (val === '1' || val === 1 || val === true) ? ' checked' : '';
+            html += '<td style="text-align:center;"><input type="checkbox" name="repeater_temp_cb" data-col="' + col + '"' + checked + ' /></td>';
           } else if (cType === 'textarea') {
             html += '<td><textarea name="repeater_temp">' + escapeHtml(val) + '</textarea></td>';
           } else if (cType === 'image') {
@@ -479,9 +482,11 @@ document.addEventListener('DOMContentLoaded', function() {
         columns.forEach(function(col) {
           var cType = colTypes[col] || 'text';
           if (cType === 'image') {
-            // Find img input for this column
             var imgInput = tr.querySelector('input[data-col="' + col + '"]');
             obj[col] = imgInput ? imgInput.value : '';
+          } else if (cType === 'checkbox') {
+            var cb = tr.querySelector('input[data-col="' + col + '"]');
+            obj[col] = (cb && cb.checked) ? '1' : '0';
           } else {
             if (textInputs[colIdx]) {
               obj[col] = textInputs[colIdx].value;
@@ -498,10 +503,21 @@ document.addEventListener('DOMContentLoaded', function() {
       syncHidden();
     }
 
+    container.addEventListener('change', function(e) {
+      if (e.target.matches('input[name="repeater_temp_cb"]')) {
+        collectFromDom();
+      }
+    });
+
     container.addEventListener('click', function(e) {
       if (e.target.closest('.repeater-add-btn')) {
         collectFromDom();
-        var r = {}; columns.forEach(function(c) { r[c] = ''; }); rows.push(r);
+        var r = {};
+        columns.forEach(function(c) {
+          var cType = colTypes[c] || 'text';
+          r[c] = (cType === 'checkbox') ? '1' : '';
+        });
+        rows.push(r);
         render();
       }
       if (e.target.closest('.repeater-remove')) {

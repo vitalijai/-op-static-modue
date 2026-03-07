@@ -240,7 +240,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
+                            'columns' => ['status', 'text', 'href'],
+                            'col_types' => ['status' => 'checkbox'],
                         ],
                     ],
                 ],
@@ -253,7 +254,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
+                            'columns' => ['status', 'text', 'href'],
+                            'col_types' => ['status' => 'checkbox'],
                         ],
                     ],
                 ],
@@ -266,7 +268,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
+                            'columns' => ['status', 'text', 'href'],
+                            'col_types' => ['status' => 'checkbox'],
                         ],
                     ],
                 ],
@@ -279,7 +282,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
+                            'columns' => ['status', 'text', 'href'],
+                            'col_types' => ['status' => 'checkbox'],
                         ],
                     ],
                 ],
@@ -292,7 +296,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href'],
+                            'columns' => ['status', 'text', 'href'],
+                            'col_types' => ['status' => 'checkbox'],
                         ],
                     ],
                 ],
@@ -304,8 +309,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'         => 'json',
                             'schema'       => 'repeater',
-                            'columns'      => ['platform', 'icon', 'url'],
-                            'col_types'    => ['icon' => 'image'],
+                            'columns'      => ['status', 'platform', 'icon', 'url'],
+                            'col_types'    => ['status' => 'checkbox', 'icon' => 'image'],
                             'translatable' => false,
                         ],
                     ],
@@ -322,8 +327,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href', 'icon'],
-                            'col_types' => ['icon' => 'image'],
+                            'columns' => ['status', 'text', 'href', 'icon'],
+                            'col_types' => ['status' => 'checkbox', 'icon' => 'image'],
                         ],
                     ],
                 ],
@@ -335,8 +340,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href', 'style', 'icon'],
-                            'col_types' => ['icon' => 'image', 'style' => 'select'],
+                            'columns' => ['status', 'text', 'href', 'style', 'icon'],
+                            'col_types' => ['status' => 'checkbox', 'icon' => 'image', 'style' => 'select'],
                             'col_options' => ['style' => ['' => '— звичайний', 'active' => 'Active', 'green' => 'Green', 'blue' => 'Blue']],
                         ],
                     ],
@@ -349,8 +354,8 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'items' => [
                             'type'    => 'json',
                             'schema'  => 'repeater',
-                            'columns' => ['text', 'href', 'style', 'icon'],
-                            'col_types' => ['icon' => 'image', 'style' => 'select'],
+                            'columns' => ['status', 'text', 'href', 'style', 'icon'],
+                            'col_types' => ['status' => 'checkbox', 'icon' => 'image', 'style' => 'select'],
                             'col_options' => ['style' => ['' => '— звичайний', 'active' => 'Active', 'green' => 'Green', 'blue' => 'Blue']],
                         ],
                     ],

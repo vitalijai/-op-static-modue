@@ -21,19 +21,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Головна\",\"href\":\"/\"},{\"text\":\"Про нас\",\"href\":\"#\"},{\"text\":\"Ексклюзиви\",\"href\":\"#\"},{\"text\":\"Нерухомість у Карпатах\",\"href\":\"#\"},{\"text\":\"Блог\",\"href\":\"#\"},{\"text\":\"Контакти\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Головна\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"Про нас\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Ексклюзиви\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Нерухомість у Карпатах\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Блог\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Контакти\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Home\",\"href\":\"/\"},{\"text\":\"About Us\",\"href\":\"#\"},{\"text\":\"Exclusives\",\"href\":\"#\"},{\"text\":\"Real Estate in the Carpathians\",\"href\":\"#\"},{\"text\":\"Blog\",\"href\":\"#\"},{\"text\":\"Contact\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Home\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"About Us\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Exclusives\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Real Estate in the Carpathians\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Blog\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Contact\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Startseite\",\"href\":\"/\"},{\"text\":\"Über uns\",\"href\":\"#\"},{\"text\":\"Exklusiv\",\"href\":\"#\"},{\"text\":\"Immobilien in den Karpaten\",\"href\":\"#\"},{\"text\":\"Blog\",\"href\":\"#\"},{\"text\":\"Kontakt\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Startseite\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"Über uns\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Exklusiv\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Immobilien in den Karpaten\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Blog\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Kontakt\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Главная\",\"href\":\"/\"},{\"text\":\"О нас\",\"href\":\"#\"},{\"text\":\"Эксклюзивы\",\"href\":\"#\"},{\"text\":\"Недвижимость в Карпатах\",\"href\":\"#\"},{\"text\":\"Блог\",\"href\":\"#\"},{\"text\":\"Контакты\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Главная\",\"href\":\"/\",\"status\":\"1\"},{\"text\":\"О нас\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Эксклюзивы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Недвижимость в Карпатах\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Блог\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Контакты\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
@@ -59,19 +59,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Квартири\",\"href\":\"#\"},{\"text\":\"Особняки\",\"href\":\"#\"},{\"text\":\"Офіси\",\"href\":\"#\"},{\"text\":\"Комерційна нерухомість\",\"href\":\"#\"},{\"text\":\"Гаражі\",\"href\":\"#\"},{\"text\":\"Земельні ділянки\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Квартири\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Особняки\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Офіси\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Комерційна нерухомість\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Гаражі\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Земельні ділянки\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Flats\",\"href\":\"#\"},{\"text\":\"Mansions\",\"href\":\"#\"},{\"text\":\"Offices\",\"href\":\"#\"},{\"text\":\"Commercial Real Estate\",\"href\":\"#\"},{\"text\":\"Garages\",\"href\":\"#\"},{\"text\":\"Land\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Flats\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Mansions\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Offices\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Commercial Real Estate\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Garages\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Land\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Wohnungen\",\"href\":\"#\"},{\"text\":\"Villen\",\"href\":\"#\"},{\"text\":\"Büros\",\"href\":\"#\"},{\"text\":\"Gewerbeimmobilien\",\"href\":\"#\"},{\"text\":\"Garagen\",\"href\":\"#\"},{\"text\":\"Grundstücke\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Wohnungen\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Villen\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Büros\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Gewerbeimmobilien\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Garagen\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Grundstücke\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Квартиры\",\"href\":\"#\"},{\"text\":\"Особняки\",\"href\":\"#\"},{\"text\":\"Офисы\",\"href\":\"#\"},{\"text\":\"Коммерческая недвижимость\",\"href\":\"#\"},{\"text\":\"Гаражи\",\"href\":\"#\"},{\"text\":\"Земельные участки\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Квартиры\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Особняки\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Офисы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Коммерческая недвижимость\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Гаражи\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Земельные участки\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
@@ -97,19 +97,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Відгуки\",\"href\":\"#\"},{\"text\":\"Партнери\",\"href\":\"#\"},{\"text\":\"Наші клієнти\",\"href\":\"#\"},{\"text\":\"Наші ріелтори\",\"href\":\"#\"},{\"text\":\"Вакансії\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Відгуки\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Партнери\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наші клієнти\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наші ріелтори\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Вакансії\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Reviews\",\"href\":\"#\"},{\"text\":\"Partners\",\"href\":\"#\"},{\"text\":\"Our Customers\",\"href\":\"#\"},{\"text\":\"Our Realtors\",\"href\":\"#\"},{\"text\":\"Vacancies Jobs\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Reviews\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Partners\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Our Customers\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Our Realtors\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Vacancies Jobs\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Bewertungen\",\"href\":\"#\"},{\"text\":\"Partner\",\"href\":\"#\"},{\"text\":\"Unsere Kunden\",\"href\":\"#\"},{\"text\":\"Unsere Makler\",\"href\":\"#\"},{\"text\":\"Stellenangebote\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Bewertungen\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Partner\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Unsere Kunden\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Unsere Makler\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Stellenangebote\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Отзывы\",\"href\":\"#\"},{\"text\":\"Партнёры\",\"href\":\"#\"},{\"text\":\"Наши клиенты\",\"href\":\"#\"},{\"text\":\"Наши риелторы\",\"href\":\"#\"},{\"text\":\"Вакансии\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Отзывы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Партнёры\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наши клиенты\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Наши риелторы\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Вакансии\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
@@ -135,19 +135,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Продаж\",\"href\":\"#\"},{\"text\":\"Оренда\",\"href\":\"#\"},{\"text\":\"Подобова оренда\",\"href\":\"#\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"#\"},{\"text\":\"Елітна нерухомість\",\"href\":\"#\"},{\"text\":\"Будівництво будинків\",\"href\":\"#\"},{\"text\":\"Бронювання готелів\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Продаж\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Оренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Подобова оренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Інвестиційні проекти\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Елітна нерухомість\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Будівництво будинків\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Бронювання готелів\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Selling\",\"href\":\"#\"},{\"text\":\"Rent\",\"href\":\"#\"},{\"text\":\"Daily Rent\",\"href\":\"#\"},{\"text\":\"Investment Projects\",\"href\":\"#\"},{\"text\":\"Luxury Real Estate\",\"href\":\"#\"},{\"text\":\"Construction of Houses\",\"href\":\"#\"},{\"text\":\"Hotel Booking\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Selling\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Rent\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Daily Rent\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Investment Projects\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Luxury Real Estate\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Construction of Houses\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hotel Booking\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Verkauf\",\"href\":\"#\"},{\"text\":\"Miete\",\"href\":\"#\"},{\"text\":\"Tagesmiete\",\"href\":\"#\"},{\"text\":\"Investitionsprojekte\",\"href\":\"#\"},{\"text\":\"Luxusimmobilien\",\"href\":\"#\"},{\"text\":\"Hausbau\",\"href\":\"#\"},{\"text\":\"Hotelbuchung\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Verkauf\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Miete\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Tagesmiete\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Investitionsprojekte\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Luxusimmobilien\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hausbau\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hotelbuchung\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Продажа\",\"href\":\"#\"},{\"text\":\"Аренда\",\"href\":\"#\"},{\"text\":\"Посуточная аренда\",\"href\":\"#\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"#\"},{\"text\":\"Элитная недвижимость\",\"href\":\"#\"},{\"text\":\"Строительство домов\",\"href\":\"#\"},{\"text\":\"Бронирование отелей\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Продажа\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Аренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Посуточная аренда\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Инвестиционные проекты\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Элитная недвижимость\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Строительство домов\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Бронирование отелей\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
@@ -173,19 +173,19 @@
     "items": {
       "1": {
         "type": "json",
-        "value": "[{\"text\":\"Довідник\",\"href\":\"#\"},{\"text\":\"Погода\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"},{\"text\":\"Допомога\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Довідник\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Погода\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"FAQ\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Допомога\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "2": {
         "type": "json",
-        "value": "[{\"text\":\"Directory\",\"href\":\"#\"},{\"text\":\"Weather\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"},{\"text\":\"Help\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Directory\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Weather\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"FAQ\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Help\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "3": {
         "type": "json",
-        "value": "[{\"text\":\"Verzeichnis\",\"href\":\"#\"},{\"text\":\"Wetter\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"},{\"text\":\"Hilfe\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Verzeichnis\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Wetter\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"FAQ\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Hilfe\",\"href\":\"#\",\"status\":\"1\"}]"
       },
       "4": {
         "type": "json",
-        "value": "[{\"text\":\"Справочник\",\"href\":\"#\"},{\"text\":\"Погода\",\"href\":\"#\"},{\"text\":\"FAQ\",\"href\":\"#\"},{\"text\":\"Помощь\",\"href\":\"#\"}]"
+        "value": "[{\"text\":\"Справочник\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Погода\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"FAQ\",\"href\":\"#\",\"status\":\"1\"},{\"text\":\"Помощь\",\"href\":\"#\",\"status\":\"1\"}]"
       }
     }
   },
@@ -193,7 +193,7 @@
     "items": {
       "0": {
         "type": "json",
-        "value": "[{\"platform\":\"youtube\",\"icon\":\"catalog/svg/social/youtube.svg\",\"url\":\"#\"},{\"platform\":\"facebook\",\"icon\":\"catalog/svg/social/facebook.svg\",\"url\":\"#\"},{\"platform\":\"instagram\",\"icon\":\"catalog/svg/social/instagram.svg\",\"url\":\"#\"},{\"platform\":\"twitter\",\"icon\":\"catalog/svg/social/twitter.svg\",\"url\":\"#\"},{\"platform\":\"tiktok\",\"icon\":\"catalog/svg/social/tiktok.svg\",\"url\":\"#\"}]"
+        "value": "[{\"platform\":\"youtube\",\"icon\":\"catalog/svg/social/youtube.svg\",\"url\":\"#\",\"status\":\"1\"},{\"platform\":\"facebook\",\"icon\":\"catalog/svg/social/facebook.svg\",\"url\":\"#\",\"status\":\"1\"},{\"platform\":\"instagram\",\"icon\":\"catalog/svg/social/instagram.svg\",\"url\":\"#\",\"status\":\"1\"},{\"platform\":\"twitter\",\"icon\":\"catalog/svg/social/twitter.svg\",\"url\":\"#\",\"status\":\"1\"},{\"platform\":\"tiktok\",\"icon\":\"catalog/svg/social/tiktok.svg\",\"url\":\"#\",\"status\":\"1\"}]"
       }
     }
   }
