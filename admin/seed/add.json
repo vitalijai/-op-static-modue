@@ -276,6 +276,86 @@
       "4": { "type": "text", "value": "Обмен" }
     }
   },
+  "contact_info": {
+    "section_title": {
+      "1": { "type": "text", "value": "інформація" },
+      "2": { "type": "text", "value": "Information" },
+      "3": { "type": "text", "value": "Informationen" },
+      "4": { "type": "text", "value": "информация" }
+    },
+    "section_highlight": {
+      "1": { "type": "text", "value": "Контактна" },
+      "2": { "type": "text", "value": "Contact" },
+      "3": { "type": "text", "value": "Kontakt" },
+      "4": { "type": "text", "value": "Контактная" }
+    },
+    "name_label": {
+      "1": { "type": "text", "value": "Ім'я та прізвище" },
+      "2": { "type": "text", "value": "Name and Last Name" },
+      "3": { "type": "text", "value": "Vor- und Nachname" },
+      "4": { "type": "text", "value": "Имя и фамилия" }
+    },
+    "name_placeholder": {
+      "1": { "type": "text", "value": "Введіть ім'я" },
+      "2": { "type": "text", "value": "Enter name" },
+      "3": { "type": "text", "value": "Name eingeben" },
+      "4": { "type": "text", "value": "Введите имя" }
+    },
+    "phone_label": {
+      "1": { "type": "text", "value": "Телефон" },
+      "2": { "type": "text", "value": "Phone" },
+      "3": { "type": "text", "value": "Telefon" },
+      "4": { "type": "text", "value": "Телефон" }
+    },
+    "phone_placeholder": {
+      "1": { "type": "text", "value": "+380" },
+      "2": { "type": "text", "value": "+380" },
+      "3": { "type": "text", "value": "+380" },
+      "4": { "type": "text", "value": "+380" }
+    },
+    "phone2_label": {
+      "1": { "type": "text", "value": "Телефон 2" },
+      "2": { "type": "text", "value": "Phone 2" },
+      "3": { "type": "text", "value": "Telefon 2" },
+      "4": { "type": "text", "value": "Телефон 2" }
+    },
+    "email_label": {
+      "1": { "type": "text", "value": "Email" },
+      "2": { "type": "text", "value": "Email" },
+      "3": { "type": "text", "value": "E-Mail" },
+      "4": { "type": "text", "value": "Email" }
+    },
+    "email_placeholder": {
+      "1": { "type": "text", "value": "Ваш email" },
+      "2": { "type": "text", "value": "Your email" },
+      "3": { "type": "text", "value": "Ihre E-Mail" },
+      "4": { "type": "text", "value": "Ваш email" }
+    },
+    "skype_label": {
+      "1": { "type": "text", "value": "Skype" },
+      "2": { "type": "text", "value": "Skype" },
+      "3": { "type": "text", "value": "Skype" },
+      "4": { "type": "text", "value": "Skype" }
+    },
+    "icq_label": {
+      "1": { "type": "text", "value": "ICQ" },
+      "2": { "type": "text", "value": "ICQ" },
+      "3": { "type": "text", "value": "ICQ" },
+      "4": { "type": "text", "value": "ICQ" }
+    },
+    "publish_btn": {
+      "1": { "type": "text", "value": "Опублікувати" },
+      "2": { "type": "text", "value": "Publish" },
+      "3": { "type": "text", "value": "Veröffentlichen" },
+      "4": { "type": "text", "value": "Опубликовать" }
+    },
+    "success_message": {
+      "1": { "type": "text", "value": "Дякуємо! Ваше оголошення буде перевірено адміністрацією протягом 24 годин та опубліковано." },
+      "2": { "type": "text", "value": "Thank you! Your ad will be checked by our administration within 24 hours and will be published." },
+      "3": { "type": "text", "value": "Vielen Dank! Ihre Anzeige wird innerhalb von 24 Stunden von unserer Verwaltung geprüft und veröffentlicht." },
+      "4": { "type": "text", "value": "Спасибо! Ваше объявление будет проверено администрацией в течение 24 часов и опубликовано." }
+    }
+  },
   "additional_materials": {
     "section_title": {
       "1": { "type": "text", "value": "матеріали" },
