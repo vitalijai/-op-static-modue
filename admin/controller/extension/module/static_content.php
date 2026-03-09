@@ -783,6 +783,18 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'section_highlight' => ['type' => 'text'],
                     ],
                 ],
+                'other_params' => [
+                    'label'      => 'Add Property — Other Parameters Labels',
+                    'sort_order' => 5,
+                    'fields'     => [
+                        'section_title'     => ['type' => 'text'],
+                        'section_highlight' => ['type' => 'text'],
+                        'exclus'            => ['type' => 'text'],
+                        'urgent'            => ['type' => 'text'],
+                        'sold'              => ['type' => 'text'],
+                        'doc'               => ['type' => 'text'],
+                    ],
+                ],
                 'price_info' => [
                     'label'      => 'Add Property — Price Labels',
                     'sort_order' => 5,
