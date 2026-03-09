@@ -107,5 +107,67 @@
       "3": { "type": "text", "value": "Kategorie kann nicht geändert werden" },
       "4": { "type": "text", "value": "Категорию нельзя изменить" }
     }
+  },
+  "location_info": {
+    "section_title": {
+      "1": { "type": "text", "value": "Інформація" },
+      "2": { "type": "text", "value": "Information" },
+      "3": { "type": "text", "value": "Information" },
+      "4": { "type": "text", "value": "Информация" }
+    },
+    "section_highlight": {
+      "1": { "type": "text", "value": "Локація" },
+      "2": { "type": "text", "value": "Location" },
+      "3": { "type": "text", "value": "Standort" },
+      "4": { "type": "text", "value": "Локация" }
+    },
+    "select_placeholder": {
+      "1": { "type": "text", "value": "Виберіть" },
+      "2": { "type": "text", "value": "Select" },
+      "3": { "type": "text", "value": "Auswählen" },
+      "4": { "type": "text", "value": "Выберите" }
+    },
+    "region": {
+      "1": { "type": "text", "value": "Область" },
+      "2": { "type": "text", "value": "Region" },
+      "3": { "type": "text", "value": "Region" },
+      "4": { "type": "text", "value": "Область" }
+    },
+    "city": {
+      "1": { "type": "text", "value": "Місто" },
+      "2": { "type": "text", "value": "City" },
+      "3": { "type": "text", "value": "Stadt" },
+      "4": { "type": "text", "value": "Город" }
+    },
+    "area": {
+      "1": { "type": "text", "value": "Район міста" },
+      "2": { "type": "text", "value": "Area of the City" },
+      "3": { "type": "text", "value": "Stadtteil" },
+      "4": { "type": "text", "value": "Район города" }
+    },
+    "residential_complex": {
+      "1": { "type": "text", "value": "Житловий комплекс" },
+      "2": { "type": "text", "value": "Residential Complex" },
+      "3": { "type": "text", "value": "Wohnkomplex" },
+      "4": { "type": "text", "value": "Жилой комплекс" }
+    },
+    "street": {
+      "1": { "type": "text", "value": "Вулиця" },
+      "2": { "type": "text", "value": "Street" },
+      "3": { "type": "text", "value": "Straße" },
+      "4": { "type": "text", "value": "Улица" }
+    },
+    "street_number": {
+      "1": { "type": "text", "value": "Номер будинку" },
+      "2": { "type": "text", "value": "Street Number" },
+      "3": { "type": "text", "value": "Hausnummer" },
+      "4": { "type": "text", "value": "Номер дома" }
+    },
+    "apartment_number": {
+      "1": { "type": "text", "value": "Номер квартири" },
+      "2": { "type": "text", "value": "Apartment Number" },
+      "3": { "type": "text", "value": "Wohnungsnummer" },
+      "4": { "type": "text", "value": "Номер квартиры" }
+    }
   }
 }

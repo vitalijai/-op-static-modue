@@ -747,6 +747,22 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'category_locked'     => ['type' => 'text'],
                     ],
                 ],
+                'location_info' => [
+                    'label'      => 'Add Property — Location Labels',
+                    'sort_order' => 2,
+                    'fields'     => [
+                        'section_title'        => ['type' => 'text'],
+                        'section_highlight'    => ['type' => 'text'],
+                        'select_placeholder'   => ['type' => 'text'],
+                        'region'               => ['type' => 'text'],
+                        'city'                 => ['type' => 'text'],
+                        'area'                 => ['type' => 'text'],
+                        'residential_complex'  => ['type' => 'text'],
+                        'street'               => ['type' => 'text'],
+                        'street_number'        => ['type' => 'text'],
+                        'apartment_number'     => ['type' => 'text'],
+                    ],
+                ],
             ],
         ];
     }
