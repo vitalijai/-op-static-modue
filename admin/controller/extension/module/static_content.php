@@ -775,9 +775,20 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'delete_photo'      => ['type' => 'text'],
                     ],
                 ],
+                'additional_materials' => [
+                    'label'      => 'Add Property — Additional Materials Labels',
+                    'sort_order' => 4,
+                    'fields'     => [
+                        'section_title'     => ['type' => 'text'],
+                        'section_highlight' => ['type' => 'text'],
+                        'video_label'       => ['type' => 'text'],
+                        'flash_label'       => ['type' => 'text'],
+                        'url_placeholder'   => ['type' => 'text'],
+                    ],
+                ],
                 'location_info' => [
                     'label'      => 'Add Property — Location Labels',
-                    'sort_order' => 4,
+                    'sort_order' => 5,
                     'fields'     => [
                         'section_title'        => ['type' => 'text'],
                         'section_highlight'    => ['type' => 'text'],

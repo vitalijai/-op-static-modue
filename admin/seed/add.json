@@ -208,6 +208,38 @@
       "4": { "type": "text", "value": "Удалить" }
     }
   },
+  "additional_materials": {
+    "section_title": {
+      "1": { "type": "text", "value": "матеріали" },
+      "2": { "type": "text", "value": "Materials" },
+      "3": { "type": "text", "value": "Materialien" },
+      "4": { "type": "text", "value": "материалы" }
+    },
+    "section_highlight": {
+      "1": { "type": "text", "value": "Додаткові" },
+      "2": { "type": "text", "value": "Additional" },
+      "3": { "type": "text", "value": "Zusätzliche" },
+      "4": { "type": "text", "value": "Дополнительные" }
+    },
+    "video_label": {
+      "1": { "type": "text", "value": "Відео, url" },
+      "2": { "type": "text", "value": "Video, url" },
+      "3": { "type": "text", "value": "Video, URL" },
+      "4": { "type": "text", "value": "Видео, url" }
+    },
+    "flash_label": {
+      "1": { "type": "text", "value": "Інтерактивний додаток, url" },
+      "2": { "type": "text", "value": "Interactive Application, url" },
+      "3": { "type": "text", "value": "Interaktive Anwendung, URL" },
+      "4": { "type": "text", "value": "Интерактивное приложение, url" }
+    },
+    "url_placeholder": {
+      "1": { "type": "text", "value": "Введіть url" },
+      "2": { "type": "text", "value": "Enter url" },
+      "3": { "type": "text", "value": "URL eingeben" },
+      "4": { "type": "text", "value": "Введите url" }
+    }
+  },
   "location_info": {
     "section_title": {
       "1": { "type": "text", "value": "Інформація" },
