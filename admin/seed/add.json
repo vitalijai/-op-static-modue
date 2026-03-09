@@ -140,6 +140,74 @@
       "4": { "type": "text", "value": "Дополнительная информация" }
     }
   },
+  "photo_gallery": {
+    "section_title": {
+      "1": { "type": "text", "value": "Галерея" },
+      "2": { "type": "text", "value": "Gallery" },
+      "3": { "type": "text", "value": "Galerie" },
+      "4": { "type": "text", "value": "Галерея" }
+    },
+    "section_highlight": {
+      "1": { "type": "text", "value": "Фото" },
+      "2": { "type": "text", "value": "Photo" },
+      "3": { "type": "text", "value": "Foto" },
+      "4": { "type": "text", "value": "Фото" }
+    },
+    "upload_btn": {
+      "1": { "type": "text", "value": "+ Завантажити або перетягнути фото" },
+      "2": { "type": "text", "value": "+ Upload or Drop Photos" },
+      "3": { "type": "text", "value": "+ Fotos hochladen oder ablegen" },
+      "4": { "type": "text", "value": "+ Загрузить или перетащить фото" }
+    },
+    "upload_hint": {
+      "1": { "type": "text", "value": "Максимум 12 фото, мінімальна роздільна здатність 300x500 px (jpg, png)" },
+      "2": { "type": "text", "value": "You can upload a maximum of 12 photos with a minimum resolution of 300x500 px (jpg, png)" },
+      "3": { "type": "text", "value": "Maximal 12 Fotos, Mindestauflösung 300x500 px (jpg, png)" },
+      "4": { "type": "text", "value": "Максимум 12 фото, минимальное разрешение 300x500 px (jpg, png)" }
+    },
+    "cover_label": {
+      "1": { "type": "text", "value": "Обкладинка" },
+      "2": { "type": "text", "value": "Cover" },
+      "3": { "type": "text", "value": "Titelbild" },
+      "4": { "type": "text", "value": "Обложка" }
+    },
+    "make_cover": {
+      "1": { "type": "text", "value": "Зробити обкладинкою" },
+      "2": { "type": "text", "value": "Make cover" },
+      "3": { "type": "text", "value": "Als Titelbild" },
+      "4": { "type": "text", "value": "Сделать обложкой" }
+    },
+    "existing_title": {
+      "1": { "type": "text", "value": "Існуючі фото" },
+      "2": { "type": "text", "value": "Existing Photos" },
+      "3": { "type": "text", "value": "Vorhandene Fotos" },
+      "4": { "type": "text", "value": "Существующие фото" }
+    },
+    "sort_hint": {
+      "1": { "type": "text", "value": "🖱️ Перетягніть фото для зміни порядку" },
+      "2": { "type": "text", "value": "🖱️ Drag photos to reorder" },
+      "3": { "type": "text", "value": "🖱️ Fotos ziehen zum Neuanordnen" },
+      "4": { "type": "text", "value": "🖱️ Перетащите фото для изменения порядка" }
+    },
+    "set_main": {
+      "1": { "type": "text", "value": "Зробити головним" },
+      "2": { "type": "text", "value": "Set as Main" },
+      "3": { "type": "text", "value": "Als Hauptbild" },
+      "4": { "type": "text", "value": "Сделать главным" }
+    },
+    "main_photo": {
+      "1": { "type": "text", "value": "★ Головне фото" },
+      "2": { "type": "text", "value": "★ Main Photo" },
+      "3": { "type": "text", "value": "★ Hauptfoto" },
+      "4": { "type": "text", "value": "★ Главное фото" }
+    },
+    "delete_photo": {
+      "1": { "type": "text", "value": "Видалити" },
+      "2": { "type": "text", "value": "Delete" },
+      "3": { "type": "text", "value": "Löschen" },
+      "4": { "type": "text", "value": "Удалить" }
+    }
+  },
   "location_info": {
     "section_title": {
       "1": { "type": "text", "value": "Інформація" },

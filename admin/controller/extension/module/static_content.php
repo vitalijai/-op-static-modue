@@ -758,9 +758,26 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'description_label'    => ['type' => 'text'],
                     ],
                 ],
+                'photo_gallery' => [
+                    'label'      => 'Add Property — Photo Gallery Labels',
+                    'sort_order' => 3,
+                    'fields'     => [
+                        'section_title'     => ['type' => 'text'],
+                        'section_highlight' => ['type' => 'text'],
+                        'upload_btn'        => ['type' => 'text'],
+                        'upload_hint'       => ['type' => 'text'],
+                        'cover_label'       => ['type' => 'text'],
+                        'make_cover'        => ['type' => 'text'],
+                        'existing_title'    => ['type' => 'text'],
+                        'sort_hint'         => ['type' => 'text'],
+                        'set_main'          => ['type' => 'text'],
+                        'main_photo'        => ['type' => 'text'],
+                        'delete_photo'      => ['type' => 'text'],
+                    ],
+                ],
                 'location_info' => [
                     'label'      => 'Add Property — Location Labels',
-                    'sort_order' => 3,
+                    'sort_order' => 4,
                     'fields'     => [
                         'section_title'        => ['type' => 'text'],
                         'section_highlight'    => ['type' => 'text'],
