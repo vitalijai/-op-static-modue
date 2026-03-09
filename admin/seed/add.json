@@ -208,6 +208,74 @@
       "4": { "type": "text", "value": "Удалить" }
     }
   },
+  "price_info": {
+    "section_title": {
+      "1": { "type": "text", "value": "" },
+      "2": { "type": "text", "value": "" },
+      "3": { "type": "text", "value": "" },
+      "4": { "type": "text", "value": "" }
+    },
+    "section_highlight": {
+      "1": { "type": "text", "value": "Ціна" },
+      "2": { "type": "text", "value": "Price" },
+      "3": { "type": "text", "value": "Preis" },
+      "4": { "type": "text", "value": "Цена" }
+    },
+    "price_label": {
+      "1": { "type": "text", "value": "Ціна" },
+      "2": { "type": "text", "value": "Price" },
+      "3": { "type": "text", "value": "Preis" },
+      "4": { "type": "text", "value": "Цена" }
+    },
+    "price_placeholder": {
+      "1": { "type": "text", "value": "Введіть суму" },
+      "2": { "type": "text", "value": "Enter amount" },
+      "3": { "type": "text", "value": "Betrag eingeben" },
+      "4": { "type": "text", "value": "Введите сумму" }
+    },
+    "currency_label": {
+      "1": { "type": "text", "value": "Валюта" },
+      "2": { "type": "text", "value": "Currency" },
+      "3": { "type": "text", "value": "Währung" },
+      "4": { "type": "text", "value": "Валюта" }
+    },
+    "price_for_label": {
+      "1": { "type": "text", "value": "Ціна за" },
+      "2": { "type": "text", "value": "Price for" },
+      "3": { "type": "text", "value": "Preis für" },
+      "4": { "type": "text", "value": "Цена за" }
+    },
+    "negotiated": {
+      "1": { "type": "text", "value": "Договірна" },
+      "2": { "type": "text", "value": "Negotiated" },
+      "3": { "type": "text", "value": "Verhandelbar" },
+      "4": { "type": "text", "value": "Договорная" }
+    },
+    "commis_label": {
+      "1": { "type": "text", "value": "Комісія" },
+      "2": { "type": "text", "value": "Commission" },
+      "3": { "type": "text", "value": "Provision" },
+      "4": { "type": "text", "value": "Комиссия" }
+    },
+    "tender": {
+      "1": { "type": "text", "value": "Тендер" },
+      "2": { "type": "text", "value": "Auction" },
+      "3": { "type": "text", "value": "Auktion" },
+      "4": { "type": "text", "value": "Тендер" }
+    },
+    "installments": {
+      "1": { "type": "text", "value": "Розтермінування" },
+      "2": { "type": "text", "value": "Installments" },
+      "3": { "type": "text", "value": "Ratenzahlung" },
+      "4": { "type": "text", "value": "Рассрочка" }
+    },
+    "exchange": {
+      "1": { "type": "text", "value": "Обмін" },
+      "2": { "type": "text", "value": "Exchange" },
+      "3": { "type": "text", "value": "Tausch" },
+      "4": { "type": "text", "value": "Обмен" }
+    }
+  },
   "additional_materials": {
     "section_title": {
       "1": { "type": "text", "value": "матеріали" },

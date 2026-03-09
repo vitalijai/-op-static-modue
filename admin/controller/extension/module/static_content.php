@@ -775,9 +775,26 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'delete_photo'      => ['type' => 'text'],
                     ],
                 ],
+                'price_info' => [
+                    'label'      => 'Add Property — Price Labels',
+                    'sort_order' => 4,
+                    'fields'     => [
+                        'section_title'     => ['type' => 'text'],
+                        'section_highlight' => ['type' => 'text'],
+                        'price_label'       => ['type' => 'text'],
+                        'price_placeholder' => ['type' => 'text'],
+                        'currency_label'    => ['type' => 'text'],
+                        'price_for_label'   => ['type' => 'text'],
+                        'negotiated'        => ['type' => 'text'],
+                        'commis_label'      => ['type' => 'text'],
+                        'tender'            => ['type' => 'text'],
+                        'installments'      => ['type' => 'text'],
+                        'exchange'          => ['type' => 'text'],
+                    ],
+                ],
                 'additional_materials' => [
                     'label'      => 'Add Property — Additional Materials Labels',
-                    'sort_order' => 4,
+                    'sort_order' => 5,
                     'fields'     => [
                         'section_title'     => ['type' => 'text'],
                         'section_highlight' => ['type' => 'text'],
