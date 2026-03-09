@@ -715,6 +715,21 @@ class ControllerExtensionModuleStaticContent extends Controller {
                     ],
                 ],
             ],
+
+            'add' => [
+                'hero' => [
+                    'label'      => 'Add Property — Hero Section',
+                    'sort_order' => 0,
+                    'fields'     => [
+                        'title'           => ['type' => 'text'],
+                        'title_highlight' => ['type' => 'text'],
+                        'description'     => ['type' => 'textarea'],
+                        'agreement_text'  => ['type' => 'text'],
+                        'agreement_link_text' => ['type' => 'text'],
+                        'agreement_link_href' => ['type' => 'text', 'translatable' => false],
+                    ],
+                ],
+            ],
         ];
     }
 }

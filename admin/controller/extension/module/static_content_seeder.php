@@ -15,7 +15,7 @@ class ControllerExtensionModuleStaticContentSeeder extends Controller {
      */
     private $pages = [
         'header', 'menu', 'mobile', 'common', 'blog',
-        'customers', 'partners', 'home', 'footer',
+        'customers', 'partners', 'home', 'footer', 'add',
     ];
 
     /**

@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "title": {
+      "1": { "type": "text", "value": "Додати" },
+      "2": { "type": "text", "value": "Add" },
+      "3": { "type": "text", "value": "Hinzufügen" },
+      "4": { "type": "text", "value": "Добавить" }
+    },
+    "title_highlight": {
+      "1": { "type": "text", "value": "Real Estate" },
+      "2": { "type": "text", "value": "Real Estate" },
+      "3": { "type": "text", "value": "Immobilie" },
+      "4": { "type": "text", "value": "Недвижимость" }
+    },
+    "description": {
+      "1": { "type": "textarea", "value": "Ласкаво просимо! У цьому розділі ви можете розмістити оголошення про продаж або оренду нерухомості." },
+      "2": { "type": "textarea", "value": "Welcome! In this section you can place your advert for the sale or rent of real estate." },
+      "3": { "type": "textarea", "value": "Willkommen! In diesem Bereich können Sie Ihre Anzeige für den Verkauf oder die Vermietung von Immobilien aufgeben." },
+      "4": { "type": "textarea", "value": "Добро пожаловать! В этом разделе вы можете разместить объявление о продаже или аренде недвижимости." }
+    },
+    "agreement_text": {
+      "1": { "type": "text", "value": "Додаючи оголошення, ви автоматично погоджуєтесь з" },
+      "2": { "type": "text", "value": "Adding advertisements you automatically agree with" },
+      "3": { "type": "text", "value": "Mit dem Hinzufügen von Anzeigen stimmen Sie automatisch den" },
+      "4": { "type": "text", "value": "Добавляя объявления, вы автоматически соглашаетесь с" }
+    },
+    "agreement_link_text": {
+      "1": { "type": "text", "value": "Правилами розміщення оголошень" },
+      "2": { "type": "text", "value": "Terms of Adding Ads" },
+      "3": { "type": "text", "value": "Nutzungsbedingungen zu" },
+      "4": { "type": "text", "value": "Правилами размещения объявлений" }
+    },
+    "agreement_link_href": {
+      "0": { "type": "text", "value": "/terms" }
+    }
+  }
+}
