@@ -108,6 +108,38 @@
       "4": { "type": "text", "value": "Категорию нельзя изменить" }
     }
   },
+  "description_info": {
+    "section_title": {
+      "1": { "type": "text", "value": "оголошення" },
+      "2": { "type": "text", "value": "of the Ad" },
+      "3": { "type": "text", "value": "der Anzeige" },
+      "4": { "type": "text", "value": "объявления" }
+    },
+    "section_highlight": {
+      "1": { "type": "text", "value": "Опис" },
+      "2": { "type": "text", "value": "Description" },
+      "3": { "type": "text", "value": "Beschreibung" },
+      "4": { "type": "text", "value": "Описание" }
+    },
+    "title_label": {
+      "1": { "type": "text", "value": "Назва оголошення" },
+      "2": { "type": "text", "value": "Ad Title" },
+      "3": { "type": "text", "value": "Anzeigentitel" },
+      "4": { "type": "text", "value": "Название объявления" }
+    },
+    "title_placeholder": {
+      "1": { "type": "text", "value": "Введіть назву" },
+      "2": { "type": "text", "value": "Enter title" },
+      "3": { "type": "text", "value": "Titel eingeben" },
+      "4": { "type": "text", "value": "Введите название" }
+    },
+    "description_label": {
+      "1": { "type": "text", "value": "Додаткова інформація" },
+      "2": { "type": "text", "value": "Additional Information" },
+      "3": { "type": "text", "value": "Zusätzliche Informationen" },
+      "4": { "type": "text", "value": "Дополнительная информация" }
+    }
+  },
   "location_info": {
     "section_title": {
       "1": { "type": "text", "value": "Інформація" },

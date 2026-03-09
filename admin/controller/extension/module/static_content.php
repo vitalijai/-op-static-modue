@@ -747,9 +747,20 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'category_locked'     => ['type' => 'text'],
                     ],
                 ],
+                'description_info' => [
+                    'label'      => 'Add Property — Description Labels',
+                    'sort_order' => 2,
+                    'fields'     => [
+                        'section_title'        => ['type' => 'text'],
+                        'section_highlight'    => ['type' => 'text'],
+                        'title_label'          => ['type' => 'text'],
+                        'title_placeholder'    => ['type' => 'text'],
+                        'description_label'    => ['type' => 'text'],
+                    ],
+                ],
                 'location_info' => [
                     'label'      => 'Add Property — Location Labels',
-                    'sort_order' => 2,
+                    'sort_order' => 3,
                     'fields'     => [
                         'section_title'        => ['type' => 'text'],
                         'section_highlight'    => ['type' => 'text'],
