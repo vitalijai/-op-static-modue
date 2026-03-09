@@ -775,9 +775,17 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'delete_photo'      => ['type' => 'text'],
                     ],
                 ],
+                'basic_params' => [
+                    'label'      => 'Add Property — Basic Parameters Labels',
+                    'sort_order' => 4,
+                    'fields'     => [
+                        'section_title'     => ['type' => 'text'],
+                        'section_highlight' => ['type' => 'text'],
+                    ],
+                ],
                 'price_info' => [
                     'label'      => 'Add Property — Price Labels',
-                    'sort_order' => 4,
+                    'sort_order' => 5,
                     'fields'     => [
                         'section_title'     => ['type' => 'text'],
                         'section_highlight' => ['type' => 'text'],
