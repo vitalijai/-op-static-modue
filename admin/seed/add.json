@@ -33,5 +33,79 @@
     "agreement_link_href": {
       "0": { "type": "text", "value": "/terms" }
     }
+  },
+  "general_info": {
+    "section_title": {
+      "1": { "type": "text", "value": "Інформація" },
+      "2": { "type": "text", "value": "Information" },
+      "3": { "type": "text", "value": "Information" },
+      "4": { "type": "text", "value": "Информация" }
+    },
+    "section_highlight": {
+      "1": { "type": "text", "value": "Загальна" },
+      "2": { "type": "text", "value": "General" },
+      "3": { "type": "text", "value": "Allgemeine" },
+      "4": { "type": "text", "value": "Общая" }
+    },
+    "real_estate_type": {
+      "1": { "type": "text", "value": "Вид нерухомості" },
+      "2": { "type": "text", "value": "Real Estate Type" },
+      "3": { "type": "text", "value": "Immobilienart" },
+      "4": { "type": "text", "value": "Вид недвижимости" }
+    },
+    "deal_type": {
+      "1": { "type": "text", "value": "Тип угоди" },
+      "2": { "type": "text", "value": "Deal Type" },
+      "3": { "type": "text", "value": "Angebotsart" },
+      "4": { "type": "text", "value": "Тип сделки" }
+    },
+    "status": {
+      "1": { "type": "text", "value": "Статус" },
+      "2": { "type": "text", "value": "Status" },
+      "3": { "type": "text", "value": "Status" },
+      "4": { "type": "text", "value": "Статус" }
+    },
+    "property_type": {
+      "1": { "type": "text", "value": "Тип нерухомості" },
+      "2": { "type": "text", "value": "Property Type" },
+      "3": { "type": "text", "value": "Objekttyp" },
+      "4": { "type": "text", "value": "Тип недвижимости" }
+    },
+    "select_placeholder": {
+      "1": { "type": "text", "value": "Виберіть" },
+      "2": { "type": "text", "value": "Select" },
+      "3": { "type": "text", "value": "Auswählen" },
+      "4": { "type": "text", "value": "Выберите" }
+    },
+    "new_build": {
+      "1": { "type": "text", "value": "Новобудова" },
+      "2": { "type": "text", "value": "New Build" },
+      "3": { "type": "text", "value": "Neubau" },
+      "4": { "type": "text", "value": "Новостройка" }
+    },
+    "secondary_market": {
+      "1": { "type": "text", "value": "Вторинний ринок" },
+      "2": { "type": "text", "value": "Secondary Market" },
+      "3": { "type": "text", "value": "Sekundärmarkt" },
+      "4": { "type": "text", "value": "Вторичный рынок" }
+    },
+    "privatized": {
+      "1": { "type": "text", "value": "Приватизована" },
+      "2": { "type": "text", "value": "Privatized" },
+      "3": { "type": "text", "value": "Privatisiert" },
+      "4": { "type": "text", "value": "Приватизирована" }
+    },
+    "in_use": {
+      "1": { "type": "text", "value": "В користуванні" },
+      "2": { "type": "text", "value": "In Use" },
+      "3": { "type": "text", "value": "In Nutzung" },
+      "4": { "type": "text", "value": "В пользовании" }
+    },
+    "category_locked": {
+      "1": { "type": "text", "value": "Категорію неможливо змінити" },
+      "2": { "type": "text", "value": "Category cannot be changed" },
+      "3": { "type": "text", "value": "Kategorie kann nicht geändert werden" },
+      "4": { "type": "text", "value": "Категорию нельзя изменить" }
+    }
   }
 }

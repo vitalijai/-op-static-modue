@@ -729,6 +729,24 @@ class ControllerExtensionModuleStaticContent extends Controller {
                         'agreement_link_href' => ['type' => 'text', 'translatable' => false],
                     ],
                 ],
+                'general_info' => [
+                    'label'      => 'Add Property — General Info Labels',
+                    'sort_order' => 1,
+                    'fields'     => [
+                        'section_title'       => ['type' => 'text'],
+                        'section_highlight'   => ['type' => 'text'],
+                        'real_estate_type'    => ['type' => 'text'],
+                        'deal_type'           => ['type' => 'text'],
+                        'status'              => ['type' => 'text'],
+                        'property_type'       => ['type' => 'text'],
+                        'select_placeholder'  => ['type' => 'text'],
+                        'new_build'           => ['type' => 'text'],
+                        'secondary_market'    => ['type' => 'text'],
+                        'privatized'          => ['type' => 'text'],
+                        'in_use'              => ['type' => 'text'],
+                        'category_locked'     => ['type' => 'text'],
+                    ],
+                ],
             ],
         ];
     }
